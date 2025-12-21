@@ -1,4 +1,6 @@
 # DAUGHTER
+![Status](https://img.shields.io/badge/status-active%20development-blue)
+![Architecture](https://img.shields.io/badge/architecture-hexagonal%20%2F%20ports--and--adapters-purple)
 
 **DAUGHTER** is a private, modular AI engine designed to host long-lived, evolving artificial identities under strict safety, memory, and capability constraints.
 
@@ -110,6 +112,9 @@ All instances run on the **same engine**, but remain fully isolated.
 ## Memory Model
 
 DAUGHTER uses layered memory to balance realism, safety, and cost:
+
+* **Working Memory**
+  Short-lived, current and recent tasks and context.
 
 * **Episodic Memory**
   Short-lived, high-fidelity interaction context.
