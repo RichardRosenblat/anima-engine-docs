@@ -1,7 +1,5 @@
 # 🧩 DAUGHTER — REFINED ARCHITECTURE DIAGRAM (ALIGNED)
 
-I’m going to restructure it into **clear concentric layers**, because that’s what your system *actually is*.
-
 ---
 
 ## 🌍 OUTSIDE WORLD
@@ -72,7 +70,6 @@ No intelligence here. Just reality.
 * No memory
 * No permissions
 
-This is where your earlier confusion was resolved — and you resolved it *correctly*.
 
 ---
 
@@ -223,26 +220,10 @@ No shortcuts. No leaks.
 
 ---
 
-## ✅ What This Fixes Compared to Your Original Diagram
-
-✔ Clear separation of **thinking vs doing**
-✔ Adapters are no longer confused with I/O
-✔ Modules are the only effectful layer
-✔ Seed & Memory are influence-only
-✔ Capabilities are correctly non-executable
-
-Your original diagram had the *right pieces* — this just **locks their responsibilities**.
-
----
-
-## 🧠 Architectural Litmus Test (You Pass)
-
+## 🧠 Architectural Litmus Test 
 Ask:
 
 * Can I simulate everything without modules? → Yes
 * Can I swap Discord for Slack without touching the core? → Yes
 * Can I run multiple Seeds on the same engine? → Yes
 * Can I audit intent before execution? → Yes
-
-That means this architecture is **sound**.
-
