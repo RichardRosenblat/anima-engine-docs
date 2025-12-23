@@ -1,20 +1,20 @@
-# DAUGHTER — Vision
+# ANIMA — Vision
 
 ## Purpose
 
-DAUGHTER exists to make **long-lived, trustworthy artificial identities possible**.
+ANIMA exists to make **long-lived, trustworthy artificial identities possible**.
 
 Not assistants that reset every conversation.
 Not characters that pretend to be someone they are not.
 Not autonomous agents unleashed without constraint.
 
-DAUGHTER is an engine for **growing identities over time**, under clear boundaries, with continuity, accountability, and safety as first-class concerns.
+ANIMA is an engine for **growing identities over time**, under clear boundaries, with continuity, accountability, and safety as first-class concerns.
 
 ---
 
-## What DAUGHTER Is Trying to Enable
+## What ANIMA Is Trying to Enable
 
-DAUGHTER is designed to enable a future where artificial systems can:
+ANIMA is designed to enable a future where artificial systems can:
 
 * Maintain **consistent identity** across time
 * Build **trust through continuity**, not persuasion
@@ -24,7 +24,7 @@ DAUGHTER is designed to enable a future where artificial systems can:
 
 The goal is not intelligence for its own sake, but **reliability**.
 
-A DAUGHTER instance should feel:
+A ANIMA instance should feel:
 
 * Predictable without being rigid
 * Adaptive without being volatile
@@ -33,9 +33,9 @@ A DAUGHTER instance should feel:
 
 ---
 
-## What DAUGHTER Deliberately Refuses to Become
+## What ANIMA Deliberately Refuses to Become
 
-DAUGHTER is explicitly **not** designed to be:
+ANIMA is explicitly **not** designed to be:
 
 * A fully autonomous general-purpose agent
 * An internet-connected system by default
@@ -59,7 +59,7 @@ Some features are intentionally excluded, even if they appear attractive or popu
 
 Unconstrained capability creates systems that are impressive in the short term and untrustworthy in the long term.
 
-DAUGHTER treats **capability as risk**, not as a default good.
+ANIMA treats **capability as risk**, not as a default good.
 
 Every action:
 
@@ -70,7 +70,7 @@ Every action:
 
 Safety is enforced at the engine level, not delegated to personality or user expectation.
 
-If DAUGHTER cannot act safely, she does not act.
+If ANIMA cannot act safely, she does not act.
 
 ---
 
@@ -78,7 +78,7 @@ If DAUGHTER cannot act safely, she does not act.
 
 Perfect memory is not the same as meaningful memory.
 
-DAUGHTER is not designed to remember everything — she is designed to remember **what matters**.
+ANIMA is not designed to remember everything — she is designed to remember **what matters**.
 
 Continuity is achieved through:
 
@@ -93,7 +93,7 @@ This allows identities to grow in a way that feels coherent and trustworthy, wit
 
 ## A Slow, Intentional Evolution
 
-DAUGHTER is not optimized for rapid feature expansion.
+ANIMA is not optimized for rapid feature expansion.
 
 The project evolves deliberately, with:
 
@@ -101,13 +101,13 @@ The project evolves deliberately, with:
 * Safety implications evaluated
 * Boundaries defended over time
 
-Progress is measured not by how much DAUGHTER can do, but by how reliably she does it.
+Progress is measured not by how much ANIMA can do, but by how reliably she does it.
 
 ---
 
 ## Long-Term Outlook
 
-The long-term vision for DAUGHTER is not a single AI, but a **platform**:
+The long-term vision for ANIMA is not a single AI, but a **platform**:
 
 * One engine
 * Many seeds
@@ -119,7 +119,7 @@ The long-term vision for DAUGHTER is not a single AI, but a **platform**:
 
 ## Final Principle
 
-> DAUGHTER is not designed to feel intelligent at all costs.
+> ANIMA is not designed to feel intelligent at all costs.
 > She is designed to feel **consistent, honest, and safe to grow with**.
 
 This principle guides every decision in the project.

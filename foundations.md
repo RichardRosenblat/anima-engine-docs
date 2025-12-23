@@ -1,19 +1,19 @@
-# 🧭 DAUGHTER — PHASE 0: FOUNDATIONS
+# 🧭 ANIMA — PHASE 0: FOUNDATIONS
 
 ---
 
 ## 🎯 Goal
 
-Establish **DAUGHTER as an identity engine**, not a specific personality.
+Establish **ANIMA as an identity engine**, not a specific personality.
 
-DAUGHTER is:
+ANIMA is:
 
 * a **private AI engine**
 * capable of **long-lived identity**
 * extensible through **capabilities and modules**
 * shaped at runtime by a **Seed file**
 
-DAUGHTER is **not**:
+ANIMA is **not**:
 
 * a chatbot
 * an autonomous agent that self-expands
@@ -235,15 +235,15 @@ Tasks:
 
 ## ✅ Exit Criteria (Do NOT Advance Without These)
 
-**You can explain DAUGHTER in 2 minutes without mentioning personality**
+**You can explain ANIMA in 2 minutes without mentioning personality**
 
-DAUGHTER is a private AI engine designed to host long-lived, evolving AI identities safely.
+ANIMA is a private AI engine designed to host long-lived, evolving AI identities safely.
 
-At its core, DAUGHTER separates thinking, identity, and action.
+At its core, ANIMA separates thinking, identity, and action.
 
 The core is the only part that reasons. It takes structured input, consults memory, applies identity constraints from a Seed file, checks permissions, and produces intent—never direct actions.
 
-A Seed is a static identity definition: personality parameters, behavioral boundaries, risk tolerance, and which capabilities are allowed. It doesn’t contain memories or code. Each DAUGHTER instance grows independently after initialization.
+A Seed is a static identity definition: personality parameters, behavioral boundaries, risk tolerance, and which capabilities are allowed. It doesn’t contain memories or code. Each ANIMA instance grows independently after initialization.
 
 Memory is instance-local and fallible. It stores past interactions, task states, and observations, and informs decisions without overriding policy.
 
@@ -255,7 +255,7 @@ Actual interaction with the world happens only in modules. Modules talk to APIs,
 
 Security wraps the system end-to-end: authentication before reasoning, and policy enforcement before execution.
 
-This design allows DAUGHTER to support private assistants, stream personas, robots, and tools—all using the same engine—while keeping identity isolated, behavior auditable, and actions safe.
+This design allows ANIMA to support private assistants, stream personas, robots, and tools—all using the same engine—while keeping identity isolated, behavior auditable, and actions safe.
 
 ---
 

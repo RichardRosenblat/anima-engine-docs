@@ -1,4 +1,4 @@
-# DAUGHTER — Development Roadmap
+# ANIMA — Development Roadmap
 
 **Version:** 1.0
 **Scope:** Engine, Seed System, Instances, Productization
@@ -10,7 +10,7 @@
 
 ### 🎯 Goal
 
-Define what DAUGHTER *is* and *is not*.
+Define what ANIMA *is* and *is not*.
 
 ### 🧱 Build
 
@@ -37,7 +37,7 @@ Define what DAUGHTER *is* and *is not*.
 
 ### ✅ Exit Criteria
 
-* You can explain DAUGHTER in 2 minutes **without mentioning personality**
+* You can explain ANIMA in 2 minutes **without mentioning personality**
 * You can diagram Engine / Seed / Instance on a whiteboard
 
 ---
@@ -116,7 +116,7 @@ Make identity a *boot-time concern*, not a runtime mutation.
 
 ### 🎯 Goal
 
-Allow DAUGHTER to *grow* without identity drift.
+Allow ANIMA to *grow* without identity drift.
 
 ### 🧠 Build
 
@@ -252,7 +252,7 @@ Adapters abstract input/output without leaking logic.
 
 ### 🎯 Goal
 
-Create a special DAUGHTER incarnation for streaming.
+Create a special ANIMA incarnation for streaming.
 
 ### 🌟 Build
 
@@ -268,7 +268,7 @@ If streaming needs it, *everyone* gets the abstraction.
 
 ### ✅ Exit Criteria
 
-* Streaming DAUGHTER uses same engine
+* Streaming ANIMA uses same engine
 * Prime Seed cannot be used outside authenticated context
 ---
 
@@ -276,7 +276,7 @@ If streaming needs it, *everyone* gets the abstraction.
 
 ### 🎯 Goal
 
-Make DAUGHTER sustainable.
+Make ANIMA sustainable.
 
 ### 💳 Build
 
@@ -303,7 +303,7 @@ Make DAUGHTER sustainable.
 
 ### 🎯 Goal
 
-Keep DAUGHTER affordable to run.
+Keep ANIMA affordable to run.
 
 ### 💸 Build
 
@@ -324,7 +324,7 @@ Keep DAUGHTER affordable to run.
 
 ### 🎯 Goal
 
-Let DAUGHTER grow safely.
+Let ANIMA grow safely.
 
 ### 🌱 Build
 
@@ -335,5 +335,5 @@ Let DAUGHTER grow safely.
 
 ### ✅ Exit Criteria
 
-* Users understand *why* DAUGHTER behaves as she does
+* Users understand *why* ANIMA behaves as she does
 * Changes feel organic, not random

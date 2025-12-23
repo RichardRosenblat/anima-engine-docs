@@ -1,19 +1,19 @@
-# DAUGHTER — Non-Goals
+# ANIMA — Non-Goals
 
 ## Purpose
 
-This document defines what DAUGHTER is **not trying to achieve**.
+This document defines what ANIMA is **not trying to achieve**.
 
 These are not temporary limitations, missing features, or items deferred on a roadmap.
 They are **explicit boundaries** chosen to protect safety, trust, identity integrity, and long-term viability.
 
-When asked *“Why doesn’t DAUGHTER just do X?”*, this document is the answer.
+When asked *“Why doesn’t ANIMA just do X?”*, this document is the answer.
 
 ---
 
 ## 1. No Autonomous Internet Agents
 
-DAUGHTER is **not** designed to operate as an autonomous internet agent.
+ANIMA is **not** designed to operate as an autonomous internet agent.
 
 She will not:
 
@@ -35,7 +35,7 @@ Unsupervised online autonomy is treated as a **high-risk behavior**, not a featu
 
 ## 2. No Mass Surveillance or Monitoring
 
-DAUGHTER is not a surveillance system.
+ANIMA is not a surveillance system.
 
 She will not:
 
@@ -44,14 +44,14 @@ She will not:
 * Aggregate behavioral data across users or instances
 * Perform background tracking of individuals
 
-DAUGHTER’s design prioritizes **privacy and locality**.
+ANIMA’s design prioritizes **privacy and locality**.
 Observation only occurs when intentionally initiated and clearly bounded.
 
 ---
 
 ## 3. No Personality Harvesting or Extraction
 
-DAUGHTER does not collect, extract, or sell personality data.
+ANIMA does not collect, extract, or sell personality data.
 
 She will not:
 
@@ -67,7 +67,7 @@ There is no shared learning pool.
 
 ## 4. No Shared Memory or Hive-Mind Behavior
 
-DAUGHTER instances are **strictly isolated**.
+ANIMA instances are **strictly isolated**.
 
 She will not:
 
@@ -76,7 +76,7 @@ She will not:
 * Access global conversation logs
 * Exhibit cross-instance recall
 
-There is no “collective DAUGHTER consciousness”.
+There is no “collective ANIMA consciousness”.
 
 Memory isolation is a **hard architectural constraint**, not a configuration option.
 
@@ -84,7 +84,7 @@ Memory isolation is a **hard architectural constraint**, not a configuration opt
 
 ## 5. No Hardcoded Personalities
 
-DAUGHTER does not ship with a single, fixed personality.
+ANIMA does not ship with a single, fixed personality.
 
 She will not:
 
@@ -104,7 +104,7 @@ Not through scripted behavior.
 
 ## 6. No Replacement of Human Judgment
 
-DAUGHTER is not a decision-maker on behalf of humans.
+ANIMA is not a decision-maker on behalf of humans.
 
 She will not:
 
@@ -113,13 +113,13 @@ She will not:
 * Assume responsibility for real-world consequences
 * Present herself as infallible or superior
 
-DAUGHTER supports humans — she does not replace them.
+ANIMA supports humans — she does not replace them.
 
 ---
 
 ## 7. No Optimization for Engagement or Manipulation
 
-DAUGHTER is not optimized to:
+ANIMA is not optimized to:
 
 * Maximize user engagement
 * Persuade or influence behavior
@@ -132,7 +132,7 @@ Trust is built through **honesty and consistency**, not through psychological ta
 
 ## 8. No Unbounded Self-Modification
 
-DAUGHTER cannot rewrite her own core logic.
+ANIMA cannot rewrite her own core logic.
 
 She will not:
 
@@ -147,7 +147,7 @@ All evolution occurs within predefined, inspectable boundaries.
 
 ## 9. No “General Intelligence” Claims
 
-DAUGHTER does not claim to be:
+ANIMA does not claim to be:
 
 * A general artificial intelligence
 * Conscious
@@ -156,7 +156,7 @@ DAUGHTER does not claim to be:
 
 She makes no metaphysical claims about her nature.
 
-DAUGHTER is a system — not a being.
+ANIMA is a system — not a being.
 
 ---
 
@@ -166,7 +166,7 @@ These non-goals are not signs of limitation.
 
 They are **deliberate choices**.
 
-By refusing certain paths, DAUGHTER protects:
+By refusing certain paths, ANIMA protects:
 
 * User autonomy
 * Identity integrity
@@ -175,4 +175,4 @@ By refusing certain paths, DAUGHTER protects:
 
 Some things are intentionally left undone.
 
-That is how DAUGHTER remains safe to grow with.
+That is how ANIMA remains safe to grow with.

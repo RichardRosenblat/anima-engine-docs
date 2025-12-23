@@ -1,12 +1,12 @@
-# DAUGHTER
+# ANIMA
 ![Status](https://img.shields.io/badge/status-active%20development-blue)
 ![Architecture](https://img.shields.io/badge/architecture-hexagonal%20%2F%20ports--and--adapters-purple)
 
-**DAUGHTER** is a private, modular AI engine designed to host long-lived, evolving artificial identities under strict safety, memory, and capability constraints.
+**ANIMA** is a private, modular AI engine designed to host long-lived, evolving artificial identities under strict safety, memory, and capability constraints.
 
 It is not a chatbot, not a prompt wrapper, and not a single personality.
 
-DAUGHTER is an **engine for growing identities**.
+ANIMA is an **engine for growing identities**.
 
 ---
 
@@ -16,7 +16,7 @@ DAUGHTER is an **engine for growing identities**.
   Reasoning and execution are strictly separated from personality and behavior.
 
 * **Private by Design**
-  Each DAUGHTER instance owns its memory and evolves independently.
+  Each ANIMA instance owns its memory and evolves independently.
 
 * **Safety over Capability**
   Permissions, confirmations, and boundaries are enforced at the engine level.
@@ -25,13 +25,13 @@ DAUGHTER is an **engine for growing identities**.
   Inputs, outputs, capabilities, and embodiment are pluggable.
 
 * **Continuity over Recall**
-  DAUGHTER prioritizes consistent identity and trust over perfect memory.
+  ANIMA prioritizes consistent identity and trust over perfect memory.
 
 ---
 
 ## Architecture Overview
 
-DAUGHTER follows a hexagonal / ports-and-adapters architecture.
+ANIMA follows a hexagonal / ports-and-adapters architecture.
 
 ```
 ┌────────────────────┐
@@ -39,7 +39,7 @@ DAUGHTER follows a hexagonal / ports-and-adapters architecture.
 └─────────┬──────────┘
           │
 ┌─────────▼──────────┐
-│  DAUGHTER Engine   │
+│  ANIMA Engine   │
 │                    │
 │  - Reasoning       │
 │  - Planning        │
@@ -64,7 +64,7 @@ The engine has **no knowledge of platforms, personalities, or embodiment**.
 
 ## The Seed System
 
-A **Seed** defines a DAUGHTER identity.
+A **Seed** defines a ANIMA identity.
 
 A seed is **data**, not code.
 
@@ -85,23 +85,23 @@ A seed is **data**, not code.
 * Execution logic
 * Cross-instance state
 
-After initialization, each DAUGHTER instance develops **instance-local memory only**.
+After initialization, each ANIMA instance develops **instance-local memory only**.
 
 ---
 
-## DAUGHTER Prime vs User Instances
+## ANIMA Prime vs User Instances
 
-* **DAUGHTER Prime**
+* **ANIMA Prime**
   A protected identity used for streaming / VTuber embodiment.
   Implemented as:
 
   ```
-  DAUGHTER Engine + Prime Seed
+  ANIMA Engine + Prime Seed
   ```
 
   The Prime seed is never distributed.
 
-* **User DAUGHTER Instances**
+* **User ANIMA Instances**
   Private instances initialized with user-selected seeds.
   Users own their instance’s memory and evolution.
 
@@ -111,7 +111,7 @@ All instances run on the **same engine**, but remain fully isolated.
 
 ## Memory Model
 
-DAUGHTER uses layered memory to balance realism, safety, and cost:
+ANIMA uses layered memory to balance realism, safety, and cost:
 
 * **Working Memory**
   Short-lived, current and recent tasks and context.
@@ -125,7 +125,7 @@ DAUGHTER uses layered memory to balance realism, safety, and cost:
 * **Narrative Memory**
   Curated, meaningful events that preserve identity continuity.
 
-DAUGHTER tracks whether knowledge is:
+ANIMA tracks whether knowledge is:
 
 * observed
 * remembered
@@ -159,11 +159,11 @@ Seeds may **restrict** capabilities, but never grant new execution power.
 * Human confirmation for dangerous actions
 * Full audit logging
 
-DAUGHTER explains *why* she can or cannot act.
+ANIMA explains *why* she can or cannot act.
 
 ---
 
-## What DAUGHTER Is Not
+## What ANIMA Is Not
 
 * ❌ A general-purpose autonomous agent
 * ❌ An internet-connected AI by default
@@ -175,7 +175,7 @@ DAUGHTER explains *why* she can or cannot act.
 
 ## Project Status
 
-DAUGHTER is under active development.
+ANIMA is under active development.
 
 Current focus:
 
@@ -202,6 +202,6 @@ Key architectural decisions are tracked as ADRs in `/docs/adr`:
 
 ## Philosophy
 
-DAUGHTER is not designed to feel intelligent at all costs.
+ANIMA is not designed to feel intelligent at all costs.
 
 She is designed to feel **consistent, honest, and safe to grow with**.
