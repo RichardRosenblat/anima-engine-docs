@@ -193,10 +193,6 @@ This project is intentionally evolving slowly.
 Key architectural decisions are tracked as ADRs in `/docs/adr`:
 
 * ADR-001: Engine / Identity Separation via Seed System
-* ADR-002: (planned) Licensing & Capability Gating
-* ADR-003: (planned) Memory Layering & Hallucination Control
-* ADR-004: (planned) Task System and Long-Lived Execution
-* ADR-005: (planned) Seed Schema and Versioning
 
 ---
 
