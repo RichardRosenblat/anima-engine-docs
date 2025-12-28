@@ -207,6 +207,15 @@ Tasks:
 
 ---
 
+#### Cortex
+
+The wrapper around a given AI model, connected to the engine for reasoning.
+
+Cortexes:
+* provide completion services
+* are interchangeable without needing to change the engine
+* are replaceable
+
 ### 3️⃣ **System Boundaries**
 
 #### What the engine can *never* do

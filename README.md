@@ -50,7 +50,7 @@ ANIMA follows a hexagonal / ports-and-adapters architecture.
 └─────────┬──────────┘
           │
 ┌─────────▼──────────┐
-│      Adpters       │  (Intention to command convertion)
+│      Adapters       │  (Intention to command conversion)
 └────────────────────┘
           │
 ┌─────────▼──────────┐
@@ -64,7 +64,7 @@ The engine has **no knowledge of platforms, personalities, or embodiment**.
 
 ## The Seed System
 
-A **Seed** defines a ANIMA identity.
+A **Seed** defines an ANIMA identity.
 
 A seed is **data**, not code.
 
