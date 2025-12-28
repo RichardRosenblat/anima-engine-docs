@@ -70,14 +70,15 @@ These definitions must **never drift**.
 
 #### Engine
 
-The runtime system that:
+The entirety of the ANIMA system, containing:
 
-* receives normalized input
-* reasons
-* plans
-* enforces identity, memory, permissions, and policy
-
-The engine **never performs side effects**.
+* Core 
+* Seed
+* Memory
+* Capabilities
+* Modules
+* Adapters
+* Cortex
 
 ---
 
@@ -218,7 +219,7 @@ Cortexes:
 
 ---
 
-### Package
+#### Package
 
 A distributable group of modules, adapters, and capability definitions.
 Can be installed into an ANIMA instance to extend functionality in bulk.
@@ -231,6 +232,19 @@ Packages:
 * can be shared
 
 ---
+
+#### Semantic Spine
+
+An explicit data structure for semantic representation of a message expected to be passed to user or received from user. 
+
+Semantic Spines are used to ensure consistent and meaningful communication between the engine and users, providing a standardized way to represent the meaning and context of messages.
+
+Semantic Spines:
+* encapsulate intent and context
+* facilitate accurate interpretation
+* are language-agnostic
+* support complex interactions
+* enable better memory encoding
 
 ### 3️⃣ **System Boundaries**
 
