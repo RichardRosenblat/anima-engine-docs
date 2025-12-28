@@ -216,6 +216,22 @@ Cortexes:
 * are interchangeable without needing to change the engine
 * are replaceable
 
+---
+
+### Package
+
+A distributable group of modules, adapters, and capability definitions.
+Can be installed into an ANIMA instance to extend functionality in bulk.
+
+Packages:
+
+* bundle related capabilities
+* include adapters for those capabilities
+* are versioned
+* can be shared
+
+---
+
 ### 3️⃣ **System Boundaries**
 
 #### What the engine can *never* do
