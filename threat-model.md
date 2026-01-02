@@ -244,13 +244,3 @@ ANIMA does not attempt to solve all security problems.
 She attempts to solve **the right ones**, clearly and honestly.
 
 By documenting what is in scope and what is not, ANIMA remains a system that users can reason about, trust, and grow with.
-
----
-
-If you want, next we can:
-
-* write `ARCHITECTURE.md` (ties everything together)
-* formalize `SEED_SPEC.md`
-* or create a `SAFETY_MODEL.md` that complements this
-
-This document alone puts ANIMA in a tier most AI projects never reach 🛡️

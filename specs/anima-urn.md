@@ -25,11 +25,6 @@ All implementations MUST conform to the rules defined here.
 
 ANIMA URNs are designed according to the following principles:
 
-
-## 2. Design Principles
-
-ANIMA URNs are designed according to the following principles:
-
 1. **Immutability**  
    Once issued, a URN MUST NEVER change meaning.
 
