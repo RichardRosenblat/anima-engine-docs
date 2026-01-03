@@ -3,6 +3,7 @@
 **Version:** 1.0
 **Scope:** Engine, Seed System, Instances, Productization
 **Guiding Principle:** *Engine ≠ Identity ≠ Memory*
+**Current Phase:** Phase 1 — Core Engine Skeleton (Identity-Free)
 
 ---
 

@@ -1,6 +1,6 @@
 # ANIMA Engine Core Development Has Begun
 
-Development of the **ANIMA Engine Core** has officially started.
+Development of the **ANIMA Engine Core** has officially started Phase 1.
 
 This marks the beginning of work on the invariant runtime responsible for:
 
