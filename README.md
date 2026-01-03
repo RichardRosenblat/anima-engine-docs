@@ -180,9 +180,13 @@ This project is intentionally evolving slowly.
 
 ## Design Documents
 
-Key architectural decisions are tracked as ADRs in `/docs/adr`:
+Key architectural decisions are tracked as ADRs in `/adr`:
 
 * ADR-001: Engine / Identity Separation via Seed System
+* ADR-002: Self-Validating Schemas with Internal-Only Constraints
+* ADR-003: Core ↔ Module Communication Protocol, Module Types, and Lease Lifecycle
+* ADR-004: Observability, Event Logging, and Execution Traceability
+* ADR-005: Interruption & Preemption Model
 
 ---
 
