@@ -16,7 +16,7 @@ It is not designed to control behavior, extract data, or lock users in.
 
 ## What Is Sold
 
-When you acquire a ANIMA license, you are **not buying an AI personality**.
+When you acquire an ANIMA license, you are **not buying an AI personality**.
 
 You are granted:
 

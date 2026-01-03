@@ -24,7 +24,7 @@ ANIMA is designed to enable a future where artificial systems can:
 
 The goal is not intelligence for its own sake, but **reliability**.
 
-A ANIMA instance should feel:
+An ANIMA instance should feel:
 
 * Predictable without being rigid
 * Adaptive without being volatile

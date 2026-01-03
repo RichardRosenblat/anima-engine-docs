@@ -252,7 +252,7 @@ urn:anima:core:cortex.reasoning@0.1.0:9a31c4b2-4f2d-4e9e-a7f9-8b32d3e1f9a1
 ### Schema Identity
 ```
 
-urn:anima:core:schema.intent@1.0.0:3bafc1d9e7c4
+urn:anima:core:schema.intent@1.0.0:ba3bf79c-381e-409b-9450-12e241100d3a
 
 ```
 

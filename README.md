@@ -111,19 +111,9 @@ All instances run on the **same engine**, but remain fully isolated.
 
 ## Memory Model
 
-ANIMA uses layered memory to balance realism, safety, and cost:
+ANIMA uses layered memory to balance realism, safety, and cost.
 
-* **Working Memory**
-  Short-lived, current and recent tasks and context.
-
-* **Episodic Memory**
-  Short-lived, high-fidelity interaction context.
-
-* **Semantic Memory**
-  Atomic facts and preferences stored as embeddings with confidence metadata.
-
-* **Narrative Memory**
-  Curated, meaningful events that preserve identity continuity.
+memory types, promotion and decay policies specified in the [memory integrity document](/memory-integrity.md)
 
 ANIMA tracks whether knowledge is:
 
