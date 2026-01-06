@@ -1,4 +1,15 @@
-# ANIMA
+# ANIMA Engine Documentation
+
+## Table of Contents
+
+- [English](#english)
+- [Português (Brasil)](#português-brasil)
+- [Español (México)](#español-méxico)
+
+---
+
+# English
+
 ![Status](https://img.shields.io/badge/status-active%20development-blue)
 ![Architecture](https://img.shields.io/badge/architecture-hexagonal%20%2F%20ports--and--adapters-purple)
 
@@ -103,7 +114,7 @@ After initialization, each ANIMA instance develops **instance-local memory only*
 
 * **User ANIMA Instances**
   Private instances initialized with user-selected seeds.
-  Users own their instance’s memory and evolution.
+  Users own their instance's memory and evolution.
 
 All instances run on the **same engine**, but remain fully isolated.
 
@@ -113,7 +124,7 @@ All instances run on the **same engine**, but remain fully isolated.
 
 ANIMA uses layered memory to balance realism, safety, and cost.
 
-memory types, promotion and decay policies specified in the [memory integrity document](/memory-integrity.md)
+memory types, promotion and decay policies specified in the [memory integrity document](memory-integrity.md)
 
 ANIMA tracks whether knowledge is:
 
@@ -180,13 +191,26 @@ This project is intentionally evolving slowly.
 
 ## Design Documents
 
-Key architectural decisions are tracked as ADRs in `/adr`:
+Key architectural decisions are tracked as ADRs in [`/adr`](adr):
 
 * ADR-001: Engine / Identity Separation via Seed System
 * ADR-002: Self-Validating Schemas with Internal-Only Constraints
 * ADR-003: Core ↔ Module Communication Protocol, Module Types, and Lease Lifecycle
 * ADR-004: Observability, Event Logging, and Execution Traceability
 * ADR-005: Interruption & Preemption Model
+
+### Additional Documentation
+
+* [Vision](vision.md) - Long-term vision and goals
+* [Foundations](foundations.md) - Core architectural foundations
+* [Memory Integrity](memory-integrity.md) - Memory management and integrity
+* [Safety Model](safety-model.md) - Safety and security architecture
+* [Threat Model](threat-model.md) - Threat analysis and mitigation
+* [Licensing Model](licensing-model.md) - Licensing and distribution
+* [Non-Goals](non-goals.md) - Explicit non-goals and boundaries
+* [Architecture](architecture/anima-architecture.md) - Detailed architecture documentation
+* [Roadmap](roadmaps/roadmap.md) - Development roadmap
+* [Announcements](annoucements) - Project announcements and updates
 
 ---
 
@@ -302,7 +326,7 @@ ANIMA:
 * does not have internet access unless a capability provides it
 * does not record audio or video unless an adapter is installed
 * does not share memory across instances
-* does not upload your data to other users’ instances
+* does not upload your data to other users' instances
 * does not monitor you passively unless you explicitly ask it to
 
 If ANIMA can perceive something, it must be because you **explicitly connected** that input and told her to use it.
@@ -319,7 +343,7 @@ Each ANIMA instance:
 * evolves independently
 * cannot access or influence other instances
 
-There is no cross-user learning or shared “global memory” beyond model training.
+There is no cross-user learning or shared "global memory" beyond model training.
 
 ---
 
@@ -360,7 +384,7 @@ Long-lived tasks (like streaming or monitoring) exist, but they are:
 
 ---
 
-### What is a “Seed”?
+### What is a "Seed"?
 
 A seed is a **structured identity blueprint** used only at initialization.
 
@@ -443,3 +467,153 @@ Updates, architectural decisions, and philosophy are documented in this reposito
 Major milestones will be announced once the engine reaches stable phases.
 
 Announcements will be added in the `/announcements` folder and shared via future official channels.
+
+---
+
+# Português (Brasil)
+
+![Status](https://img.shields.io/badge/status-desenvolvimento%20ativo-blue)
+![Architecture](https://img.shields.io/badge/architecture-hexagonal%20%2F%20ports--and--adapters-purple)
+
+**ANIMA** é um motor de IA privado e modular projetado para hospedar identidades artificiais de longa duração e em evolução, sob restrições rígidas de segurança, memória e capacidades.
+
+Não é um chatbot, não é um wrapper de prompt e não é uma personalidade única.
+
+ANIMA é um **motor para cultivar identidades**.
+
+---
+
+## Princípios Fundamentais
+
+* **Motor ≠ Identidade**
+  Raciocínio e execução são estritamente separados de personalidade e comportamento.
+
+* **Privado por Design**
+  Cada instância ANIMA possui sua própria memória e evolui independentemente.
+
+* **Segurança sobre Capacidade**
+  Permissões, confirmações e limites são aplicados no nível do motor.
+
+* **Modularidade em Primeiro Lugar**
+  Entradas, saídas, capacidades e incorporação são conectáveis.
+
+* **Continuidade sobre Recordação**
+  ANIMA prioriza identidade consistente e confiança sobre memória perfeita.
+
+---
+
+## Documentação
+
+Explore a documentação completa em português:
+
+### Documentos Principais
+
+* [Visão](pt-br/vision.md) - Visão de longo prazo e objetivos
+* [Fundamentos](pt-br/foundations.md) - Fundamentos arquiteturais centrais
+* [Integridade da Memória](pt-br/memory-integrity.md) - Gerenciamento e integridade da memória
+* [Modelo de Segurança](pt-br/safety-model.md) - Arquitetura de segurança
+* [Modelo de Ameaças](pt-br/threat-model.md) - Análise e mitigação de ameaças
+* [Modelo de Licenciamento](pt-br/licensing-model.md) - Licenciamento e distribuição
+* [Não-Objetivos](pt-br/non-goals.md) - Não-objetivos e limites explícitos
+
+### Arquitetura e Especificações
+
+* [Arquitetura](pt-br/architecture/anima-architecture.md) - Documentação detalhada da arquitetura
+* [Especificações](pt-br/specs) - Especificações técnicas
+* [ADRs (Registros de Decisões Arquiteturais)](pt-br/adr) - Decisões arquiteturais importantes
+
+### Planejamento
+
+* [Roadmap](pt-br/roadmaps/roadmap.md) - Roteiro de desenvolvimento
+* [Anúncios](pt-br/annoucements) - Anúncios e atualizações do projeto
+
+---
+
+## Status do Projeto
+
+ANIMA está em desenvolvimento ativo.
+
+Foco atual:
+
+* Correção do motor central
+* Integridade da memória
+* Limites de capacidades
+* Validação de seeds
+
+Este projeto está evoluindo intencionalmente de forma lenta, priorizando correção e segurança.
+
+---
+
+# Español (México)
+
+![Status](https://img.shields.io/badge/status-desarrollo%20activo-blue)
+![Architecture](https://img.shields.io/badge/architecture-hexagonal%20%2F%20ports--and--adapters-purple)
+
+**ANIMA** es un motor de IA privado y modular diseñado para alojar identidades artificiales de larga duración y en evolución, bajo estrictas restricciones de seguridad, memoria y capacidades.
+
+No es un chatbot, no es un envoltorio de prompts y no es una personalidad única.
+
+ANIMA es un **motor para cultivar identidades**.
+
+---
+
+## Principios Fundamentales
+
+* **Motor ≠ Identidad**
+  El razonamiento y la ejecución están estrictamente separados de la personalidad y el comportamiento.
+
+* **Privado por Diseño**
+  Cada instancia ANIMA posee su propia memoria y evoluciona independientemente.
+
+* **Seguridad sobre Capacidad**
+  Los permisos, confirmaciones y límites se aplican a nivel del motor.
+
+* **Modularidad Primero**
+  Las entradas, salidas, capacidades y encarnación son conectables.
+
+* **Continuidad sobre Recordación**
+  ANIMA prioriza identidad consistente y confianza sobre memoria perfecta.
+
+---
+
+## Documentación
+
+Explora la documentación completa en español:
+
+### Documentos Principales
+
+* [Visión](es-mx/vision.md) - Visión a largo plazo y objetivos
+* [Fundamentos](es-mx/foundations.md) - Fundamentos arquitectónicos centrales
+* [Integridad de la Memoria](es-mx/memory-integrity.md) - Gestión e integridad de la memoria
+* [Modelo de Seguridad](es-mx/safety-model.md) - Arquitectura de seguridad
+* [Modelo de Amenazas](es-mx/threat-model.md) - Análisis y mitigación de amenazas
+* [Modelo de Licenciamiento](es-mx/licensing-model.md) - Licenciamiento y distribución
+* [No-Objetivos](es-mx/non-goals.md) - No-objetivos y límites explícitos
+
+### Arquitectura y Especificaciones
+
+* [Arquitectura](es-mx/architecture/anima-architecture.md) - Documentación detallada de la arquitectura
+* [Especificaciones](es-mx/specs) - Especificaciones técnicas
+* [ADRs (Registros de Decisiones Arquitectónicas)](es-mx/adr) - Decisiones arquitectónicas importantes
+
+### Planificación
+
+* [Roadmap](es-mx/roadmaps/roadmap.md) - Hoja de ruta del desarrollo
+* [Anuncios](es-mx/annoucements) - Anuncios y actualizaciones del proyecto
+
+---
+
+## Estado del Proyecto
+
+ANIMA está en desarrollo activo.
+
+Enfoque actual:
+
+* Corrección del motor central
+* Integridad de la memoria
+* Límites de capacidades
+* Validación de seeds
+
+Este proyecto está evolucionando intencionalmente de forma lenta, priorizando corrección y seguridad.
+
+---
