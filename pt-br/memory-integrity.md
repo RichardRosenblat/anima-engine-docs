@@ -1,278 +1,278 @@
 # MEMORY_INTEGRITY.md
 
-## Purpose
+## Propósito
 
-This document explains **how ANIMA remembers** — and just as importantly, **why she forgets**.
+Este documento explica **como a ANIMA lembra** — e igualmente importante, **por que ela esquece**.
 
-Memory integrity is central to trust.
-Perfect recall, unlimited storage, and unfiltered memory are not features — they are failure modes.
+A integridade da memória é central para a confiança.
+Recordação perfeita, armazenamento ilimitado e memória não filtrada não são recursos — são modos de falha.
 
-ANIMA treats memory as a **controlled system**, not a log file.
-
----
-
-## Why Perfect Recall Is Bad
-
-Human trust depends on **continuity**, not completeness.
-
-Perfect recall creates several problems:
-
-* ❌ Context overload
-* ❌ False authority (“I remember everything”)
-* ❌ Inability to adapt
-* ❌ Privacy risk
-* ❌ Increased hallucination surface
-
-A system that remembers *everything* must also decide:
-
-* what matters
-* what is relevant
-* what can be safely inferred
-
-Most systems do this **implicitly** and **silently**.
-
-ANIMA does not.
+A ANIMA trata a memória como um **sistema controlado**, não como um arquivo de log.
 
 ---
 
-## Memory Is Not a Transcript
+## Por Que a Recordação Perfeita É Ruim
 
-ANIMA does **not** store conversations verbatim by default.
+A confiança humana depende de **continuidade**, não de completude.
 
-Raw logs are:
+A recordação perfeita cria vários problemas:
 
-* noisy
-* misleading
-* emotionally unweighted
-* dangerous when misinterpreted later
+* ❌ Sobrecarga de contexto
+* ❌ Falsa autoridade ("Eu lembro de tudo")
+* ❌ Incapacidade de se adaptar
+* ❌ Risco de privacidade
+* ❌ Superfície aumentada de alucinação
 
-Instead, ANIMA uses **layered memory**, each with a clear purpose, scope, and lifecycle.
+Um sistema que lembra de *tudo* também deve decidir:
 
----
+* o que importa
+* o que é relevante
+* o que pode ser inferido com segurança
 
-## Memory Layers
+A maioria dos sistemas faz isso **implicitamente** e **silenciosamente**.
 
-### 1. Working Memory (Immediate Context)
-
-**What it is:**
-
-* Current task state
-* Active goals
-* Short-term variables
-* Ongoing plans and tool usage
-
-**Properties:**
-
-* Extremely short-lived
-* Actively mutated
-* Cleared or replaced continuously
-
-**Why it exists:**
-
-* Enables multi-step reasoning
-* Supports long-lived tasks
-* Allows coherent action sequencing
-
-Working memory is **purely operational**.
-It is never persisted as long-term memory.
+A ANIMA não faz.
 
 ---
 
-### 2. Episodic Memory (Interaction Context)
+## Memória Não É uma Transcrição
 
-**What it is:**
+A ANIMA **não** armazena conversas literalmente por padrão.
 
-* High-fidelity interaction context
-* Recent conversational history
-* Local emotional and situational cues
+Registros brutos são:
 
-**Properties:**
+* ruidosos
+* enganosos
+* emocionalmente não ponderados
+* perigosos quando mal interpretados posteriormente
 
-* Volatile
-* Session-bound
-* Automatically discarded or compressed
-
-**Why it exists:**
-
-* Enables natural conversation flow
-* Prevents constant re-asking
-* Supports short-term coherence
-
-Episodic memory is **not trusted long-term**.
+Em vez disso, a ANIMA usa **memória em camadas**, cada uma com um propósito claro, escopo e ciclo de vida.
 
 ---
 
-### 3. Semantic Memory (Facts & Preferences)
+## Camadas de Memória
 
-**What it is:**
+### 1. Memória de Trabalho (Contexto Imediato)
 
-* Atomic facts
-* User preferences
-* Stable, reusable information
+**O que é:**
 
-Stored using:
+* Estado da tarefa atual
+* Objetivos ativos
+* Variáveis de curto prazo
+* Planos em andamento e uso de ferramentas
 
-* Structured entries
-* Embeddings for retrieval
-* Confidence and provenance metadata
+**Propriedades:**
 
-Each item tracks whether it was:
+* Extremamente efêmera
+* Ativamente mutada
+* Limpa ou substituída continuamente
 
-* observed
-* explicitly stated
-* inferred
-* uncertain
+**Por que existe:**
 
-**Why embeddings are used:**
+* Permite raciocínio em múltiplas etapas
+* Suporta tarefas de longa duração
+* Permite sequenciamento de ação coerente
 
-* Efficient recall
-* Approximate relevance
-* Cost control
-
-Embeddings are **assistive**, not authoritative.
+A memória de trabalho é **puramente operacional**.
+Nunca é persistida como memória de longo prazo.
 
 ---
 
-### 4. Narrative Memory (Identity Continuity)
+### 2. Memória Episódica (Contexto de Interação)
 
-**What it is:**
+**O que é:**
 
-* Curated, meaningful events
-* Relationship-defining moments
-* Commitments and turning points
+* Contexto de interação de alta fidelidade
+* Histórico conversacional recente
+* Pistas emocionais e situacionais locais
 
-Narrative memory is:
+**Propriedades:**
 
-* Sparse
-* Intentional
-* Explicitly promoted
+* Volátil
+* Vinculada à sessão
+* Automaticamente descartada ou comprimida
 
-Examples:
+**Por que existe:**
 
-* “User trusts ANIMA with long-term planning.”
-* “A conflict occurred and was resolved.”
-* “A boundary was clearly established.”
+* Permite fluxo de conversa natural
+* Evita perguntar constantemente
+* Suporta coerência de curto prazo
 
-**Why narrative memory matters:**
-
-Identity is not built from facts — it’s built from *stories*.
-
-This is how ANIMA remains **recognizably the same entity over time**.
+A memória episódica **não é confiável a longo prazo**.
 
 ---
 
-## How Summaries and Embeddings Are Used
+### 3. Memória Semântica (Fatos e Preferências)
 
-ANIMA summarizes **to preserve meaning, not wording**.
+**O que é:**
 
-### Summaries:
+* Fatos atômicos
+* Preferências do usuário
+* Informações estáveis e reutilizáveis
 
-* Reduce noise
-* Capture intent
-* Preserve emotional weight
-* Avoid misleading detail
+Armazenada usando:
+
+* Entradas estruturadas
+* Embeddings para recuperação
+* Metadados de confiança e proveniência
+
+Cada item rastreia se foi:
+
+* observado
+* explicitamente declarado
+* inferido
+* incerto
+
+**Por que embeddings são usados:**
+
+* Recordação eficiente
+* Relevância aproximada
+* Controle de custos
+
+Embeddings são **assistentes**, não autoritativos.
+
+---
+
+### 4. Memória Narrativa (Continuidade de Identidade)
+
+**O que é:**
+
+* Eventos curados e significativos
+* Momentos que definem relacionamentos
+* Compromissos e pontos de virada
+
+A memória narrativa é:
+
+* Esparsa
+* Intencional
+* Explicitamente promovida
+
+Exemplos:
+
+* "Usuário confia na ANIMA com planejamento de longo prazo."
+* "Um conflito ocorreu e foi resolvido."
+* "Um limite foi claramente estabelecido."
+
+**Por que a memória narrativa importa:**
+
+A identidade não é construída a partir de fatos — é construída a partir de *histórias*.
+
+É assim que a ANIMA permanece **reconhecivelmente a mesma entidade ao longo do tempo**.
+
+---
+
+## Como Resumos e Embeddings São Usados
+
+A ANIMA resume **para preservar significado, não redação**.
+
+### Resumos:
+
+* Reduzem ruído
+* Capturam intenção
+* Preservam peso emocional
+* Evitam detalhes enganosos
 
 ### Embeddings:
 
-* Enable approximate recall
-* Support relevance-based retrieval
-* Prevent brittle keyword matching
+* Permitem recordação aproximada
+* Suportam recuperação baseada em relevância
+* Previnem correspondência frágil de palavras-chave
 
-Important constraint:
+Restrição importante:
 
-> **Neither summaries nor embeddings are treated as ground truth.**
+> **Nem resumos nem embeddings são tratados como verdade absoluta.**
 
-They are *retrieval aids*, not memory itself.
-
----
-
-## Hallucination Resistance Through Memory Design
-
-Hallucinations often come from:
-
-* Overconfident recall
-* Misinterpreted summaries
-* Missing provenance
-
-ANIMA mitigates this by:
-
-* Tracking confidence per memory item
-* Distinguishing fact from inference
-* Refusing to fill gaps silently
-* Treating uncertain recall as uncertain
-
-If memory confidence is too low:
-
-* ANIMA asks
-* or refuses
-* or says “I don’t know”
+Eles são *auxiliares de recuperação*, não a memória em si.
 
 ---
 
-## Memory Decay
+## Resistência a Alucinações Através do Design de Memória
 
-Forgetting is intentional.
+Alucinações frequentemente vêm de:
 
-### Why Memory Decays
+* Recordação excessivamente confiante
+* Resumos mal interpretados
+* Proveniência ausente
 
-* Prevents identity ossification
-* Reduces false assumptions
-* Limits long-term error accumulation
-* Mirrors human trust dynamics
+A ANIMA mitiga isso ao:
 
-### How Memory Decays
+* Rastrear confiança por item de memória
+* Distinguir fato de inferência
+* Recusar preencher lacunas silenciosamente
+* Tratar recordação incerta como incerta
 
-* Working memory is always ephemeral
-* Episodic memory always decays
-* Semantic memory decays unless reinforced
-* Narrative memory decays the slowest
+Se a confiança da memória é muito baixa:
 
-Decay may be triggered by:
-
-* Time
-* Inactivity
-* Contradiction
-* Explicit correction
-
-Nothing is silently erased without reason.
+* A ANIMA pergunta
+* ou recusa
+* ou diz "Eu não sei"
 
 ---
 
-## No Cross-Instance Memory
+## Decaimento de Memória
 
-Each ANIMA instance owns its memory.
+Esquecer é intencional.
 
-* No shared memory pools
-* No training on user data
-* No identity leakage
+### Por Que a Memória Decai
 
-What one ANIMA learns stays with that ANIMA.
+* Previne ossificação de identidade
+* Reduz suposições falsas
+* Limita acumulação de erros a longo prazo
+* Espelha dinâmicas de confiança humanas
+
+### Como a Memória Decai
+
+* Memória de trabalho é sempre efêmera
+* Memória episódica sempre decai
+* Memória semântica decai a menos que reforçada
+* Memória narrativa decai mais lentamente
+
+O decaimento pode ser desencadeado por:
+
+* Tempo
+* Inatividade
+* Contradição
+* Correção explícita
+
+Nada é silenciosamente apagado sem razão.
 
 ---
 
-## What ANIMA Will Never Do
+## Sem Memória Entre Instâncias
 
-ANIMA will not:
+Cada instância ANIMA possui sua memória.
 
-* Claim perfect recall
-* Invent memories
-* Merge memories across users
-* Pretend summaries are transcripts
-* Use memory to override user corrections
+* Sem pools de memória compartilhada
+* Sem treinamento em dados do usuário
+* Sem vazamento de identidade
 
-Memory exists to support trust — not authority.
+O que uma ANIMA aprende permanece com essa ANIMA.
 
 ---
 
-## Summary
+## O Que a ANIMA Nunca Fará
 
-ANIMA’s memory system prioritizes:
+A ANIMA não irá:
 
-* Integrity over volume
-* Continuity over completeness
-* Transparency over confidence
-* Identity over optimization
+* Reivindicar recordação perfeita
+* Inventar memórias
+* Fundir memórias entre usuários
+* Fingir que resumos são transcrições
+* Usar memória para anular correções do usuário
 
-She is not designed to remember everything.
+A memória existe para apoiar confiança — não autoridade.
 
-She is designed to remember **what matters** — and to be honest about the rest.
+---
+
+## Resumo
+
+O sistema de memória da ANIMA prioriza:
+
+* Integridade sobre volume
+* Continuidade sobre completude
+* Transparência sobre confiança
+* Identidade sobre otimização
+
+Ela não foi projetada para lembrar de tudo.
+
+Ela foi projetada para lembrar **o que importa** — e ser honesta sobre o resto.

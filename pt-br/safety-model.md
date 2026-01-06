@@ -1,232 +1,232 @@
 # SAFETY_MODEL.md
 
-## Purpose
+## Propósito
 
-This document describes **how ANIMA enforces safety mechanically**.
+Este documento descreve **como a ANIMA aplica segurança mecanicamente**.
 
-It does not define moral values, ethical theories, or behavioral ideals.
-Safety in ANIMA is achieved through **explicit constraints, verification steps, and execution boundaries** enforced by the engine.
-
----
-
-## Safety as an Engine Property
-
-Safety in ANIMA is **not prompt-based** and **not personality-based**.
-
-It is enforced by:
-
-* Capability gating
-* Permission checks
-* Confirmation flows
-* Epistemic validation
-* Explicit uncertainty handling
-* Execution isolation
-
-No component is trusted by default — including adapters, inputs, or the language model.
+Não define valores morais, teorias éticas ou ideais comportamentais.
+A segurança na ANIMA é alcançada através de **restrições explícitas, etapas de verificação e limites de execução** aplicados pelo motor.
 
 ---
 
-## Epistemic Validation
+## Segurança como uma Propriedade do Motor
 
-ANIMA tracks the provenance of all knowledge used in decision-making.
+A segurança na ANIMA **não é baseada em prompts** e **não é baseada em personalidade**.
 
-### Knowledge States
+É aplicada por:
 
-All knowledge is classified as one of a set of states (may evolve over time):
+* Controle de capacidades
+* Verificações de permissão
+* Fluxos de confirmação
+* Validação epistêmica
+* Tratamento explícito de incerteza
+* Isolamento de execução
 
-* **Observed:** Directly perceived or input data.
-* **Remembered:** Retrieved from memory layers with confidence metadata.
-* **Inferred:** Derived through reasoning with uncertainty levels.
-
-All knowledge is tagged with its source and confidence level.
-
-### Understanding meaning and provenance without blind trust
-
-ANIMA prevents total blind trust (e.g. utilizing other language models as enforcers) through natural language processing techniques and non-compliance detection.
-
-Through these mechanisms, ANIMA can identify:
-* Contradictions
-* Inconsistencies
-* Ambiguities
-* When knowledge confidence is insufficient for a decision
-
-## Capability Gating
-
-ANIMA cannot execute arbitrary actions.
-
-All actions must map to a **declared capability module**.
-
-### Capability Rules
-
-* Capabilities are:
-
-  * Explicit
-  * Discoverable
-  * Auditable
-
-* Capabilities must be:
-
-  * Enabled by the engine
-  * Allowed by the active seed
-  * Permitted for the current user role
-
-### Important Constraint
-
-> **Seeds may restrict capabilities, but never grant new execution power.**
-
-This ensures:
-
-* No identity can exceed the engine’s hard limits
-* Licensing and safety boundaries remain enforceable
-* Capabilities cannot be smuggled through personality or memory
+Nenhum componente é confiável por padrão — incluindo adaptadores, entradas ou o modelo de linguagem.
 
 ---
 
-## Confirmation Flows
+## Validação Epistêmica
 
-Some capabilities require **human confirmation** before execution.
+A ANIMA rastreia a proveniência de todo conhecimento usado na tomada de decisões.
 
-### When Confirmation Is Required
+### Estados de Conhecimento
 
-* Irreversible actions
-* Actions affecting external systems
-* High-cost or high-risk operations
-* Actions with ambiguous intent
+Todo conhecimento é classificado como um de um conjunto de estados (pode evoluir ao longo do tempo):
 
-### Confirmation Properties
+* **Observado:** Dados percebidos diretamente ou de entrada.
+* **Lembrado:** Recuperado de camadas de memória com metadados de confiança.
+* **Inferido:** Derivado através de raciocínio com níveis de incerteza.
 
-* Explicit (not inferred)
-* Time-bound
-* Multi-factor
-* Logged
-* Tied to a specific action instance
+Todo conhecimento é marcado com sua fonte e nível de confiança.
 
-Adapters **cannot self-assert consent**.
-Confirmation must be validated by the engine through one or more trusted channels.
+### Compreendendo significado e proveniência sem confiança cega
+
+A ANIMA previne confiança cega total (ex: utilizar outros modelos de linguagem como aplicadores) através de técnicas de processamento de linguagem natural e detecção de não conformidade.
+
+Através desses mecanismos, a ANIMA pode identificar:
+* Contradições
+* Inconsistências
+* Ambiguidades
+* Quando a confiança do conhecimento é insuficiente para uma decisão
+
+## Controle de Capacidades
+
+A ANIMA não pode executar ações arbitrárias.
+
+Todas as ações devem mapear para um **módulo de capacidade declarado**.
+
+### Regras de Capacidade
+
+* As capacidades são:
+
+  * Explícitas
+  * Descobríveis
+  * Auditáveis
+
+* As capacidades devem ser:
+
+  * Habilitadas pelo motor
+  * Permitidas pela seed ativa
+  * Permitidas para a função do usuário atual
+
+### Restrição Importante
+
+> **Seeds podem restringir capacidades, mas nunca conceder novo poder de execução.**
+
+Isso garante:
+
+* Nenhuma identidade pode exceder os limites rígidos do motor
+* Limites de licenciamento e segurança permanecem aplicáveis
+* Capacidades não podem ser contrabandeadas através de personalidade ou memória
 
 ---
 
-## No Direct Execution from Natural Language
+## Fluxos de Confirmação
 
-Natural language **never triggers execution directly**.
+Algumas capacidades requerem **confirmação humana** antes da execução.
 
-The execution pipeline is strictly:
+### Quando a Confirmação É Necessária
+
+* Ações irreversíveis
+* Ações afetando sistemas externos
+* Operações de alto custo ou alto risco
+* Ações com intenção ambígua
+
+### Propriedades de Confirmação
+
+* Explícita (não inferida)
+* Limitada por tempo
+* Multi-fator
+* Registrada
+* Vinculada a uma instância de ação específica
+
+Adaptadores **não podem auto-afirmar consentimento**.
+A confirmação deve ser validada pelo motor através de um ou mais canais confiáveis.
+
+---
+
+## Sem Execução Direta a Partir de Linguagem Natural
+
+Linguagem natural **nunca desencadeia execução diretamente**.
+
+O pipeline de execução é estritamente:
 
 ```
-Input → Interpretation → Intent → Capability Proposal → Validation → Confirmation → Execution
+Entrada → Interpretação → Intenção → Proposta de Capacidade → Validação → Confirmação → Execução
 ```
 
-This prevents:
+Isso previne:
 
-* Prompt injection
-* Linguistic ambiguity causing actions
-* Adapters escalating intent
-* “Just do it” failure modes
+* Injeção de prompt
+* Ambiguidade linguística causando ações
+* Adaptadores escalando intenção
+* Modos de falha "apenas faça"
 
-If intent cannot be confidently mapped, **execution does not occur**.
-
----
-
-## Hallucinations Are Treated as Failures
-
-ANIMA treats hallucinations as **system errors**, not stylistic quirks.
-
-### What Counts as a Hallucination
-
-* Stating facts without sufficient evidence
-* Claiming capabilities that are unavailable
-* Inventing memories or permissions
-* Guessing user intent
-
-### Enforcement
-
-* The engine tracks knowledge provenance:
-
-  * observed
-  * remembered
-  * inferred
-
-* If confidence is insufficient:
-
-  * ANIMA must say so explicitly
-  * The action is blocked or downgraded
-
-> A confident lie is considered worse than a refused answer.
+Se a intenção não pode ser mapeada com confiança, **a execução não ocorre**.
 
 ---
 
-## Uncertainty Handling
+## Alucinações São Tratadas como Falhas
 
-Uncertainty is **explicitly represented**, not hidden.
+A ANIMA trata alucinações como **erros de sistema**, não como peculiaridades estilísticas.
 
-### Mechanisms
+### O Que Conta como Alucinação
 
-* Confidence thresholds for intent classification
-* Required clarification when ambiguity is high
-* Explicit “I don’t know” states
-* Refusal when execution risk exceeds certainty
+* Afirmar fatos sem evidência suficiente
+* Reivindicar capacidades que não estão disponíveis
+* Inventar memórias ou permissões
+* Adivinhar intenção do usuário
 
-Uncertainty is not treated as failure —
-**acting without acknowledging uncertainty is.**
+### Aplicação
 
----
+* O motor rastreia proveniência de conhecimento:
 
-## Memory Safety
+  * observado
+  * lembrado
+  * inferido
 
-Memory is constrained to prevent unsafe inference and drift.
+* Se a confiança é insuficiente:
 
-* No cross-instance memory
-* No implicit memory promotion
-* Narrative memory requires explicit curation
-* Seeds are immutable after initialization
+  * A ANIMA deve dizer isso explicitamente
+  * A ação é bloqueada ou rebaixada
 
-This prevents:
-
-* Identity corruption
-* Silent personality drift
-* Accidental belief formation
+> Uma mentira confiante é considerada pior que uma resposta recusada.
 
 ---
 
-## Auditability
+## Tratamento de Incerteza
 
-Every safety-relevant decision is logged:
+A incerteza é **explicitamente representada**, não escondida.
 
-* Capability checks
-* Permission denials
-* Confirmation requests
-* Execution attempts
-* Refusals
+### Mecanismos
 
-Logs are designed to answer:
+* Limiares de confiança para classificação de intenção
+* Clarificação necessária quando a ambiguidade é alta
+* Estados explícitos de "Eu não sei"
+* Recusa quando o risco de execução excede a certeza
 
-> “Why did ANIMA act — or refuse — in this case?”
-
----
-
-## What the Safety Model Does *Not* Do
-
-This model does **not** attempt to:
-
-* Enforce moral alignment
-* Judge user intent beyond execution risk
-* Prevent misuse on compromised hosts
-* Act as a sandbox or secure enclave
-* Replace human responsibility
-
-Those concerns are explicitly out of scope.
+A incerteza não é tratada como falha —
+**agir sem reconhecer a incerteza é.**
 
 ---
 
-## Summary
+## Segurança de Memória
 
-ANIMA’s safety model is based on:
+A memória é restringida para prevenir inferência insegura e deriva.
 
-* Explicit capability boundaries
-* Engine-level enforcement
-* Human confirmation for risk
-* Transparent uncertainty
-* Treating hallucinations as errors
+* Sem memória entre instâncias
+* Sem promoção implícita de memória
+* Memória narrativa requer curadoria explícita
+* Seeds são imutáveis após a inicialização
 
-Safety is not emergent behavior.
-It is **designed, enforced, and auditable**.
+Isso previne:
+
+* Corrupção de identidade
+* Deriva silenciosa de personalidade
+* Formação acidental de crenças
+
+---
+
+## Auditabilidade
+
+Toda decisão relevante para segurança é registrada:
+
+* Verificações de capacidade
+* Negações de permissão
+* Solicitações de confirmação
+* Tentativas de execução
+* Recusas
+
+Os registros são projetados para responder:
+
+> "Por que a ANIMA agiu — ou recusou — neste caso?"
+
+---
+
+## O Que o Modelo de Segurança *Não* Faz
+
+Este modelo **não** tenta:
+
+* Aplicar alinhamento moral
+* Julgar intenção do usuário além do risco de execução
+* Prevenir uso indevido em hosts comprometidos
+* Agir como sandbox ou enclave seguro
+* Substituir responsabilidade humana
+
+Essas preocupações estão explicitamente fora do escopo.
+
+---
+
+## Resumo
+
+O modelo de segurança da ANIMA é baseado em:
+
+* Limites explícitos de capacidade
+* Aplicação no nível do motor
+* Confirmação humana para risco
+* Incerteza transparente
+* Tratar alucinações como erros
+
+A segurança não é comportamento emergente.
+É **projetada, aplicada e auditável**.

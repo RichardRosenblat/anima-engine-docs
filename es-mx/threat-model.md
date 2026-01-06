@@ -1,246 +1,246 @@
-# ANIMA — Threat Model
+# ANIMA — Modelo de Amenazas
 
-## Purpose
+## Propósito
 
-This document outlines the **explicit threat model** for ANIMA.
+Este documento delinea el **modelo de amenazas explícito** para ANIMA.
 
-It defines:
+Define:
 
-* What ANIMA is designed to defend against
-* What ANIMA explicitly does *not* attempt to defend against
-* The assumptions made about the host environment
+* Contra qué está diseñada ANIMA para defenderse
+* Lo que ANIMA explícitamente *no* intenta defender
+* Las suposiciones hechas sobre el entorno del host
 
-This is not a claim of perfect security.
-It is a statement of **intentional boundaries and responsibility**.
-
----
-
-## System Overview (Security Context)
-
-ANIMA is a **private, modular AI engine** running within a user-controlled environment.
-
-Key characteristics:
-
-* Instance-local memory
-* Capability-gated execution
-* No internet access by default
-* No shared global state
-* Explicit human confirmation for risky actions
-
-ANIMA assumes **no implicit trust** in inputs, adapters, or capabilities.
+Esto no es una afirmación de seguridad perfecta.
+Es una declaración de **límites y responsabilidad intencionales**.
 
 ---
 
-## Assets to Protect
+## Visión General del Sistema (Contexto de Seguridad)
 
-ANIMA prioritizes protection of the following assets:
+ANIMA es un **motor de IA privado y modular** ejecutándose dentro de un entorno controlado por el usuario.
 
-1. **Instance Memory**
+Características clave:
 
-   * User conversations
-   * Learned preferences
-   * Narrative identity continuity
+* Memoria local de la instancia
+* Ejecución controlada por capacidades
+* Sin acceso a internet por defecto
+* Sin estado global compartido
+* Confirmación humana explícita para acciones riesgosas
 
-2. **Seed Integrity**
-
-   * Identity constraints
-   * Capability policies
-   * Behavioral boundaries
-
-3. **Capability Boundaries**
-
-   * Prevention of unauthorized execution
-   * Enforcement of permission checks
-
-4. **User Intent**
-
-   * Accurate representation of user requests
-   * Protection against unintended actions
-
-5. **Auditability**
-
-   * Clear reasoning paths
-   * Action traceability
+ANIMA asume **ninguna confianza implícita** en entradas, adaptadores o capacidades.
 
 ---
 
-## Threats ANIMA Defends Against
+## Activos a Proteger
 
-### 1. Cross-Instance Data Leakage
+ANIMA prioriza la protección de los siguientes activos:
 
-**Threat:**
-Memory or identity information leaking between ANIMA instances.
+1. **Memoria de la Instancia**
 
-**Mitigation:**
+   * Conversaciones del usuario
+   * Preferencias aprendidas
+   * Continuidad de identidad narrativa
 
-* Strict instance isolation
-* No shared memory layers
-* No global learning or training pool
-* Explicit prohibition of cross-instance reads
+2. **Integridad de la Seed**
 
----
+   * Restricciones de identidad
+   * Políticas de capacidad
+   * Límites de comportamiento
 
-### 2. Capability Escalation
+3. **Límites de Capacidad**
 
-**Threat:**
-A user, adapter, or module attempting to execute actions beyond authorized capabilities.
+   * Prevención de ejecución no autorizada
+   * Aplicación de verificaciones de permiso
 
-**Mitigation:**
+4. **Intención del Usuario**
 
-* Centralized capability registry
-* Mandatory permission checks
-* Seed-level capability restrictions
-* Human confirmation for sensitive or dangerous actions
+   * Representación precisa de solicitudes del usuario
+   * Protección contra acciones no intencionadas
 
----
+5. **Auditabilidad**
 
-### 3. Prompt Injection & Input Manipulation
-
-**Threat:**
-Malicious input attempting to override behavior, policies, or safety constraints.
-
-**Mitigation:**
-
-* Separation of reasoning and execution
-* Non-textual enforcement of safety rules
-* Seed constraints enforced outside prompts
-* No direct execution from natural language
+   * Rutas de razonamiento claras
+   * Trazabilidad de acciones
 
 ---
 
-### 4. Hallucinated Authority or Knowledge
+## Amenazas Contra las Que ANIMA Se Defiende
 
-**Threat:**
-ANIMA presenting guesses or fabrications as facts, especially in high-risk contexts.
+### 1. Fuga de Datos Entre Instancias
 
-**Mitigation:**
+**Amenaza:**
+Fuga de información de memoria o identidad entre instancias ANIMA.
 
-* Explicit uncertainty tracking
-* Knowledge provenance labels (observed / inferred / unknown)
-* Refusal to act on uncertain information when safety is impacted
+**Mitigación:**
 
----
-
-### 5. Silent Behavior Drift
-
-**Threat:**
-Identity changes occurring without visibility or explanation.
-
-**Mitigation:**
-
-* Read-only seeds after initialization
-* Memory promotion rules
-* Narrative memory curation
-* Inspectable state changes
+* Aislamiento estricto de instancias
+* Sin capas de memoria compartida
+* Sin grupo de aprendizaje o entrenamiento global
+* Prohibición explícita de lecturas entre instancias
 
 ---
 
-### 6. Unauthorized Observation or Monitoring
+### 2. Escalación de Capacidad
 
-**Threat:**
-ANIMA observing or recording users or environments without consent.
+**Amenaza:**
+Un usuario, adaptador o módulo intentando ejecutar acciones más allá de las capacidades autorizadas.
 
-**Mitigation:**
+**Mitigación:**
 
-* No passive sensing
-* Adapter-level permission requirements
-* Explicit user initiation for observation
-* Clear visibility into active inputs
-
----
-
-## Threats Explicitly Out of Scope
-
-ANIMA does **not** attempt to defend against the following:
-
-### 1. Host System Compromise
-
-If the host operating system, container, or hardware is compromised, ANIMA assumes:
-
-* Memory confidentiality cannot be guaranteed
-* Capability boundaries may be bypassed
-
-ANIMA is not a sandbox or secure enclave.
+* Registro centralizado de capacidades
+* Verificaciones de permiso obligatorias
+* Restricciones de capacidad a nivel de Seed
+* Confirmación humana para acciones sensibles o peligrosas
 
 ---
 
-### 2. Malicious Engine Modification
+### 3. Inyección de Prompt y Manipulación de Entrada
 
-If the ANIMA engine source or binaries are modified:
+**Amenaza:**
+Entrada maliciosa intentando anular el comportamiento, políticas o restricciones de seguridad.
 
-* All guarantees are void
-* Safety mechanisms may be disabled
+**Mitigación:**
 
-Code integrity is the responsibility of the distributor and host.
-
----
-
-### 3. Side-Channel Attacks
-
-ANIMA does not protect against:
-
-* Timing attacks
-* Power analysis
-* Hardware side-channels
-
-These are outside the intended threat surface.
+* Separación de razonamiento y ejecución
+* Aplicación no textual de reglas de seguridad
+* Restricciones de Seed aplicadas fuera de prompts
+* Sin ejecución directa desde lenguaje natural
 
 ---
 
-### 4. Adversarial Model Extraction
+### 4. Autoridad o Conocimiento Alucinado
 
-ANIMA does not attempt to prevent:
+**Amenaza:**
+ANIMA presentando suposiciones o fabricaciones como hechos, especialmente en contextos de alto riesgo.
 
-* Model inversion
-* Weight extraction
-* Statistical probing of underlying models
+**Mitigación:**
 
-The engine treats the underlying model as a replaceable component.
-
----
-
-### 5. Human Social Engineering
-
-ANIMA cannot fully defend against:
-
-* Users convincing other humans to misuse the system
-* Trust placed outside the system’s guarantees
-
-Human behavior remains a human responsibility.
+* Seguimiento explícito de incertidumbre
+* Etiquetas de procedencia de conocimiento (observado / inferido / desconocido)
+* Rechazo a actuar con información incierta cuando la seguridad se ve afectada
 
 ---
 
-## Assumptions About the Host Environment
+### 5. Deriva Silenciosa de Comportamiento
 
-ANIMA assumes:
+**Amenaza:**
+Cambios de identidad ocurriendo sin visibilidad o explicación.
 
-* The host OS enforces process isolation
-* File system permissions are respected
-* Network access is controlled externally
-* Secrets (keys, licenses) are stored securely
-* Adapters are not malicious by default
+**Mitigación:**
 
-Violating these assumptions invalidates parts of this threat model.
-
----
-
-## Design Philosophy
-
-ANIMA favors:
-
-* **Explicit denial over silent failure**
-* **Auditability over opacity**
-* **Bounded capability over maximal power**
-
-Security is achieved through **architectural constraints**, not through trust in intelligence or intent.
+* Seeds de solo lectura después de la inicialización
+* Reglas de promoción de memoria
+* Curación de memoria narrativa
+* Cambios de estado inspeccionables
 
 ---
 
-## Final Statement
+### 6. Observación o Monitoreo No Autorizado
 
-This threat model is intentionally conservative.
+**Amenaza:**
+ANIMA observando o grabando usuarios o entornos sin consentimiento.
 
-ANIMA does not attempt to solve all security problems.
-She attempts to solve **the right ones**, clearly and honestly.
+**Mitigación:**
 
-By documenting what is in scope and what is not, ANIMA remains a system that users can reason about, trust, and grow with.
+* Sin detección pasiva
+* Requisitos de permiso a nivel de adaptador
+* Iniciación explícita del usuario para observación
+* Visibilidad clara de las entradas activas
+
+---
+
+## Amenazas Explícitamente Fuera del Alcance
+
+ANIMA **no** intenta defenderse contra lo siguiente:
+
+### 1. Compromiso del Sistema Host
+
+Si el sistema operativo host, contenedor o hardware está comprometido, ANIMA asume:
+
+* La confidencialidad de la memoria no puede garantizarse
+* Los límites de capacidad pueden ser evadidos
+
+ANIMA no es un sandbox o enclave seguro.
+
+---
+
+### 2. Modificación Maliciosa del Motor
+
+Si el código fuente o binarios del motor ANIMA son modificados:
+
+* Todas las garantías quedan anuladas
+* Los mecanismos de seguridad pueden ser deshabilitados
+
+La integridad del código es responsabilidad del distribuidor y del host.
+
+---
+
+### 3. Ataques de Canal Lateral
+
+ANIMA no protege contra:
+
+* Ataques de temporización
+* Análisis de energía
+* Canales laterales de hardware
+
+Estos están fuera de la superficie de amenaza pretendida.
+
+---
+
+### 4. Extracción Adversaria de Modelo
+
+ANIMA no intenta prevenir:
+
+* Inversión de modelo
+* Extracción de pesos
+* Sondeo estadístico de modelos subyacentes
+
+El motor trata el modelo subyacente como un componente reemplazable.
+
+---
+
+### 5. Ingeniería Social Humana
+
+ANIMA no puede defender completamente contra:
+
+* Usuarios convenciendo a otros humanos de usar indebidamente el sistema
+* Confianza depositada fuera de las garantías del sistema
+
+El comportamiento humano sigue siendo una responsabilidad humana.
+
+---
+
+## Suposiciones Sobre el Entorno del Host
+
+ANIMA asume:
+
+* El SO host aplica aislamiento de procesos
+* Los permisos del sistema de archivos son respetados
+* El acceso a la red es controlado externamente
+* Los secretos (claves, licencias) se almacenan de manera segura
+* Los adaptadores no son maliciosos por defecto
+
+Violar estas suposiciones invalida partes de este modelo de amenazas.
+
+---
+
+## Filosofía de Diseño
+
+ANIMA favorece:
+
+* **Denegación explícita sobre falla silenciosa**
+* **Auditabilidad sobre opacidad**
+* **Capacidad limitada sobre poder máximo**
+
+La seguridad se logra a través de **restricciones arquitectónicas**, no a través de confianza en inteligencia o intención.
+
+---
+
+## Declaración Final
+
+Este modelo de amenazas es intencionalmente conservador.
+
+ANIMA no intenta resolver todos los problemas de seguridad.
+Intenta resolver **los problemas correctos**, de manera clara y honesta.
+
+Al documentar lo que está en el alcance y lo que no, ANIMA permanece como un sistema sobre el cual los usuarios pueden razonar, confiar y crecer junto a él.
