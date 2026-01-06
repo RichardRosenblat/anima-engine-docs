@@ -1,229 +1,231 @@
-# 🧩 ANIMA — REFINED ARCHITECTURE DIAGRAM (ALIGNED)
+# 🧩 ANIMA — DIAGRAMA DE ARQUITETURA REFINADO (ALINHADO)
 
 ---
 
-## 🌍 OUTSIDE WORLD
+## 🌍 MUNDO EXTERNO
 
 ```
-[ User ]        [ Platforms / Hardware / APIs ]
+[ Usuário ]        [ Plataformas / Hardware / APIs ]
 ```
 
-No intelligence here. Just reality.
+Nenhuma inteligência aqui. Apenas realidade.
 
 ---
 
-## 🟦 MODULE LAYER (Effectful Boundary)
+## 🟦 CAMADA DE MÓDULOS (Fronteira com Efeitos)
 
-> **Only layer that touches the real world**
+> **Única camada que toca o mundo real**
 
 ```
 ┌───────────────────────────────────────────┐
-│               MODULES                     │
+│               MÓDULOS                     │
 │                                           │
-│  • Discord Input Module                   │
-│  • CLI Input Module                       │
-│  • Microphone Input Module                │
+│  • Módulo de Entrada Discord              │
+│  • Módulo de Entrada CLI                  │
+│  • Módulo de Entrada Microfone            │
 │                                           │
-│  • Discord Output Module                  │
-│  • CLI Output Module                      │
-│  • TTS Output Module                      │
-│  • Live2D Output Module                   │
+│  • Módulo de Saída Discord                │
+│  • Módulo de Saída CLI                    │
+│  • Módulo de Saída TTS                    │
+│  • Módulo de Saída Live2D                 │
 │                                           │
-│  (APIs, hardware, streaming, devices)     │
+│  (APIs, hardware, streaming, dispositivos)│
 └───────────────────────────────────────────┘
 ```
 
-📌 Rule:
+📌 Regra:
 
-* Modules **capture** or **execute**
-* Modules **do not think**
-* Modules **do not decide**
+* Módulos **capturam** ou **executam**
+* Módulos **não pensam**
+* Módulos **não decidem**
 
 ---
 
-## 🟨 ADAPTER LAYER (Pure Translation Ring)
+## 🟨 CAMADA DE ADAPTADORES (Anel de Tradução Pura)
 
-> **First protective ring around the core**
+> **Primeiro anel protetor em torno do núcleo**
 
 ```
 ┌───────────────────────────────────────────┐
-│               ADAPTERS                    │
+│               ADAPTADORES                 │
 │                                           │
-│  Input Adapters:                          │
-│   • Discord → CoreInput                   │
-│   • CLI → CoreInput                       │
-│   • Mic → CoreInput                       │
+│  Adaptadores de Entrada:                  │
+│   • Discord → EntradaNúcleo               │
+│   • CLI → EntradaNúcleo                   │
+│   • Mic → EntradaNúcleo                   │
 │                                           │
-│  Output Adapters:                         │
-│   • Intent → DiscordCommand               │
-│   • Intent → TTSCommand                   │
-│   • Intent → Live2DCommand                │
+│  Adaptadores de Saída:                    │
+│   • Intenção → ComandoDiscord             │
+│   • Intenção → ComandoTTS                 │
+│   • Intenção → ComandoLive2D              │
 │                                           │
-│  (Pure, deterministic, no I/O)            │
+│  (Puro, determinístico, sem I/O)          │
 └───────────────────────────────────────────┘
 ```
 
-📌 Rule:
+📌 Regra:
 
-* Adapters **translate only**
-* No side effects
-* No memory
-* No permissions
+* Adaptadores **apenas traduzem**
+* Sem efeitos colaterais
+* Sem memória
+* Sem permissões
 
 
 ---
 
-## 🟩 CAPABILITY RING (Declarative Power)
+## 🟩 ANEL DE CAPACIDADES (Poder Declarativo)
 
-> **What the core is allowed to want**
+> **O que o núcleo pode querer**
 
 ```
 ┌───────────────────────────────────────────┐
-│              CAPABILITIES                 │
+│              CAPACIDADES                  │
 │                                           │
-│  • send_text                              │
-│  • speak_audio                            │
-│  • render_avatar                         │
-│  • move_robot                            │
+│  • enviar_texto                           │
+│  • falar_áudio                            │
+│  • renderizar_avatar                      │
+│  • mover_robô                             │
 │                                           │
-│  (Contracts, not implementations)         │
+│  (Contratos, não implementações)          │
 └───────────────────────────────────────────┘
 ```
 
-📌 Rule:
+📌 Regra:
 
-* Capabilities are symbolic
-* Seed + Security gate them
-* They do not execute anything
+* Capacidades são simbólicas
+* Seed + Segurança as controlam
+* Elas não executam nada
 
 ---
 
-## 🧠 CORE (Reasoning Engine)
+## 🧠 NÚCLEO (Motor de Raciocínio)
 
-> **The only place where decisions are made**
+> **O único lugar onde decisões são tomadas**
 
 ```
 ┌───────────────────────────────────────────┐
-│                   CORE                    │
+│                   NÚCLEO                  │
 │                                           │
-│  • Reasoning Loop                         │
-│  • Intent Planning                        │
-│  • Task Management                        │
-│  • Capability Selection                  │
+│  • Loop de Raciocínio                     │
+│  • Planejamento de Intenção               │
+│  • Gerenciamento de Tarefas               │
+│  • Seleção de Capacidades                 │
 │                                           │
-│  Inputs:                                  │
-│   • CoreInput                             │
-│   • Memory Query Results                  │
-│   • Seed Constraints                     │
-│   • Permissions                          │
+│  Entradas:                                │
+│   • EntradaNúcleo                         │
+│   • Resultados de Consulta de Memória    │
+│   • Restrições de Seed                    │
+│   • Permissões                            │
 │                                           │
-│  Output:                                  │
-│   • Intent Graph / Plan                  │
+│  Saída:                                   │
+│   • Grafo de Intenção / Plano             │
 └───────────────────────────────────────────┘
 ```
 
-📌 Rule:
+📌 Regra:
 
-* Core **never touches the world**
-* Core produces **intent**, not effects
+* Núcleo **nunca toca o mundo**
+* Núcleo produz **intenção**, não efeitos
 
 ---
 
-## 🟦 INTERNAL CONTEXT (Influence, Not Control)
+## 🟦 CONTEXTO INTERNO (Influência, Não Controle)
 
-These surround the core but **do not execute**.
+Estes cercam o núcleo mas **não executam**.
 
-### 🧬 Seed (Static Identity)
+### 🧬 Seed (Identidade Estática)
 
 ```
 ┌───────────────────────────┐
 │           SEED            │
 │                           │
-│  • Personality parameters │
-│  • Tone / expressiveness  │
-│  • Risk tolerance         │
-│  • Allowed capabilities   │
-│  • Identity boundaries    │
+│  • Parâmetros de          │
+│    personalidade          │
+│  • Tom / expressividade   │
+│  • Tolerância a risco     │
+│  • Capacidades permitidas │
+│  • Limites de identidade  │
 └───────────────────────────┘
 ```
 
-* Loaded at startup
-* Immutable during runtime
+* Carregada na inicialização
+* Imutável durante execução
 
 ---
 
-### 🧠 Memory (Dynamic, Fallible)
+### 🧠 Memória (Dinâmica, Falível)
 
 ```
 ┌───────────────────────────┐
-│          MEMORY           │
+│          MEMÓRIA          │
 │                           │
-│  • Past interactions      │
-│  • Observations           │
-│  • Task states            │
-│  • Confidence-weighted    │
-│    facts                  │
+│  • Interações passadas    │
+│  • Observações            │
+│  • Estados de tarefas     │
+│  • Fatos ponderados por   │
+│    confiança              │
 └───────────────────────────┘
 ```
 
-* Instance-local
-* Queried, never blindly trusted
+* Local à instância
+* Consultada, nunca confiad a cegamente
 
 ---
 
-## 🔐 SECURITY & POLICY (Cross-Cutting)
+## 🔐 SEGURANÇA E POLÍTICA (Transversal)
 
 ```
 ┌───────────────────────────┐
-│          SECURITY         │
+│          SEGURANÇA        │
 │                           │
-│  • Authentication         │
-│  • Authorization          │
-│  • Permission enforcement │
-│  • Dangerous action gates │
+│  • Autenticação           │
+│  • Autorização            │
+│  • Aplicação de permissão │
+│  • Portões de ação        │
+│    perigosa               │
 └───────────────────────────┘
 ```
 
-Security:
+Segurança:
 
-* wraps **input before core**
-* validates **intent before execution**
+* envolve **entrada antes do núcleo**
+* valida **intenção antes da execução**
 
 ---
 
-## 🔁 FULL FLOW (CLEAN & LINEAR)
+## 🔁 FLUXO COMPLETO (LIMPO E LINEAR)
 
 ```
-User
+Usuário
  ↓
-Input Module
+Módulo de Entrada
  ↓
-Input Adapter
+Adaptador de Entrada
  ↓
-Authentication / Security
+Autenticação / Segurança
  ↓
-CORE
-  ↔ Memory
+NÚCLEO
+  ↔ Memória
   ↔ Seed
-  ↔ Capabilities
+  ↔ Capacidades
  ↓
-Intent
+Intenção
  ↓
-Output Adapter
+Adaptador de Saída
  ↓
-Output Module
+Módulo de Saída
  ↓
-Effect
+Efeito
 ```
 
-No shortcuts. No leaks.
+Sem atalhos. Sem vazamentos.
 
 ---
 
-## 🧠 Architectural Litmus Test 
-Ask:
+## 🧠 Teste Litmus Arquitetural
+Pergunte:
 
-* Can I simulate everything without modules? → Yes
-* Can I swap Discord for Slack without touching the core? → Yes
-* Can I run multiple Seeds on the same engine? → Yes
-* Can I audit intent before execution? → Yes
+* Posso simular tudo sem módulos? → Sim
+* Posso trocar Discord por Slack sem tocar o núcleo? → Sim
+* Posso executar múltiplas Seeds no mesmo motor? → Sim
+* Posso auditar intenção antes da execução? → Sim
