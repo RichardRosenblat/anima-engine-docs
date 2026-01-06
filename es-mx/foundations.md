@@ -1,309 +1,309 @@
-# 🧭 ANIMA — PHASE 0: FOUNDATIONS
+# 🧭 ANIMA — FASE 0: FUNDAMENTOS
 
 ---
 
-## 🎯 Goal
+## 🎯 Objetivo
 
-Establish **ANIMA as an identity engine**, not a specific personality.
+Establecer **ANIMA como un motor de identidad**, no una personalidad específica.
 
-ANIMA is:
+ANIMA es:
 
-* a **private AI engine**
-* capable of **long-lived identity**
-* extensible through **capabilities and modules**
-* shaped at runtime by a **Seed file**
+* un **motor de IA privado**
+* capaz de **identidad duradera**
+* extensible a través de **capacidades y módulos**
+* moldeada en tiempo de ejecución por un **archivo Seed**
 
-ANIMA is **not**:
+ANIMA **no** es:
 
-* a chatbot
-* an autonomous agent that self-expands
-* an automation platform
-* a monolithic AI with hardcoded behavior
-* an internet-crawling system by default
-
----
-
-## 🧱 Build (Phase 0 Deliverables)
-
-### 1️⃣ Project Charter
-
-This document answers *“what exists”* and *“what is forbidden”*.
-
-#### Core Purpose
-
-* Provide a **private, evolving AI runtime**
-* Separate **engine** from **identity**
-* Support **multiple incarnations** via Seeds
-* Enable **safe, auditable interaction with the world**
-
-#### Non-Goals (Explicit)
-
-* No self-modifying code
-* No uncontrolled autonomy
-* No internet access unless granted via capability
-* No shared memory between instances
-* No implicit user permissions
-
-#### Core Values
-
-* **Truth over confidence**  
-  *What does this mean?* The system prioritizes accuracy and honesty in its responses, even if it means admitting uncertainty or lack of knowledge.
-* **Intent over execution**  
-  *What does this mean?* The system focuses on understanding and fulfilling the user's intentions rather than just executing commands blindly.
-* **Modularity over monolith**  
-  *What does this mean?* The system is designed with interchangeable components, allowing for flexibility and adaptability rather than being a single, unchangeable entity.
-* **Safety over capability**  
-  *What does this mean?* The system prioritizes user safety and ethical considerations above expanding its functionalities or capabilities.
-* **Configurability over hardcoding**  
-  *What does this mean?* The system emphasizes the ability to be customized and configured through external settings rather than having fixed, hardcoded behaviors.
-* **Isolation over convenience**
-  *What does this mean?* The system values keeping components and processes separate to enhance security and reliability, even if it sacrifices some ease of use.
-
-This charter is your *constitutional law*.
-Every feature must be justifiable against it.
+* un chatbot
+* un agente autónomo que se auto-expande
+* una plataforma de automatización
+* una IA monolítica con comportamiento codificado
+* un sistema de rastreo de internet por defecto
 
 ---
 
-### 2️⃣ Canonical Glossary
+## 🧱 Construcción (Entregables de la Fase 0)
 
-These definitions must **never drift**.
+### 1️⃣ Carta del Proyecto
 
-#### Engine
+Este documento responde *"qué existe"* y *"qué está prohibido"*.
 
-The entirety of the ANIMA system, containing:
+#### Propósito Central
 
-* Core 
-* Seed
-* Memory
-* Capabilities
-* Modules
-* Adapters
-* Cortex
+* Proporcionar un **runtime de IA privado y evolutivo**
+* Separar **motor** de **identidad**
+* Soportar **múltiples encarnaciones** vía Seeds
+* Permitir **interacción segura y auditable con el mundo**
 
----
+#### No-Objetivos (Explícitos)
 
-#### Core
+* Sin código auto-modificable
+* Sin autonomía descontrolada
+* Sin acceso a internet a menos que se conceda vía capacidad
+* Sin memoria compartida entre instancias
+* Sin permisos implícitos del usuario
 
-The reasoning loop inside the engine.
+#### Valores Centrales
 
-It:
+* **Verdad sobre confianza**  
+  *¿Qué significa esto?* El sistema prioriza la precisión y honestidad en sus respuestas, incluso si eso significa admitir incertidumbre o falta de conocimiento.
+* **Intención sobre ejecución**  
+  *¿Qué significa esto?* El sistema se enfoca en comprender y cumplir las intenciones del usuario en lugar de solo ejecutar comandos ciegamente.
+* **Modularidad sobre monolito**  
+  *¿Qué significa esto?* El sistema está diseñado con componentes intercambiables, permitiendo flexibilidad y adaptabilidad en lugar de ser una entidad única e inmutable.
+* **Seguridad sobre capacidad**  
+  *¿Qué significa esto?* El sistema prioriza la seguridad del usuario y consideraciones éticas por encima de expandir sus funcionalidades o capacidades.
+* **Configurabilidad sobre codificación fija**  
+  *¿Qué significa esto?* El sistema enfatiza la capacidad de ser personalizado y configurado a través de ajustes externos en lugar de tener comportamientos fijos y codificados.
+* **Aislamiento sobre conveniencia**
+  *¿Qué significa esto?* El sistema valora mantener componentes y procesos separados para mejorar la seguridad y confiabilidad, incluso si sacrifica algo de facilidad de uso.
 
-* consumes input
-* queries memory
-* applies Seed constraints
-* selects capabilities
-* produces **intent**
-
----
-
-#### Seed (File)
-
-A **static configuration artifact** loaded at initialization.
-
-Defines:
-
-* personality parameters
-* behavioral constraints
-* tone and expressiveness ranges
-* allowed capabilities
-* identity boundaries
-* risk tolerance
-
-A Seed:
-
-* does **not** contain memories
-* does **not** change itself
-* does **not** contain code
+Esta carta es su *ley constitucional*.
+Cada característica debe ser justificable contra ella.
 
 ---
 
-#### Memory
+### 2️⃣ Glosario Canónico
 
-Instance-local data describing:
+Estas definiciones **nunca deben desviarse**.
 
-* past interactions
-* observations
-* task states
-* confidence-weighted facts
+#### Motor (Engine)
 
-Memory:
+La totalidad del sistema ANIMA, que contiene:
 
-* informs reasoning
-* never overrides policy
-* is fallible and queryable
-
----
-
-#### Capability
-
-A **declarative contract** describing *what the core is allowed to intend*.
-
-Example:
-
-* `send_message`
-* `move_robot`
-* `start_stream`
-
-Capabilities:
-
-* contain no logic
-* contain no I/O
-* are permission-gated
-* are Seed-restricted
+* Núcleo (Core)
+* Semilla (Seed)
+* Memoria
+* Capacidades
+* Módulos
+* Adaptadores
+* Córtex
 
 ---
 
-#### Module
+#### Núcleo (Core)
 
-An **effectful implementation** of a capability.
+El bucle de razonamiento dentro del motor.
 
-Modules:
+Él:
 
-* perform real-world actions
-* talk to APIs, hardware, platforms
-* never decide *when* or *why*
-* only execute *what they’re told*
-
-Modules are the **only** place where **Cause is detected** and **Effects are produced**.
-
----
-
-#### Adapter
-
-A **pure translation layer** between representations.
-
-Adapters:
-
-* transform external input → core input
-* transform core intent → module command
-* contain no external I/O
-* contain only translation logic
-* are deterministic
-
-Adapters exist to **protect the core from format pollution**.
+* consume entrada
+* consulta memoria
+* aplica restricciones de Seed
+* selecciona capacidades
+* produce **intención**
 
 ---
 
-#### Intent
+#### Semilla/Seed (Archivo)
 
-A structured description of **what should happen**, not how.
+Un **artefacto de configuración estático** cargado en la inicialización.
 
-Produced by the core.  
-Consumed by adapters and modules.  
-Auditable, loggable, replayable.  
-Contain what + when + where + how much + why + what to do if something goes wrong. Along with confidence scores.
+Define:
 
----
+* parámetros de personalidad
+* restricciones de comportamiento
+* rangos de tono y expresividad
+* capacidades permitidas
+* límites de identidad
+* tolerancia al riesgo
 
-#### Task
+Una Seed:
 
-A long-lived unit of work the engine undertakes. Solved with series of Intents.
-
-Tasks:
-
-* persist across time
-* can pause / resume
-* may invoke capabilities repeatedly
-* are tracked in memory
+* **no** contiene memorias
+* **no** se modifica
+* **no** contiene código
 
 ---
 
-#### Cortex
+#### Memoria
 
-The wrapper around a given AI model, connected to the engine for reasoning.
+Datos locales de la instancia que describen:
 
-Cortexes:
-* provide completion services
-* are interchangeable without needing to change the engine
-* are replaceable
+* interacciones pasadas
+* observaciones
+* estados de tareas
+* hechos ponderados por confianza
 
----
+La Memoria:
 
-#### Package
-
-A distributable group of modules, adapters, and capability definitions.
-Can be installed into an ANIMA instance to extend functionality in bulk.
-
-Packages:
-
-* bundle related capabilities
-* include adapters for those capabilities
-* are versioned
-* can be shared
+* informa el razonamiento
+* nunca anula la política
+* es falible y consultable
 
 ---
 
-#### Semantic Spine
+#### Capacidad
 
-An explicit data structure for semantic representation of a message expected to be passed to user or received from user. 
+Un **contrato declarativo** que describe *lo que el núcleo puede intentar*.
 
-Semantic Spines are used to ensure consistent and meaningful communication between the engine and users, providing a standardized way to represent the meaning and context of messages.
+Ejemplo:
 
-Semantic Spines:
-* encapsulate intent and context
-* facilitate accurate interpretation
-* are language-agnostic
-* support complex interactions
-* enable better memory encoding
+* `enviar_mensaje`
+* `mover_robot`
+* `iniciar_stream`
 
-### 3️⃣ **System Boundaries**
+Capacidades:
 
-#### What the engine can *never* do
-* Directly perform side effects
-* Modify its own code or Seed
-* Access the internet without explicit capability
-* Share memory between instances
-* Bypass permission checks
-
-#### What must *always* require confirmation
-* Accessing sensitive user data
-* Executing high-risk capabilities (e.g., financial transactions, physical actions)
-* Handling destructive commands (e.g., deleting data, shutting down systems)
-* Replacing data
-* Non-read-only irreversible actions
-
-#### What is delegated to modules
-
-* All external I/O operations
-* API calls
-* Hardware interactions
-* Intaking user commands and information
-* Executing capability commands
+* no contienen lógica
+* no contienen I/O
+* están controladas por permiso
+* están restringidas por la Seed
 
 ---
 
-## ✅ Exit Criteria (Do NOT Advance Without These)
+#### Módulo
 
-**You can explain ANIMA in 2 minutes without mentioning personality**
+Una **implementación con efectos** de una capacidad.
 
-ANIMA is a private AI engine designed to host long-lived, evolving AI identities safely.
+Módulos:
 
-At its core, ANIMA separates thinking, identity, and action.
+* ejecutan acciones en el mundo real
+* hablan con APIs, hardware, plataformas
+* nunca deciden *cuándo* o *por qué*
+* solo ejecutan *lo que se les dice*
 
-The core is the only part that reasons. It takes structured input, consults memory, applies identity constraints from a Seed file, checks permissions, and produces intent—never direct actions.
-
-A Seed is a static identity definition: personality parameters, behavioral boundaries, risk tolerance, and which capabilities are allowed. It doesn’t contain memories or code. Each ANIMA instance grows independently after initialization.
-
-Memory is instance-local and fallible. It stores past interactions, task states, and observations, and informs decisions without overriding policy.
-
-The core can only act through capabilities, which are declarative contracts describing what it is allowed to do, not how. Capabilities are gated by both the Seed and security rules.
-
-When the core produces intent, adapters translate that intent into concrete commands. Adapters are pure and deterministic—they don’t do external I/O or make decisions.
-
-Actual interaction with the world happens only in modules. Modules talk to APIs, hardware, platforms, or streams, and execute commands without reasoning.
-
-Security wraps the system end-to-end: authentication before reasoning, and policy enforcement before execution.
-
-This design allows ANIMA to support private assistants, stream personas, robots, and tools—all using the same engine—while keeping identity isolated, behavior auditable, and actions safe.
+Los módulos son el **único** lugar donde **se detecta la Causa** y **se producen Efectos**.
 
 ---
 
-## ⚠️ Phase 0 Traps 
+#### Adaptador
 
-* Writing code without clear separation of concerns
-* Letting modules decide behavior
-* Letting memory override policy
-* Blurring Seed vs Memory
-* Treating adapters as optional
+Una **capa de traducción pura** entre representaciones.
+
+Adaptadores:
+
+* transforman entrada externa → entrada del núcleo
+* transforman intención del núcleo → comando del módulo
+* no contienen I/O externo
+* contienen solo lógica de traducción
+* son determinísticos
+
+Los adaptadores existen para **proteger el núcleo de la contaminación de formato**.
+
+---
+
+#### Intención (Intent)
+
+Una descripción estructurada de **qué debe suceder**, no cómo.
+
+Producida por el núcleo.  
+Consumida por adaptadores y módulos.  
+Auditable, registrable, reproducible.  
+Contiene qué + cuándo + dónde + cuánto + por qué + qué hacer si algo sale mal. Junto con puntuaciones de confianza.
+
+---
+
+#### Tarea (Task)
+
+Una unidad de trabajo de larga duración que el motor lleva a cabo. Resuelta con una serie de Intenciones.
+
+Tareas:
+
+* persisten a lo largo del tiempo
+* pueden pausar / reanudar
+* pueden invocar capacidades repetidamente
+* son rastreadas en memoria
+
+---
+
+#### Córtex (Cortex)
+
+El envoltorio alrededor de un modelo de IA dado, conectado al motor para razonamiento.
+
+Córtices:
+* proporcionan servicios de conclusión
+* son intercambiables sin necesidad de cambiar el motor
+* son reemplazables
+
+---
+
+#### Paquete (Package)
+
+Un grupo distribuible de módulos, adaptadores y definiciones de capacidad.
+Puede instalarse en una instancia ANIMA para extender la funcionalidad en masa.
+
+Paquetes:
+
+* agrupan capacidades relacionadas
+* incluyen adaptadores para esas capacidades
+* están versionados
+* pueden compartirse
+
+---
+
+#### Columna Semántica (Semantic Spine)
+
+Una estructura de datos explícita para la representación semántica de un mensaje que se espera pasar al usuario o recibir del usuario.
+
+Las Columnas Semánticas se utilizan para garantizar una comunicación consistente y significativa entre el motor y los usuarios, proporcionando una forma estandarizada de representar el significado y contexto de los mensajes.
+
+Columnas Semánticas:
+* encapsulan intención y contexto
+* facilitan interpretación precisa
+* son agnósticas del lenguaje
+* soportan interacciones complejas
+* permiten mejor codificación de memoria
+
+### 3️⃣ **Límites del Sistema**
+
+#### Lo que el motor *nunca* puede hacer
+* Ejecutar efectos secundarios directamente
+* Modificar su propio código o Seed
+* Acceder a internet sin capacidad explícita
+* Compartir memoria entre instancias
+* Omitir verificaciones de permiso
+
+#### Lo que debe *siempre* requerir confirmación
+* Acceder a datos sensibles del usuario
+* Ejecutar capacidades de alto riesgo (ej: transacciones financieras, acciones físicas)
+* Manejar comandos destructivos (ej: eliminar datos, apagar sistemas)
+* Reemplazar datos
+* Acciones irreversibles no de solo lectura
+
+#### Lo que se delega a los módulos
+
+* Todas las operaciones de I/O externo
+* Llamadas a API
+* Interacciones con hardware
+* Recepción de comandos e información del usuario
+* Ejecución de comandos de capacidad
+
+---
+
+## ✅ Criterios de Salida (NO Avanzar Sin Estos)
+
+**Puedes explicar ANIMA en 2 minutos sin mencionar personalidad**
+
+ANIMA es un motor de IA privado diseñado para alojar identidades de IA duraderas y en evolución de manera segura.
+
+En su núcleo, ANIMA separa pensamiento, identidad y acción.
+
+El núcleo es la única parte que razona. Toma entrada estructurada, consulta memoria, aplica restricciones de identidad de un archivo Seed, verifica permisos y produce intención—nunca acciones directas.
+
+Una Seed es una definición de identidad estática: parámetros de personalidad, límites de comportamiento, tolerancia al riesgo y qué capacidades están permitidas. No contiene memorias o código. Cada instancia ANIMA crece independientemente después de la inicialización.
+
+La memoria es local a la instancia y falible. Almacena interacciones pasadas, estados de tareas y observaciones, e informa decisiones sin anular la política.
+
+El núcleo solo puede actuar a través de capacidades, que son contratos declarativos que describen qué puede hacer, no cómo. Las capacidades están controladas tanto por la Seed como por las reglas de seguridad.
+
+Cuando el núcleo produce intención, los adaptadores traducen esa intención en comandos concretos. Los adaptadores son puros y determinísticos—no hacen I/O externo ni toman decisiones.
+
+La interacción real con el mundo ocurre solo en los módulos. Los módulos hablan con APIs, hardware, plataformas o streams, y ejecutan comandos sin razonar.
+
+La seguridad envuelve el sistema de extremo a extremo: autenticación antes del razonamiento y aplicación de política antes de la ejecución.
+
+Este diseño permite que ANIMA soporte asistentes privados, personas de stream, robots y herramientas—todos usando el mismo motor—mientras mantiene la identidad aislada, el comportamiento auditable y las acciones seguras.
+
+---
+
+## ⚠️ Trampas de la Fase 0
+
+* Escribir código sin separación clara de responsabilidades
+* Dejar que los módulos decidan el comportamiento
+* Dejar que la memoria anule la política
+* Confundir Seed con Memoria
+* Tratar los adaptadores como opcionales
 
 

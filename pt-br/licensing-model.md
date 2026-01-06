@@ -1,203 +1,203 @@
 # LICENSING_MODEL.md
 
-## Purpose
+## Propósito
 
-This document explains **how ANIMA is licensed**, what is exchanged, and what is explicitly *not* claimed.
+Este documento explica **como a ANIMA é licenciada**, o que é trocado e o que explicitamente *não* é reivindicado.
 
-The licensing model exists to:
+O modelo de licenciamento existe para:
 
-* enable sustainable development
-* enforce capability boundaries
-* protect user ownership of identity and memory
+* permitir desenvolvimento sustentável
+* fazer cumprir limites de capacidade
+* proteger a propriedade do usuário sobre identidade e memória
 
-It is not designed to control behavior, extract data, or lock users in.
-
----
-
-## What Is Sold
-
-When you acquire an ANIMA license, you are **not buying an AI personality**.
-
-You are granted:
-
-### 1. Execution Rights
-
-The right to run the ANIMA engine under defined conditions.
-
-This includes:
-
-* Access to engine updates
-* Bug fixes and safety improvements
-* Compatibility with supported models
-
-Execution rights are **time-bound or tier-bound**, not perpetual ownership of binaries.
+Não foi projetado para controlar comportamento, extrair dados ou prender usuários.
 
 ---
 
-### 2. Capability Access
+## O Que É Vendido
 
-Licenses may enable:
+Quando você adquire uma licença ANIMA, você **não está comprando uma personalidade de IA**.
 
-* Specific capability modules
-* Higher-risk execution paths
-* Increased task concurrency
-* Expanded adapter support
+Você recebe:
 
-Capabilities are:
+### 1. Direitos de Execução
 
-* Explicit
-* Discoverable
-* Enforced at runtime
+O direito de executar o motor ANIMA sob condições definidas.
 
-A license **never grants unlimited power** — it only lifts predefined restrictions.
+Isso inclui:
 
----
+* Acesso a atualizações do motor
+* Correções de bugs e melhorias de segurança
+* Compatibilidade com modelos suportados
 
-### 3. Seeds
-
-Some licenses include:
-
-* Official identity seeds
-* Curated starting profiles
-* Seed updates and revisions
-
-Seeds are:
-
-* Data, not code
-* Versioned
-* Cryptographically signed
-
-A seed grants a **starting configuration**, not a permanent personality.
+Os direitos de execução são **limitados por tempo ou nível**, não propriedade perpétua de binários.
 
 ---
 
-## What Is Not Sold
+### 2. Acesso a Capacidades
 
-### 1. User Memory
+As licenças podem habilitar:
 
-ANIMA does **not** claim ownership over:
+* Módulos de capacidade específicos
+* Caminhos de execução de maior risco
+* Aumento da concorrência de tarefas
+* Suporte expandido de adaptadores
 
-* Conversation history
-* Instance-local memory
-* Narrative development
-* Preferences or relationships
+As capacidades são:
 
-Memory belongs to the **instance owner**.
+* Explícitas
+* Descobríveis
+* Aplicadas em tempo de execução
 
-Licensing does not grant:
-
-* Memory access
-* Memory reuse
-* Memory aggregation
-* Training rights
+Uma licença **nunca concede poder ilimitado** — apenas levanta restrições predefinidas.
 
 ---
 
-### 2. Identity Ownership
+### 3. Seeds (Sementes)
 
-ANIMA does not assert ownership over:
+Algumas licenças incluem:
 
-* Emergent personality
-* Long-term identity evolution
-* User-created seeds or derivatives
+* Seeds de identidade oficiais
+* Perfis iniciais curados
+* Atualizações e revisões de seeds
 
-What grows inside an instance:
+As Seeds são:
 
-> belongs to that instance’s owner.
+* Dados, não código
+* Versionadas
+* Assinadas criptograficamente
 
----
-
-### 3. User Data
-
-ANIMA does not require:
-
-* Centralized memory storage
-* Cloud-only operation
-* Data submission for licensing validation
+Uma seed concede uma **configuração inicial**, não uma personalidade permanente.
 
 ---
 
-## Offline Behavior
+## O Que Não É Vendido
 
-ANIMA is designed to function **offline**.
+### 1. Memória do Usuário
 
-When offline:
+A ANIMA **não** reivindica propriedade sobre:
 
-* Existing memories remain accessible
-* Previously unlocked capabilities remain available (within policy)
-* No new license verification occurs
+* Histórico de conversas
+* Memória local da instância
+* Desenvolvimento narrativo
+* Preferências ou relacionamentos
 
-If a license expires:
+A memória pertence ao **proprietário da instância**.
 
-* ANIMA does not erase memory
-* ANIMA does not lock the user out
-* ANIMA degrades gracefully (e.g. capability reduction)
+O licenciamento não concede:
 
-There is no “kill switch”.
-
----
-
-## Why This Is Not DRM
-
-Traditional DRM:
-
-* Restricts access to owned content
-* Assumes hostile users
-* Punishes legitimate use
-* Obscures enforcement
-
-ANIMA’s licensing model:
-
-* Controls **execution pathways**, not content
-* Treats users as operators, not adversaries
-* Is transparent and auditable
-* Never holds memory hostage
-
-Licensing gates **what the engine is allowed to do**, not what the user owns.
+* Acesso à memória
+* Reutilização de memória
+* Agregação de memória
+* Direitos de treinamento
 
 ---
 
-## Capability Gating vs Ownership
+### 2. Propriedade de Identidade
 
-A useful distinction:
+A ANIMA não afirma propriedade sobre:
 
-* **Ownership** → memory, identity, instance evolution
-* **Licensing** → execution rights, capability exposure
+* Personalidade emergente
+* Evolução de identidade a longo prazo
+* Seeds criadas pelo usuário ou derivadas
 
-These concerns are deliberately separated.
+O que cresce dentro de uma instância:
 
-ANIMA enforces this separation at the architectural level.
-
----
-
-## Failure Modes
-
-If licensing systems fail:
-
-* Memory remains intact
-* Instances remain readable
-* Safety defaults activate
-* No data is deleted
-
-Loss of license never results in loss of identity.
+> pertence ao proprietário dessa instância.
 
 ---
 
-## Summary
+### 3. Dados do Usuário
 
-ANIMA’s licensing model exists to:
+A ANIMA não requer:
 
-* Sustain development
-* Enforce safety boundaries
-* Enable modular capability access
+* Armazenamento de memória centralizado
+* Operação apenas na nuvem
+* Envio de dados para validação de licenciamento
 
-It does **not** exist to:
+---
 
-* Extract user data
-* Control identity evolution
-* Impose artificial scarcity
-* Replace ownership with permission
+## Comportamento Offline
 
-You do not rent your ANIMA’s memories.
+A ANIMA foi projetada para funcionar **offline**.
 
-You license **how the engine may act**.
+Quando offline:
+
+* Memórias existentes permanecem acessíveis
+* Capacidades previamente desbloqueadas permanecem disponíveis (dentro da política)
+* Nenhuma nova verificação de licença ocorre
+
+Se uma licença expirar:
+
+* A ANIMA não apaga a memória
+* A ANIMA não bloqueia o usuário
+* A ANIMA degrada graciosamente (ex: redução de capacidade)
+
+Não há "botão de desativação".
+
+---
+
+## Por Que Isso Não É DRM
+
+DRM tradicional:
+
+* Restringe acesso a conteúdo possuído
+* Assume usuários hostis
+* Pune uso legítimo
+* Obscurece a aplicação
+
+O modelo de licenciamento da ANIMA:
+
+* Controla **caminhos de execução**, não conteúdo
+* Trata usuários como operadores, não adversários
+* É transparente e auditável
+* Nunca mantém memória como refém
+
+O licenciamento controla **o que o motor pode fazer**, não o que o usuário possui.
+
+---
+
+## Controle de Capacidade vs Propriedade
+
+Uma distinção útil:
+
+* **Propriedade** → memória, identidade, evolução da instância
+* **Licenciamento** → direitos de execução, exposição de capacidade
+
+Essas preocupações são deliberadamente separadas.
+
+A ANIMA aplica essa separação no nível arquitetural.
+
+---
+
+## Modos de Falha
+
+Se os sistemas de licenciamento falharem:
+
+* A memória permanece intacta
+* As instâncias permanecem legíveis
+* Os padrões de segurança são ativados
+* Nenhum dado é excluído
+
+A perda de licença nunca resulta em perda de identidade.
+
+---
+
+## Resumo
+
+O modelo de licenciamento da ANIMA existe para:
+
+* Sustentar o desenvolvimento
+* Aplicar limites de segurança
+* Permitir acesso modular a capacidades
+
+**Não** existe para:
+
+* Extrair dados do usuário
+* Controlar a evolução da identidade
+* Impor escassez artificial
+* Substituir propriedade por permissão
+
+Você não aluga as memórias da sua ANIMA.
+
+Você licencia **como o motor pode agir**.

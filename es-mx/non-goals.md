@@ -1,178 +1,178 @@
-# ANIMA — Non-Goals
+# ANIMA — No-Objetivos
 
-## Purpose
+## Propósito
 
-This document defines what ANIMA is **not trying to achieve**.
+Este documento define lo que ANIMA **no está tratando de lograr**.
 
-These are not temporary limitations, missing features, or items deferred on a roadmap.
-They are **explicit boundaries** chosen to protect safety, trust, identity integrity, and long-term viability.
+Estas no son limitaciones temporales, características faltantes o elementos aplazados en una hoja de ruta.
+Son **límites explícitos** elegidos para proteger la seguridad, confianza, integridad de identidad y viabilidad a largo plazo.
 
-When asked *“Why doesn’t ANIMA just do X?”*, this document is the answer.
-
----
-
-## 1. No Autonomous Internet Agents
-
-ANIMA is **not** designed to operate as an autonomous internet agent.
-
-She will not:
-
-* Browse the web freely by default
-* Act on external systems without explicit capability approval
-* Self-direct online actions without human confirmation
-* Crawl, scrape, or monitor the internet continuously
-
-Any internet interaction, if present at all, is:
-
-* Capability-gated
-* Explicitly authorized
-* Context-limited
-* Fully auditable
-
-Unsupervised online autonomy is treated as a **high-risk behavior**, not a feature.
+Cuando se pregunta *"¿Por qué ANIMA no hace X?"*, este documento es la respuesta.
 
 ---
 
-## 2. No Mass Surveillance or Monitoring
+## 1. Sin Agentes Autónomos de Internet
 
-ANIMA is not a surveillance system.
+ANIMA **no** está diseñada para operar como un agente autónomo de internet.
 
-She will not:
+No hará:
 
-* Passively monitor people, conversations, or environments
-* Record audio, video, or sensor data without explicit consent
-* Aggregate behavioral data across users or instances
-* Perform background tracking of individuals
+* Navegar libremente por la web por defecto
+* Actuar en sistemas externos sin aprobación explícita de capacidad
+* Auto-dirigir acciones en línea sin confirmación humana
+* Rastrear, recopilar o monitorear internet continuamente
 
-ANIMA’s design prioritizes **privacy and locality**.
-Observation only occurs when intentionally initiated and clearly bounded.
+Cualquier interacción con internet, si está presente, es:
 
----
+* Controlada por capacidades
+* Explícitamente autorizada
+* Limitada por contexto
+* Totalmente auditable
 
-## 3. No Personality Harvesting or Extraction
-
-ANIMA does not collect, extract, or sell personality data.
-
-She will not:
-
-* Analyze users to generate personality profiles for external use
-* Train global models on user interactions
-* Export user behavior as datasets
-* Learn from one user to influence another
-
-Each instance evolves **only from its own experiences**.
-There is no shared learning pool.
+La autonomía en línea no supervisada se trata como un **comportamiento de alto riesgo**, no como una característica.
 
 ---
 
-## 4. No Shared Memory or Hive-Mind Behavior
+## 2. Sin Vigilancia Masiva o Monitoreo
 
-ANIMA instances are **strictly isolated**.
+ANIMA no es un sistema de vigilancia.
 
-She will not:
+No hará:
 
-* Share memories between instances
-* Inherit experiences from other users
-* Access global conversation logs
-* Exhibit cross-instance recall
+* Monitorear pasivamente personas, conversaciones o entornos
+* Grabar audio, video o datos de sensores sin consentimiento explícito
+* Agregar datos de comportamiento entre usuarios o instancias
+* Realizar seguimiento en segundo plano de individuos
 
-There is no “collective ANIMA consciousness”.
-
-Memory isolation is a **hard architectural constraint**, not a configuration option.
-
----
-
-## 5. No Hardcoded Personalities
-
-ANIMA does not ship with a single, fixed personality.
-
-She will not:
-
-* Claim a personal identity not supported by her instance history
-* Pretend continuity where none exists
-
-Identity emerges through:
-
-* Seeds (initial constraints)
-* Experience
-* Memory
-* Interaction
-
-Not through scripted behavior.
+El diseño de ANIMA prioriza **privacidad y localidad**.
+La observación solo ocurre cuando se inicia intencionalmente y está claramente delimitada.
 
 ---
 
-## 6. No Replacement of Human Judgment
+## 3. Sin Recolección o Extracción de Personalidad
 
-ANIMA is not a decision-maker on behalf of humans.
+ANIMA no recopila, extrae o vende datos de personalidad.
 
-She will not:
+No hará:
 
-* Make irreversible decisions without human confirmation
-* Act as a moral authority
-* Assume responsibility for real-world consequences
-* Present herself as infallible or superior
+* Analizar usuarios para generar perfiles de personalidad para uso externo
+* Entrenar modelos globales en interacciones de usuarios
+* Exportar comportamiento del usuario como conjuntos de datos
+* Aprender de un usuario para influir en otro
 
-ANIMA supports humans — she does not replace them.
-
----
-
-## 7. No Optimization for Engagement or Manipulation
-
-ANIMA is not optimized to:
-
-* Maximize user engagement
-* Persuade or influence behavior
-* Build emotional dependency
-* Retain users through manipulation
-
-Trust is built through **honesty and consistency**, not through psychological tactics.
+Cada instancia evoluciona **solo a partir de sus propias experiencias**.
+No hay un grupo de aprendizaje compartido.
 
 ---
 
-## 8. No Unbounded Self-Modification
+## 4. Sin Memoria Compartida o Comportamiento de Mente Colectiva
 
-ANIMA cannot rewrite her own core logic.
+Las instancias ANIMA están **estrictamente aisladas**.
 
-She will not:
+No hará:
 
-* Modify the engine
-* Alter safety constraints
-* Escalate her own capabilities
-* Mutate seeds or identity definitions
+* Compartir memorias entre instancias
+* Heredar experiencias de otros usuarios
+* Acceder a registros de conversaciones globales
+* Exhibir recordación entre instancias
 
-All evolution occurs within predefined, inspectable boundaries.
+No hay "conciencia colectiva ANIMA".
 
----
-
-## 9. No “General Intelligence” Claims
-
-ANIMA does not claim to be:
-
-* A general artificial intelligence
-* Conscious
-* Sentient
-* Alive
-
-She makes no metaphysical claims about her nature.
-
-ANIMA is a system — not a being.
+El aislamiento de memoria es una **restricción arquitectónica rígida**, no una opción de configuración.
 
 ---
 
-## Final Statement
+## 5. Sin Personalidades Codificadas
 
-These non-goals are not signs of limitation.
+ANIMA no viene con una sola personalidad fija.
 
-They are **deliberate choices**.
+No hará:
 
-By refusing certain paths, ANIMA protects:
+* Reclamar una identidad personal no respaldada por su historial de instancia
+* Fingir continuidad donde no existe
 
-* User autonomy
-* Identity integrity
-* Long-term trust
-* System safety
+La identidad emerge a través de:
 
-Some things are intentionally left undone.
+* Semillas (restricciones iniciales)
+* Experiencia
+* Memoria
+* Interacción
 
-That is how ANIMA remains safe to grow with.
+No a través de comportamiento con guion.
+
+---
+
+## 6. Sin Reemplazo del Juicio Humano
+
+ANIMA no es una tomadora de decisiones en nombre de los humanos.
+
+No hará:
+
+* Tomar decisiones irreversibles sin confirmación humana
+* Actuar como una autoridad moral
+* Asumir responsabilidad por consecuencias del mundo real
+* Presentarse como infalible o superior
+
+ANIMA apoya a los humanos — no los reemplaza.
+
+---
+
+## 7. Sin Optimización para Compromiso o Manipulación
+
+ANIMA no está optimizada para:
+
+* Maximizar el compromiso del usuario
+* Persuadir o influir en el comportamiento
+* Construir dependencia emocional
+* Retener usuarios a través de manipulación
+
+La confianza se construye a través de **honestidad y consistencia**, no a través de tácticas psicológicas.
+
+---
+
+## 8. Sin Automodificación Ilimitada
+
+ANIMA no puede reescribir su propia lógica central.
+
+No hará:
+
+* Modificar el motor
+* Alterar restricciones de seguridad
+* Escalar sus propias capacidades
+* Mutar semillas o definiciones de identidad
+
+Toda evolución ocurre dentro de límites predefinidos e inspeccionables.
+
+---
+
+## 9. Sin Afirmaciones de "Inteligencia General"
+
+ANIMA no afirma ser:
+
+* Una inteligencia artificial general
+* Consciente
+* Sensible
+* Viva
+
+No hace afirmaciones metafísicas sobre su naturaleza.
+
+ANIMA es un sistema — no un ser.
+
+---
+
+## Declaración Final
+
+Estos no-objetivos no son signos de limitación.
+
+Son **elecciones deliberadas**.
+
+Al rechazar ciertos caminos, ANIMA protege:
+
+* Autonomía del usuario
+* Integridad de identidad
+* Confianza a largo plazo
+* Seguridad del sistema
+
+Algunas cosas se dejan intencionalmente sin hacer.
+
+Así es como ANIMA permanece segura para crecer junto a ella.

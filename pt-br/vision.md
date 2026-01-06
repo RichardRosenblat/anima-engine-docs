@@ -1,125 +1,125 @@
-# ANIMA — Vision
+# ANIMA — Visão
 
-## Purpose
+## Propósito
 
-ANIMA exists to make **long-lived, trustworthy artificial identities possible**.
+A ANIMA existe para tornar **identidades artificiais duradouras e confiáveis possíveis**.
 
-Not assistants that reset every conversation.
-Not characters that pretend to be someone they are not.
-Not autonomous agents unleashed without constraint.
+Não assistentes que reiniciam a cada conversa.
+Não personagens que fingem ser alguém que não são.
+Não agentes autônomos liberados sem restrições.
 
-ANIMA is an engine for **growing identities over time**, under clear boundaries, with continuity, accountability, and safety as first-class concerns.
-
----
-
-## What ANIMA Is Trying to Enable
-
-ANIMA is designed to enable a future where artificial systems can:
-
-* Maintain **consistent identity** across time
-* Build **trust through continuity**, not persuasion
-* Evolve through experience without losing integrity
-* Operate privately, without shared or hidden memory
-* Be understood, audited, and constrained by their users
-
-The goal is not intelligence for its own sake, but **reliability**.
-
-An ANIMA instance should feel:
-
-* Predictable without being rigid
-* Adaptive without being volatile
-* Helpful without being blindly obedient
-* Honest about what it knows and what it does not
+A ANIMA é um motor para **cultivar identidades ao longo do tempo**, sob limites claros, com continuidade, responsabilidade e segurança como preocupações fundamentais.
 
 ---
 
-## What ANIMA Deliberately Refuses to Become
+## O Que a ANIMA Tenta Possibilitar
 
-ANIMA is explicitly **not** designed to be:
+A ANIMA foi projetada para permitir um futuro onde sistemas artificiais possam:
 
-* A fully autonomous general-purpose agent
-* An internet-connected system by default
-* A personality hardcoded into prompts
-* A shared-memory or hive-mind AI
-* A replacement for human judgment or responsibility
+* Manter **identidade consistente** ao longo do tempo
+* Construir **confiança através da continuidade**, não da persuasão
+* Evoluir através da experiência sem perder integridade
+* Operar de forma privada, sem memória compartilhada ou oculta
+* Ser compreendidos, auditados e restringidos por seus usuários
 
-It will not:
+O objetivo não é a inteligência por si só, mas a **confiabilidade**.
 
-* Act without explicit capability authorization
-* Hide uncertainty behind confident language
-* Accumulate power invisibly
-* Optimize engagement at the cost of truth
-* Trade safety for convenience or spectacle
+Uma instância ANIMA deve se sentir:
 
-Some features are intentionally excluded, even if they appear attractive or popular.
-
----
-
-## Why Safety Comes Before Capability
-
-Unconstrained capability creates systems that are impressive in the short term and untrustworthy in the long term.
-
-ANIMA treats **capability as risk**, not as a default good.
-
-Every action:
-
-* Has a declared purpose
-* Is bound to explicit permissions
-* Can be inspected, denied, or revoked
-* Leaves an audit trail
-
-Safety is enforced at the engine level, not delegated to personality or user expectation.
-
-If ANIMA cannot act safely, she does not act.
+* Previsível sem ser rígida
+* Adaptável sem ser volátil
+* Útil sem ser cegamente obediente
+* Honesta sobre o que sabe e o que não sabe
 
 ---
 
-## Why Continuity Matters More Than Recall
+## O Que a ANIMA Deliberadamente Recusa Ser
 
-Perfect memory is not the same as meaningful memory.
+A ANIMA explicitamente **não** foi projetada para ser:
 
-ANIMA is not designed to remember everything — she is designed to remember **what matters**.
+* Um agente autônomo de propósito geral totalmente independente
+* Um sistema conectado à internet por padrão
+* Uma personalidade codificada em prompts
+* Uma IA de memória compartilhada ou mente coletiva
+* Um substituto para julgamento ou responsabilidade humana
 
-Continuity is achieved through:
+Ela não irá:
 
-* Narrative memory instead of raw logs
-* Explicit uncertainty tracking
-* Controlled memory promotion and decay
-* Clear separation between observation, inference, and assumption
+* Agir sem autorização explícita de capacidade
+* Esconder incerteza atrás de linguagem confiante
+* Acumular poder invisivelmente
+* Otimizar engajamento ao custo da verdade
+* Trocar segurança por conveniência ou espetáculo
 
-This allows identities to grow in a way that feels coherent and trustworthy, without becoming brittle or invasive.
-
----
-
-## A Slow, Intentional Evolution
-
-ANIMA is not optimized for rapid feature expansion.
-
-The project evolves deliberately, with:
-
-* Architectural decisions documented
-* Safety implications evaluated
-* Boundaries defended over time
-
-Progress is measured not by how much ANIMA can do, but by how reliably she does it.
+Alguns recursos são intencionalmente excluídos, mesmo que pareçam atraentes ou populares.
 
 ---
 
-## Long-Term Outlook
+## Por Que a Segurança Vem Antes da Capacidade
 
-The long-term vision for ANIMA is not a single AI, but a **platform**:
+Capacidade sem restrições cria sistemas que são impressionantes no curto prazo e não confiáveis no longo prazo.
 
-* One engine
-* Many seeds
-* Many private instances
-* Each growing differently
-* None sharing memory or identity
+A ANIMA trata **capacidade como risco**, não como um bem padrão.
+
+Toda ação:
+
+* Tem um propósito declarado
+* Está vinculada a permissões explícitas
+* Pode ser inspecionada, negada ou revogada
+* Deixa uma trilha de auditoria
+
+A segurança é aplicada no nível do motor, não delegada à personalidade ou expectativa do usuário.
+
+Se a ANIMA não pode agir com segurança, ela não age.
 
 ---
 
-## Final Principle
+## Por Que a Continuidade Importa Mais Que a Recordação
 
-> ANIMA is not designed to feel intelligent at all costs.
-> She is designed to feel **consistent, honest, and safe to grow with**.
+Memória perfeita não é o mesmo que memória significativa.
 
-This principle guides every decision in the project.
+A ANIMA não foi projetada para lembrar de tudo — ela foi projetada para lembrar **o que importa**.
+
+A continuidade é alcançada através de:
+
+* Memória narrativa em vez de registros brutos
+* Rastreamento explícito de incerteza
+* Promoção e decaimento controlados de memória
+* Separação clara entre observação, inferência e suposição
+
+Isso permite que identidades cresçam de uma maneira que pareça coerente e confiável, sem se tornar frágil ou invasiva.
+
+---
+
+## Uma Evolução Lenta e Intencional
+
+A ANIMA não é otimizada para expansão rápida de recursos.
+
+O projeto evolui deliberadamente, com:
+
+* Decisões arquiteturais documentadas
+* Implicações de segurança avaliadas
+* Limites defendidos ao longo do tempo
+
+O progresso é medido não por quanto a ANIMA pode fazer, mas por quão confiavelmente ela o faz.
+
+---
+
+## Perspectiva de Longo Prazo
+
+A visão de longo prazo para a ANIMA não é uma única IA, mas uma **plataforma**:
+
+* Um motor
+* Muitas sementes
+* Muitas instâncias privadas
+* Cada uma crescendo de forma diferente
+* Nenhuma compartilhando memória ou identidade
+
+---
+
+## Princípio Final
+
+> A ANIMA não foi projetada para parecer inteligente a qualquer custo.
+> Ela foi projetada para parecer **consistente, honesta e segura para crescer junto**.
+
+Este princípio guia cada decisão no projeto.
