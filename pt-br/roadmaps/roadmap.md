@@ -1,340 +1,339 @@
-# ANIMA — Development Roadmap
+# ANIMA — Roteiro de Desenvolvimento
 
-**Version:** 1.0
-**Scope:** Engine, Seed System, Instances, Productization
-**Guiding Principle:** *Engine ≠ Identity ≠ Memory*
-**Current Phase:** Phase 1 — Core Engine Skeleton (Identity-Free)
+**Versão:** 1.0
+**Escopo:** Motor, Sistema de Seed, Instâncias, Produtização
+**Princípio Orientador:** *Motor ≠ Identidade ≠ Memória*
+**Fase Atual:** Fase 1 — Esqueleto do Motor Central (Livre de Identidade)
 
 ---
 
-## Phase 0 — Foundations (Do Not Skip)
+## Fase 0 — Fundamentos (Não Pule)
 
-### 🎯 Goal
+### 🎯 Objetivo
 
-Define what ANIMA *is* and *is not*.
+Definir o que a ANIMA *é* e *não é*.
 
-### 🧱 Build
+### 🧱 Construir
 
-1. **Project Charter**
+1. **Carta do Projeto**
 
-   * Core purpose (private, evolving AI engine)
-   * Non-goals (no uncontrolled autonomy, no internet by default)
-   * Core values (truth over confidence, safety over capability)
+   * Propósito central (motor de IA privado e evolutivo)
+   * Não-objetivos (sem autonomia descontrolada, sem internet por padrão)
+   * Valores centrais (verdade sobre confiança, segurança sobre capacidade)
 
-2. **Glossary**
+2. **Glossário**
 
-   * Engine
+   * Motor
    * Seed
-   * Instance
-   * Memory
-   * Capability
-   * Adapter
+   * Instância
+   * Memória
+   * Capacidade
+   * Adaptador
 
-3. **System Boundaries**
+3. **Limites do Sistema**
 
-   * What the engine can *never* do
-   * What must *always* require confirmation
-   * What is delegated to modules
+   * O que o motor *nunca* pode fazer
+   * O que deve *sempre* exigir confirmação
+   * O que é delegado aos módulos
 
-### ✅ Exit Criteria
+### ✅ Critérios de Saída
 
-* You can explain ANIMA in 2 minutes **without mentioning personality**
-* You can diagram Engine / Seed / Instance on a whiteboard
-
----
-
-## Phase 1 — Core Engine Skeleton (Identity-Free)
-
-### 🎯 Goal
-
-Create a personality-agnostic reasoning OS.
-
-### 🧠 Build
-
-* Core reasoning loop
-* Intent → Plan → Action pipeline
-* Capability registry (empty at first)
-* Adapter interface (input/output abstraction)
-* Task abstraction (but not persistence yet)
-
-### 🚫 Explicitly Avoid
-
-* Opinions
-* Tone
-* Personality
-* “I feel” language
-
-### ✅ Exit Criteria
-
-* Engine can receive input and choose actions
-* No hardcoded behavior beyond safety rules
-* Engine works identically regardless of context
+* Você pode explicar a ANIMA em 2 minutos **sem mencionar personalidade**
+* Você pode diagramar Motor / Seed / Instância em um quadro branco
 
 ---
 
-## Phase 2 — Seed System 
+## Fase 1 — Esqueleto do Motor Central (Livre de Identidade)
 
+### 🎯 Objetivo
 
-### 🎯 Goal
+Criar um SO de raciocínio agnóstico à personalidade.
 
-Make identity a *boot-time concern*, not a runtime mutation.
+### 🧠 Construir
 
-### 🧬 Build
+* Loop de raciocínio central
+* Pipeline Intenção → Plano → Ação
+* Registro de capacidades (vazio no início)
+* Interface de adaptador (abstração de entrada/saída)
+* Abstração de tarefa (mas ainda sem persistência)
 
-1. **Seed Schema (v1.0)**
+### 🚫 Evitar Explicitamente
 
-   * Personality parameters
-   * Behavioral constraints
-   * Capability policy
-   * Initial narrative framing
+* Opiniões
+* Tom
+* Personalidade
+* Linguagem "Eu sinto"
 
-2. **Seed Validation**
+### ✅ Critérios de Saída
 
-   * Schema validation
-   * Signature verification
-   * Version compatibility
-
-3. **Engine ↔ Seed Contract**
-
-   * Engine reads seed
-   * Engine never mutates seed
-   * Engine enforces seed-defined constraints
-
-### 🔐 Security
-
-* Seeds are read-only after initialization
-* Tampered seeds fail hard
-
-### ✅ Exit Criteria
-
-* Engine runs with different seeds **without code changes**
-* Same input + same memory + different seed → different behavior
-* Seed is never consulted as “memory”
+* Motor pode receber entrada e escolher ações
+* Sem comportamento codificado além das regras de segurança
+* Motor funciona identicamente independentemente do contexto
 
 ---
 
-## Phase 3 — Instance & Memory Architecture
+## Fase 2 — Sistema de Seed
 
-### 🎯 Goal
+### 🎯 Objetivo
 
-Allow ANIMA to *grow* without identity drift.
+Tornar a identidade uma *preocupação de inicialização*, não uma mutação em tempo de execução.
 
-### 🧠 Build
+### 🧬 Construir
 
-1. **Instance Lifecycle**
+1. **Esquema de Seed (v1.0)**
 
-   * Create instance from engine + seed
-   * Initialize empty memory
-   * Bind adapters
+   * Parâmetros de personalidade
+   * Restrições comportamentais
+   * Política de capacidades
+   * Enquadramento narrativo inicial
 
-2. **Memory Layers**
+2. **Validação de Seed**
 
-   * working memory (ephemeral)
-   * episodic memory (short-term)
-   * semantic memory (long-term facts)
-   * narrative memory (identity continuity)
+   * Validação de esquema
+   * Verificação de assinatura
+   * Compatibilidade de versão
 
-3. **Memory Write Rules**
+3. **Contrato Motor ↔ Seed**
 
-   * What can be stored
-   * Who can trigger writes
-   * Confirmation for sensitive memory
+   * Motor lê seed
+   * Motor nunca muta seed
+   * Motor aplica restrições definidas pela seed
 
-### 💡 Important
+### 🔐 Segurança
 
-* Memory belongs to the *instance*, not the seed
-* No cross-instance reads. Ever.
+* Seeds são somente leitura após inicialização
+* Seeds adulteradas falham completamente
 
-### ✅ Exit Criteria
+### ✅ Critérios de Saída
 
-* Restarting an instance preserves identity continuity
-* Two instances with same seed feel different after working memory diverges
-
----
-
-## Phase 4 — Capability System & Gating
-
-### 🎯 Goal
-
-Make power explicit, auditable, and controllable.
-
-### 🧩 Build
-
-1. **Capability Interface**
-
-   Working examples:
-   * Name
-   * Risk level
-   * Required permissions
-   * License requirements
-
-2. **Execution Pipeline**
-   * Capability lookup
-   * Permission checks
-   * Execution sandboxing
-   * Logging & auditing
-
-
-3. **Danger Classification**  
-
-   Examples:
-   * Safe
-   * Sensitive
-   * Dangerous
-
-### 🔒 Examples
-
-* Robot control = dangerous
-* File access = sensitive
-* Chat = safe
-
-### ✅ Exit Criteria
-
-* Engine cannot execute actions without passing the gate
-* Capabilities can be added/removed without touching core logic
+* Motor executa com diferentes seeds **sem mudanças de código**
+* Mesma entrada + mesma memória + seed diferente → comportamento diferente
+* Seed nunca é consultada como "memória"
 
 ---
 
-## Phase 5 — Task System (Long-Lived Consciousness)
+## Fase 3 — Arquitetura de Instância e Memória
 
-### 🎯 Goal
+### 🎯 Objetivo
 
-Allow persistent, inspectable activities.
+Permitir que a ANIMA *cresça* sem deriva de identidade.
 
-### 🕰️ Build
+### 🧠 Construir
 
-* Persistent tasks
-* Task pause/resume
-* Task ownership & permissions
-* Safe shutdown & recovery
+1. **Ciclo de Vida da Instância**
 
-### 🧠 Examples
+   * Criar instância a partir de motor + seed
+   * Inicializar memória vazia
+   * Vincular adaptadores
 
-* Streaming loop
-* Monitoring chat
-* Long-term research task
+2. **Camadas de Memória**
 
-### ✅ Exit Criteria
+   * memória de trabalho (efêmera)
+   * memória episódica (curto prazo)
+   * memória semântica (fatos de longo prazo)
+   * memória narrativa (continuidade de identidade)
 
-* Tasks survive restarts
-* Tasks respect capability gating
-* Tasks can be inspected and canceled
+3. **Regras de Escrita de Memória**
 
----
+   * O que pode ser armazenado
+   * Quem pode acionar escritas
+   * Confirmação para memória sensível
 
-## Phase 6 — Adapter Ecosystem
+### 💡 Importante
 
-### 🎯 Goal
+* Memória pertence à *instância*, não à seed
+* Sem leituras entre instâncias. Nunca.
 
-Adapters abstract input/output without leaking logic.
+### ✅ Critérios de Saída
 
-### 🔌 Build
-
-* Text adapter
-* Voice adapter
-* Discord adapter
-* (Later) Streaming adapter (OBS / VTuber)
-* (Later) Robot adapter
-
-### 🔑 Rules
-
-* Adapters never contain logic
-* Adapters never bypass permissions
-* Adapters are swappable
-
-### ✅ Exit Criteria
-
-* Same instance works across multiple adapters
-* No adapter-specific behavior leaks into the engine
+* Reiniciar uma instância preserva continuidade de identidade
+* Duas instâncias com mesma seed se sentem diferentes após a memória de trabalho divergir
 
 ---
 
-## Phase 7 — Streaming / Prime Instance
+## Fase 4 — Sistema de Capacidades e Controle
 
-### 🎯 Goal
+### 🎯 Objetivo
 
-Create a special ANIMA incarnation for streaming.
+Tornar o poder explícito, auditável e controlável.
 
-### 🌟 Build
+### 🧩 Construir
 
-* Prime Seed (signed, restricted)
-* Streaming adapter
-* Public-safe capability set
-* Strong moderation policies
+1. **Interface de Capacidade**
 
-### 🚫 Explicit Rule
+   Exemplos práticos:
+   * Nome
+   * Nível de risco
+   * Permissões necessárias
+   * Requisitos de licença
 
-No special-case code.
-If streaming needs it, *everyone* gets the abstraction.
+2. **Pipeline de Execução**
+   * Busca de capacidade
+   * Verificações de permissão
+   * Sandboxing de execução
+   * Registro e auditoria
 
-### ✅ Exit Criteria
+3. **Classificação de Perigo**
 
-* Streaming ANIMA uses same engine
-* Prime Seed cannot be used outside authenticated context
----
+   Exemplos:
+   * Seguro
+   * Sensível
+   * Perigoso
 
-## Phase 8 — Licensing & Productization
+### 🔒 Exemplos
 
-### 🎯 Goal
+* Controle de robô = perigoso
+* Acesso a arquivos = sensível
+* Chat = seguro
 
-Make ANIMA sustainable.
+### ✅ Critérios de Saída
 
-### 💳 Build
-
-* License verification service
-* Offline grace periods
-* Capability-tier mapping
-* Seed marketplace support
-
-### 🧠 Sell
-
-* Engine access
-* Capability unlocks
-* Curated seeds
-* Updates & support
-
-### ✅ Exit Criteria
-
-* Unlicensed engine still works (limited)
-* Licensing only gates *power*, not identity
+* Motor não pode executar ações sem passar pelo portão
+* Capacidades podem ser adicionadas/removidas sem tocar na lógica central
 
 ---
 
-## Phase 9 — Cost Control & Optimization
+## Fase 5 — Sistema de Tarefas (Consciência de Longa Duração)
 
-### 🎯 Goal
+### 🎯 Objetivo
 
-Keep ANIMA affordable to run.
+Permitir atividades persistentes e inspecionáveis.
 
-### 💸 Build
+### 🕰️ Construir
 
-* Token budgeting
-* Memory summarization + embeddings (with raw fallback)
-* Task throttling
-* Instance sleep / wake
+* Tarefas persistentes
+* Pausa/retomada de tarefas
+* Propriedade e permissões de tarefas
+* Desligamento seguro e recuperação
 
-### ✅ Exit Criteria
+### 🧠 Exemplos
 
-* Predictable monthly cost
-* No runaway memory growth
-* User-visible cost transparency
+* Loop de streaming
+* Monitoramento de chat
+* Tarefa de pesquisa de longo prazo
+
+### ✅ Critérios de Saída
+
+* Tarefas sobrevivem a reinicializações
+* Tarefas respeitam controle de capacidades
+* Tarefas podem ser inspecionadas e canceladas
 
 ---
 
-## Phase 10 — Refinement & Evolution
+## Fase 6 — Ecossistema de Adaptadores
 
-### 🎯 Goal
+### 🎯 Objetivo
 
-Let ANIMA grow safely.
+Adaptadores abstraem entrada/saída sem vazar lógica.
 
-### 🌱 Build
+### 🔌 Construir
 
-* Seed version upgrades
-* Memory reflection tools
-* Introspection reports
-* Controlled evolution paths
+* Adaptador de texto
+* Adaptador de voz
+* Adaptador Discord
+* (Depois) Adaptador de streaming (OBS / VTuber)
+* (Depois) Adaptador de robô
 
-### ✅ Exit Criteria
+### 🔑 Regras
 
-* Users understand *why* ANIMA behaves as she does
-* Changes feel organic, not random
+* Adaptadores nunca contêm lógica
+* Adaptadores nunca ignoram permissões
+* Adaptadores são substituíveis
+
+### ✅ Critérios de Saída
+
+* Mesma instância funciona em múltiplos adaptadores
+* Nenhum comportamento específico de adaptador vaza para o motor
+
+---
+
+## Fase 7 — Streaming / Instância Prime
+
+### 🎯 Objetivo
+
+Criar uma encarnação especial de ANIMA para streaming.
+
+### 🌟 Construir
+
+* Seed Prime (assinada, restrita)
+* Adaptador de streaming
+* Conjunto de capacidades seguro para público
+* Políticas de moderação fortes
+
+### 🚫 Regra Explícita
+
+Sem código de caso especial.
+Se streaming precisar, *todos* recebem a abstração.
+
+### ✅ Critérios de Saída
+
+* ANIMA de streaming usa o mesmo motor
+* Seed Prime não pode ser usada fora do contexto autenticado
+
+---
+
+## Fase 8 — Licenciamento e Produtização
+
+### 🎯 Objetivo
+
+Tornar a ANIMA sustentável.
+
+### 💳 Construir
+
+* Serviço de verificação de licença
+* Períodos de graça offline
+* Mapeamento de nível de capacidade
+* Suporte a mercado de seeds
+
+### 🧠 Vender
+
+* Acesso ao motor
+* Desbloqueios de capacidade
+* Seeds curadas
+* Atualizações e suporte
+
+### ✅ Critérios de Saída
+
+* Motor não licenciado ainda funciona (limitado)
+* Licenciamento apenas controla *poder*, não identidade
+
+---
+
+## Fase 9 — Controle de Custos e Otimização
+
+### 🎯 Objetivo
+
+Manter a ANIMA acessível para executar.
+
+### 💸 Construir
+
+* Orçamento de tokens
+* Resumo de memória + embeddings (com fallback bruto)
+* Limitação de tarefas
+* Suspensão / ativação de instância
+
+### ✅ Critérios de Saída
+
+* Custo mensal previsível
+* Sem crescimento descontrolado de memória
+* Transparência de custos visível ao usuário
+
+---
+
+## Fase 10 — Refinamento e Evolução
+
+### 🎯 Objetivo
+
+Deixar a ANIMA crescer com segurança.
+
+### 🌱 Construir
+
+* Atualizações de versão de seed
+* Ferramentas de reflexão de memória
+* Relatórios de introspecção
+* Caminhos de evolução controlados
+
+### ✅ Critérios de Saída
+
+* Usuários entendem *por que* a ANIMA se comporta como ela faz
+* Mudanças parecem orgânicas, não aleatórias

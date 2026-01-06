@@ -1,278 +1,251 @@
-# ANIMA URN Specification
+# Especificación URN ANIMA
 
-**Authority:** ANIMA  
-**Version:** 0.1.0
-
----
-
-## 1. Purpose
-
-This document defines the canonical structure, semantics, and rules for
-**ANIMA Uniform Resource Names (URNs)**.
-
-ANIMA URNs provide:
-- Globally unique identifiers
-- Stable, immutable identity
-- Explicit semantic authority
-- Long-lived references independent of location or implementation
-
-This specification is **normative**.  
-All implementations MUST conform to the rules defined here.
+**Autoridad:** ANIMA  
+**Versión:** 0.1.0
 
 ---
 
-## 2. Design Principles
+## 1. Propósito
 
-ANIMA URNs are designed according to the following principles:
+Este documento define la estructura canónica, semántica y reglas para
+**Nombres de Recursos Uniformes (URNs) ANIMA**.
 
-1. **Immutability**  
-   Once issued, a URN MUST NEVER change meaning.
+Las URNs ANIMA proporcionan:
+- Identificadores globalmente únicos
+- Identidad estable e inmutable
+- Autoridad semántica explícita
+- Referencias de larga duración independientes de ubicación o implementación
 
-2. **Authority-Centric Identity**  
-   Meaning is governed by the set of rules, specifications, and trust assumptions that define how an ANIMA URN is interpreted, the aforementioned ANIMA authority, not by tools or code.
-
-3. **Explicit Semantics**  
-   All semantic interpretation MUST be derivable from the URN structure and associated specifications.
-
-4. **Versioned Contracts**
-    Each URN defines a version of the identity it represents. Version changes imply distinct identity semantics.
-
-5. **Opaque Identifiers**
-    The final identifier segment MUST NOT encode semantics. It serves solely as a unique reference.
-
-6. **Central Specification**
-    This document is the single source of truth for ANIMA URN structure and semantics. Generator implementations are secondary.
-
+Esta especificación es **normativa**.  
+Todas las implementaciones DEBEN cumplir con las reglas definidas aquí.
 
 ---
 
-## 3. Canonical Format
+## 2. Principios de Diseño
 
-The canonical ANIMA URN format is:
+Las URNs ANIMA están diseñadas de acuerdo con los siguientes principios:
+
+1. **Inmutabilidad**  
+   Una vez emitida, una URN NUNCA DEBE cambiar de significado.
+
+2. **Identidad Centrada en la Autoridad**  
+   El significado está gobernado por el conjunto de reglas, especificaciones y suposiciones de confianza que definen cómo se interpreta una URN ANIMA, la autoridad ANIMA mencionada anteriormente, no por herramientas o código.
+
+3. **Semántica Explícita**  
+   Toda interpretación semántica DEBE ser derivable de la estructura URN y especificaciones asociadas.
+
+4. **Contratos Versionados**
+    Cada URN define una versión de la identidad que representa. Los cambios de versión implican semántica de identidad distinta.
+
+5. **Identificadores Opacos**
+    El segmento identificador final NO DEBE codificar semántica. Sirve únicamente como una referencia única.
+
+6. **Especificación Central**
+    Este documento es la única fuente de verdad para estructura y semántica de URN ANIMA. Las implementaciones de generadores son secundarias.
+
+---
+
+## 3. Formato Canónico
+
+El formato canónico de URN ANIMA es:
 
 ```
-
-urn:anima:<scope>:<namespace>@<version>:<id>
-
+urn:anima:<alcance>:<namespace>@<versión>:<id>
 ```
 
-### 3.1 Segment Overview
+### 3.1 Visión General de los Segmentos
 
-| Segment     | Description |
+| Segmento    | Descripción |
 |------------|-------------|
-| `urn`      | Standard URN scheme identifier |
-| `anima`    | Root namespace authority |
-| `scope`    | Trust and lifecycle boundary |
-| `namespace`| Semantic identity domain |
-| `version`  | Semantic identity contract version |
-| `id`       | Opaque unique identifier |
+| `urn`      | Identificador de esquema URN estándar |
+| `anima`    | Autoridad de namespace raíz |
+| `alcance`  | Límite de confianza y ciclo de vida |
+| `namespace`| Dominio de identidad semántica |
+| `versión`  | Versión del contrato de identidad semántica |
+| `id`       | Identificador único opaco |
 
 ---
 
-## 4. Scope
+## 4. Alcance
 
-The `scope` segment defines the **authority and lifecycle guarantees** of
-the identified resource.
+El segmento `alcance` define las **garantías de autoridad y ciclo de vida** del
+recurso identificado.
 
-Allowed values:
+Valores permitidos:
 
 - `core`  
-  Canonical, first-class identities recognized by the ANIMA runtime itself.
+  Identidades canónicas de primera clase reconocidas por el propio runtime ANIMA.
 
 - `module`  
-  Identities owned by extensions, plugins, or external modules.
+  Identidades propiedad de extensiones, plugins o módulos externos.
 
-Examples:
+Ejemplos:
 
 ```
-
 urn:anima:core:seed@0.1.0:...
 urn:anima:module:CLI.capability@0.2.1:...
-
 ```
 
 ---
 
 ## 5. Namespace
 
-The `namespace` segment defines the **semantic domain** of the identity.
+El segmento `namespace` define el **dominio semántico** de la identidad.
 
-### 5.1 Rules
+### 5.1 Reglas
 
-- MUST be lowercase
-- MUST use alphanumeric characters and dots (`.`)
-- MUST NOT contain colons (`:`)
-- SHOULD reflect conceptual hierarchy, not implementation structure
+- DEBE ser minúscula
+- DEBE usar caracteres alfanuméricos y puntos (`.`)
+- NO DEBE contener dos puntos (`:`)
+- DEBERÍA reflejar jerarquía conceptual, no estructura de implementación
 
-### 5.2 Examples
+### 5.2 Ejemplos
 
 ```
-
 seed
 cortex.reasoning
 schema.intent
 runtime.instance
-
 ```
 
 ---
 
-## 6. Versioning
+## 6. Versionado
 
-The `version` segment specifies the **semantic identity contract** governing
-the interpretation of the URN.
+El segmento `versión` especifica el **contrato de identidad semántica** que gobierna
+la interpretación de la URN.
 
-### 6.1 Version Format
+### 6.1 Formato de Versión
 
-Versions MUST follow strict semantic versioning:
+Las versiones DEBEN seguir versionado semántico estricto:
 
 ```
-
 <major>.<minor>.<patch>
-
 ```
 
-Example:
+Ejemplo:
 ```
-
 0.0.2
 1.0.0
 2.3.1
-
 ```
 
-### 6.2 Semantic Meaning
+### 6.2 Significado Semántico
 
-Within a URN:
+Dentro de una URN:
 
-- ANY version change represents a **distinct identity semantic**
-- Compatibility MUST NOT be inferred from version numbers alone
-- Even patch-level changes (`0.0.1` → `0.0.2`) imply a new identity class
+- CUALQUIER cambio de versión representa una **semántica de identidad distinta**
+- La compatibilidad NO DEBE inferirse solo de los números de versión
+- Incluso cambios a nivel de patch (`0.0.1` → `0.0.2`) implican una nueva clase de identidad
 
-Compatibility relationships, if any, MUST be declared explicitly outside
-the URN.
-
----
-
-Excellent catch — this is a **very important correction**, and you’re absolutely right to enforce it.
-Allowing content hashes *does* quietly break opacity, even if people pretend it doesn’t.
-
-Here’s a **clean, spec-consistent rewrite** that fully preserves opaque identity.
+Las relaciones de compatibilidad, si las hay, DEBEN declararse explícitamente fuera
+de la URN.
 
 ---
 
-## 7. Identifier (`id`)
+## 7. Identificador (`id`)
 
-The final segment is an **opaque unique identifier**.
+El segmento final es un **identificador único opaco**.
 
-### 7.1 Allowed Forms
+### 7.1 Formas Permitidas
 
 - UUID v4
 
-The identifier MUST:
-- Be globally unique
-- Be opaque and non-derivable
-- NOT encode semantics, structure, versioning, or content information
-- NOT be deterministically derived from the resource it identifies
+El identificador DEBE:
+- Ser globalmente único
+- Ser opaco y no derivable
+- NO codificar semántica, estructura, versionado o información de contenido
+- NO ser determinísticamente derivado del recurso que identifica
 
-Cryptographic hashes, checksums, or any identifier derived from resource content
-MUST NOT be used as URN identifiers, as they violate the opacity requirement.
+Hashes criptográficos, checksums o cualquier identificador derivado del contenido del recurso
+NO DEBEN usarse como identificadores URN, ya que violan el requisito de opacidad.
 
-### 7.2 Rationale (Informative)
+### 7.2 Justificación (Informativa)
 
-Opaque identifiers ensure that:
-- Identity is independent from representation
-- Identifiers remain stable despite resource changes
-- No assumptions can be inferred from the identifier itself
+Los identificadores opacos garantizan que:
+- La identidad es independiente de la representación
+- Los identificadores permanecen estables a pesar de los cambios en el recurso
+- No se puede inferir ninguna suposición del identificador mismo
 
-Examples:
+Ejemplos:
 
 ```
-
 6f9619ff-8b86-d011-b42d-00cf4fc964ff
 9a31c4b2-4f2d-4e9e-a7f9-8b32d3e1f9a1
-
-```
----
-
-## 8. Immutability Rules
-
-Once issued:
-
-- A URN MUST remain valid indefinitely
-- A URN MUST NOT be repurposed
-- A URN MUST NOT change meaning
-- A URN MUST NOT be reissued with different semantics
-
-Any semantic evolution requires issuing a **new URN** with a new version.
-
----
-
-## 9. Generator Implementations
-
-URN generators are **implementations of this specification**, not
-authoritative definitions.
-
-- Generator version numbers MUST NOT appear in URNs
-- Multiple generators MAY coexist
-- All generators MUST produce URNs compliant with this document
-
-This specification is the single source of truth.
-
----
-
-## 10. Validation (Informative)
-
-A valid ANIMA URN MUST match the following *conceptual* pattern:
-
 ```
 
+---
+
+## 8. Reglas de Inmutabilidad
+
+Una vez emitida:
+
+- Una URN DEBE permanecer válida indefinidamente
+- Una URN NO DEBE ser reutilizada
+- Una URN NO DEBE cambiar de significado
+- Una URN NO DEBE ser reemitida con semántica diferente
+
+Cualquier evolución semántica requiere emitir una **nueva URN** con una nueva versión.
+
+---
+
+## 9. Implementaciones de Generadores
+
+Los generadores de URN son **implementaciones de esta especificación**, no
+definiciones autoritativas.
+
+- Los números de versión de generadores NO DEBEN aparecer en URNs
+- Múltiples generadores PUEDEN coexistir
+- Todos los generadores DEBEN producir URNs conformes con este documento
+
+Esta especificación es la única fuente de verdad.
+
+---
+
+## 10. Validación (Informativa)
+
+Una URN ANIMA válida DEBE coincidir con el siguiente patrón *conceptual*:
+
+```
 urn:anima:(core|module):[a-z0-9.]+@[0-9]+.[0-9]+.[0-9]+:<opaque-id>
-
 ```
 
 ---
 
-## 11. Examples
+## 11. Ejemplos
 
-### Core Seed Instance
+### Instancia de Seed Central
 ```
-
 urn:anima:core:seed@0.0.2:6f9619ff-8b86-d011-b42d-00cf4fc964ff
-
 ```
 
-### Core Reasoning Cortex
+### Córtex de Razonamiento Central
 ```
-
 urn:anima:core:cortex.reasoning@0.1.0:9a31c4b2-4f2d-4e9e-a7f9-8b32d3e1f9a1
-
 ```
 
-### Schema Identity
+### Identidad de Esquema
 ```
-
 urn:anima:core:schema.intent@1.0.0:ba3bf79c-381e-409b-9450-12e241100d3a
-
 ```
 
 ---
 
-## 12. Future Extensions
+## 12. Extensiones Futuras
 
-Future revisions MAY define:
-- Explicit compatibility declarations
-- Signature binding rules
-- Resolution mechanisms
-- Cross-authority federation
+Las revisiones futuras PUEDEN definir:
+- Declaraciones de compatibilidad explícitas
+- Reglas de vinculación de firma
+- Mecanismos de resolución
+- Federación entre autoridades
 
-Such extensions MUST NOT violate the immutability guarantees defined here.
+Tales extensiones NO DEBEN violar las garantías de inmutabilidad definidas aquí.
 
 ---
 
-## 13. Final Notes
+## 13. Notas Finales
 
-ANIMA URNs are **identity contracts**, not references, not locations,
-and not implementation artifacts.
+Las URNs ANIMA son **contratos de identidad**, no referencias, no ubicaciones,
+y no artefactos de implementación.
 
-They exist to preserve meaning across time, systems, and interpretations.
+Existen para preservar significado a través del tiempo, sistemas e interpretaciones.
