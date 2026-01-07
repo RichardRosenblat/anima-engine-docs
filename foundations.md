@@ -1,42 +1,15 @@
-# 🧭 ANIMA — PHASE 0: FOUNDATIONS
-
----
-
-## 🎯 Goal
-
-Establish **ANIMA as an identity engine**, not a specific personality.
-
-ANIMA is:
-
-* a **private AI engine**
-* capable of **long-lived identity**
-* extensible through **capabilities and modules**
-* shaped at runtime by a **Seed file**
-
-ANIMA is **not**:
-
-* a chatbot
-* an autonomous agent that self-expands
-* an automation platform
-* a monolithic AI with hardcoded behavior
-* an internet-crawling system by default
-
----
-
-## 🧱 Build (Phase 0 Deliverables)
-
-### 1️⃣ Project Charter
+# 1️⃣ Project Charter
 
 This document answers *“what exists”* and *“what is forbidden”*.
 
-#### Core Purpose
+## Core Purpose
 
 * Provide a **private, evolving AI runtime**
 * Separate **engine** from **identity**
 * Support **multiple incarnations** via Seeds
 * Enable **safe, auditable interaction with the world**
 
-#### Non-Goals (Explicit)
+## Non-Goals (Explicit)
 
 * No self-modifying code
 * No uncontrolled autonomy
@@ -44,7 +17,7 @@ This document answers *“what exists”* and *“what is forbidden”*.
 * No shared memory between instances
 * No implicit user permissions
 
-#### Core Values
+## Core Values
 
 * **Truth over confidence**  
   *What does this mean?* The system prioritizes accuracy and honesty in its responses, even if it means admitting uncertainty or lack of knowledge.
@@ -64,11 +37,11 @@ Every feature must be justifiable against it.
 
 ---
 
-### 2️⃣ Canonical Glossary
+# 2️⃣ Canonical Glossary
 
 These definitions must **never drift**.
 
-#### Engine
+## Engine
 
 The entirety of the ANIMA system, containing:
 
@@ -82,7 +55,7 @@ The entirety of the ANIMA system, containing:
 
 ---
 
-#### Core
+## Core
 
 The reasoning loop inside the engine.
 
@@ -96,7 +69,7 @@ It:
 
 ---
 
-#### Seed (File)
+## Seed (File)
 
 A **static configuration artifact** loaded at initialization.
 
@@ -117,7 +90,7 @@ A Seed:
 
 ---
 
-#### Memory
+## Memory
 
 Instance-local data describing:
 
@@ -134,7 +107,7 @@ Memory:
 
 ---
 
-#### Capability
+## Capability
 
 A **declarative contract** describing *what the core is allowed to intend*.
 
@@ -153,7 +126,7 @@ Capabilities:
 
 ---
 
-#### Module
+## Module
 
 An **effectful implementation** of a capability.
 
@@ -168,7 +141,7 @@ Modules are the **only** place where **Cause is detected** and **Effects are pro
 
 ---
 
-#### Adapter
+## Adapter
 
 A **pure translation layer** between representations.
 
@@ -184,7 +157,7 @@ Adapters exist to **protect the core from format pollution**.
 
 ---
 
-#### Intent
+## Intent
 
 A structured description of **what should happen**, not how.
 
@@ -195,7 +168,7 @@ Contain what + when + where + how much + why + what to do if something goes wron
 
 ---
 
-#### Task
+## Task
 
 A long-lived unit of work the engine undertakes. Solved with series of Intents.
 
@@ -208,7 +181,7 @@ Tasks:
 
 ---
 
-#### Cortex
+## Cortex
 
 The wrapper around a given AI model, connected to the engine for reasoning.
 
@@ -219,7 +192,7 @@ Cortexes:
 
 ---
 
-#### Package
+## Package
 
 A distributable group of modules, adapters, and capability definitions.
 Can be installed into an ANIMA instance to extend functionality in bulk.
@@ -233,7 +206,7 @@ Packages:
 
 ---
 
-#### Semantic Spine
+## Semantic Spine
 
 An explicit data structure for semantic representation of a message expected to be passed to user or received from user. 
 
@@ -246,23 +219,23 @@ Semantic Spines:
 * support complex interactions
 * enable better memory encoding
 
-### 3️⃣ **System Boundaries**
+# 3️⃣ System Boundaries
 
-#### What the engine can *never* do
+## What the engine can *never* do
 * Directly perform side effects
 * Modify its own code or Seed
 * Access the internet without explicit capability
 * Share memory between instances
 * Bypass permission checks
 
-#### What must *always* require confirmation
+## What must *always* require confirmation
 * Accessing sensitive user data
 * Executing high-risk capabilities (e.g., financial transactions, physical actions)
 * Handling destructive commands (e.g., deleting data, shutting down systems)
 * Replacing data
 * Non-read-only irreversible actions
 
-#### What is delegated to modules
+## What is delegated to modules
 
 * All external I/O operations
 * API calls
@@ -271,39 +244,3 @@ Semantic Spines:
 * Executing capability commands
 
 ---
-
-## ✅ Exit Criteria (Do NOT Advance Without These)
-
-**You can explain ANIMA in 2 minutes without mentioning personality**
-
-ANIMA is a private AI engine designed to host long-lived, evolving AI identities safely.
-
-At its core, ANIMA separates thinking, identity, and action.
-
-The core is the only part that reasons. It takes structured input, consults memory, applies identity constraints from a Seed file, checks permissions, and produces intent—never direct actions.
-
-A Seed is a static identity definition: personality parameters, behavioral boundaries, risk tolerance, and which capabilities are allowed. It doesn’t contain memories or code. Each ANIMA instance grows independently after initialization.
-
-Memory is instance-local and fallible. It stores past interactions, task states, and observations, and informs decisions without overriding policy.
-
-The core can only act through capabilities, which are declarative contracts describing what it is allowed to do, not how. Capabilities are gated by both the Seed and security rules.
-
-When the core produces intent, adapters translate that intent into concrete commands. Adapters are pure and deterministic—they don’t do external I/O or make decisions.
-
-Actual interaction with the world happens only in modules. Modules talk to APIs, hardware, platforms, or streams, and execute commands without reasoning.
-
-Security wraps the system end-to-end: authentication before reasoning, and policy enforcement before execution.
-
-This design allows ANIMA to support private assistants, stream personas, robots, and tools—all using the same engine—while keeping identity isolated, behavior auditable, and actions safe.
-
----
-
-## ⚠️ Phase 0 Traps 
-
-* Writing code without clear separation of concerns
-* Letting modules decide behavior
-* Letting memory override policy
-* Blurring Seed vs Memory
-* Treating adapters as optional
-
-
