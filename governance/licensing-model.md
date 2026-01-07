@@ -49,7 +49,7 @@ Capabilities are:
 * Discoverable
 * Enforced at runtime
 
-A license **never grants unlimited power** — it only lifts predefined restrictions.
+A license **never grants unlimited power** — it only whitelists certain actions.
 
 ---
 
