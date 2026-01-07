@@ -198,6 +198,26 @@ Key architectural decisions are tracked as ADRs in [`/adr`](adr):
 * ADR-003: Core ↔ Module Communication Protocol, Module Types, and Lease Lifecycle
 * ADR-004: Observability, Event Logging, and Execution Traceability
 * ADR-005: Interruption & Preemption Model
+* ADR-006: Domain Dependency & Sharing Rules
+* ADR-007: Infrastructure Layer & Adapter Rules
+* ADR-008: ANIMA Core Behaves as a Cognitive Kernel
+* ADR-009: Configurable AI Model Topology with Mandatory Cortex and Optional Arcuate
+* ADR-010: Adapter–Actuator Split with Strict Process Boundary
+* ADR-011: Event-Based Input Architecture
+
+### Architecture Documentation
+
+Comprehensive architecture documentation derived from ADRs:
+
+* [Architecture Overview](architecture/README.md) - Complete navigation guide
+* [ANIMA Architecture](architecture/anima-architecture.md) - Comprehensive system overview
+* [Seed System](architecture/seed-system.md) - Identity initialization and separation
+* [Module Types and Leases](architecture/module-types-and-leases.md) - Module lifecycle and authorization
+* [Event Architecture](architecture/event-architecture.md) - Observability and input system
+* [Cognitive Kernel](architecture/cognitive-kernel.md) - Core as a multitasking supervisor
+* [Domain and Infrastructure](architecture/domain-and-infrastructure.md) - Hexagonal architecture implementation
+* [AI Model Topology](architecture/ai-model-topology.md) - Cortex and Arcuate
+* [Adapter-Actuator Split](architecture/adapter-actuator-split.md) - Module structure
 
 ### Additional Documentation
 
@@ -208,7 +228,6 @@ Key architectural decisions are tracked as ADRs in [`/adr`](adr):
 * [Threat Model](threat-model.md) - Threat analysis and mitigation
 * [Licensing Model](licensing-model.md) - Licensing and distribution
 * [Non-Goals](non-goals.md) - Explicit non-goals and boundaries
-* [Architecture](architecture/anima-architecture.md) - Detailed architecture documentation
 * [Roadmap](roadmaps/roadmap.md) - Development roadmap
 * [Announcements](annoucements) - Project announcements and updates
 
