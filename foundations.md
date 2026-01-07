@@ -1,246 +1,111 @@
-# 1️⃣ Project Charter
+# ANIMA Foundations
 
-This document answers *“what exists”* and *“what is forbidden”*.
-
-## Core Purpose
-
-* Provide a **private, evolving AI runtime**
-* Separate **engine** from **identity**
-* Support **multiple incarnations** via Seeds
-* Enable **safe, auditable interaction with the world**
-
-## Non-Goals (Explicit)
-
-* No self-modifying code
-* No uncontrolled autonomy
-* No internet access unless granted via capability
-* No shared memory between instances
-* No implicit user permissions
-
-## Core Values
-
-* **Truth over confidence**  
-  *What does this mean?* The system prioritizes accuracy and honesty in its responses, even if it means admitting uncertainty or lack of knowledge.
-* **Intent over execution**  
-  *What does this mean?* The system focuses on understanding and fulfilling the user's intentions rather than just executing commands blindly.
-* **Modularity over monolith**  
-  *What does this mean?* The system is designed with interchangeable components, allowing for flexibility and adaptability rather than being a single, unchangeable entity.
-* **Safety over capability**  
-  *What does this mean?* The system prioritizes user safety and ethical considerations above expanding its functionalities or capabilities.
-* **Configurability over hardcoding**  
-  *What does this mean?* The system emphasizes the ability to be customized and configured through external settings rather than having fixed, hardcoded behaviors.
-* **Isolation over convenience**
-  *What does this mean?* The system values keeping components and processes separate to enhance security and reliability, even if it sacrifices some ease of use.
-
-This charter is your *constitutional law*.
-Every feature must be justifiable against it.
+This document provides navigation to the three foundational documents that define ANIMA's constitutional law, canonical vocabulary, and architectural boundaries.
 
 ---
 
-# 2️⃣ Canonical Glossary
+## Foundation Documents
 
-These definitions must **never drift**.
+### [1️⃣ Project Charter](project-charter.md)
 
-## Engine
+**Purpose:** Defines *"what exists"* and *"what is forbidden"*.
 
-The entirety of the ANIMA system, containing:
+**Contents:**
+* What is ANIMA (and what it is not)
+* Core purpose and values
+* Explicit non-goals
+* Architectural invariants
+* Success criteria
+* Governance model
 
-* Core 
-* Seed
-* Memory
-* Capabilities
-* Modules
-* Adapters
-* Cortex
+**Key Principle:** Every feature must be justifiable against this charter.
 
----
-
-## Core
-
-The reasoning loop inside the engine.
-
-It:
-
-* consumes input
-* queries memory
-* applies Seed constraints
-* selects capabilities
-* produces **intent**
+**Read:** [Project Charter →](project-charter.md)
 
 ---
 
-## Seed (File)
+### [2️⃣ Canonical Glossary](canonical-glossary.md)
 
-A **static configuration artifact** loaded at initialization.
+**Purpose:** Establishes the canonical vocabulary of ANIMA.
 
-Defines:
+**Contents:**
+* System components (Engine, Core, Seed, Memory, etc.)
+* Architectural concepts (Module, Adapter, Actuator, Capability, etc.)
+* AI models (Cortex, Arcuate)
+* Observability concepts (Event, Execution, Lease, etc.)
+* Process and state (Zero-Lease State, Task Recovery Grace Period)
 
-* personality parameters
-* behavioral constraints
-* tone and expressiveness ranges
-* allowed capabilities
-* identity boundaries
-* risk tolerance
+**Key Principle:** These definitions must **never drift**.
 
-A Seed:
-
-* does **not** contain memories
-* does **not** change itself
-* does **not** contain code
+**Read:** [Canonical Glossary →](canonical-glossary.md)
 
 ---
 
-## Memory
+### [3️⃣ System Boundaries](system-boundaries.md)
 
-Instance-local data describing:
+**Purpose:** Defines what ANIMA can and cannot do by design.
 
-* past interactions
-* observations
-* task states
-* confidence-weighted facts
+**Contents:**
+* What the engine can NEVER do (10 architectural invariants)
+* What MUST ALWAYS require confirmation (5 categories)
+* What is delegated to modules (5 responsibilities)
+* Security boundaries
+* Failure modes and boundaries
 
-Memory:
+**Key Principle:** Boundaries are enforced by architecture, not convention. Violations are bugs.
 
-* informs reasoning
-* never overrides policy
-* is fallible and queryable
-
----
-
-## Capability
-
-A **declarative contract** describing *what the core is allowed to intend*.
-
-Example:
-
-* `send_message`
-* `move_robot`
-* `start_stream`
-
-Capabilities:
-
-* contain no logic
-* contain no I/O
-* are permission-gated
-* are Seed-restricted
+**Read:** [System Boundaries →](system-boundaries.md)
 
 ---
 
-## Module
+## Relationship to Architecture
 
-An **effectful implementation** of a capability.
+These foundation documents work together with the [Architecture Documentation](architecture/README.md) to define ANIMA completely:
 
-Modules:
-
-* perform real-world actions
-* talk to APIs, hardware, platforms
-* never decide *when* or *why*
-* only execute *what they’re told*
-
-Modules are the **only** place where **Cause is detected** and **Effects are produced**.
+* **Foundations** (this) → Constitutional principles and vocabulary
+* **Architecture** → Detailed implementation and design patterns
+* **ADRs** → Formal decision records explaining why
 
 ---
 
-## Adapter
+## Quick Reference
 
-A **pure translation layer** between representations.
+### Core Values
 
-Adapters:
+1. **Truth over confidence** — Admit uncertainty rather than fabricate
+2. **Intent over execution** — Produce intent, not direct effects
+3. **Modularity over monolith** — Interchangeable components
+4. **Safety over capability** — Permissions first, features second
+5. **Configurability over hardcoding** — Data-driven behavior (Seeds)
+6. **Isolation over convenience** — Security through separation
 
-* transform external input → core input
-* transform core intent → module command
-* contain no external I/O
-* contain only translation logic
-* are deterministic
+### Architectural Invariants
 
-Adapters exist to **protect the core from format pollution**.
+1. Engine is identity-agnostic (personality from Seeds)
+2. Core never loads third-party code (modules out-of-process)
+3. All execution requires valid leases
+4. Domains never import infrastructure (hexagonal architecture)
+5. All observability is event-based (no traditional logs)
+6. Memory is strictly instance-scoped
+7. Cortex is mandatory, Arcuate is optional
+8. Core supervises, doesn't execute (cognitive kernel)
+9. All actions are interruptible (cooperative interruption)
+10. Events are the source of truth (immutable, auditable)
 
----
+### Key Boundaries
 
-## Intent
-
-A structured description of **what should happen**, not how.
-
-Produced by the core.  
-Consumed by adapters and modules.  
-Auditable, loggable, replayable.  
-Contain what + when + where + how much + why + what to do if something goes wrong. Along with confidence scores.
-
----
-
-## Task
-
-A long-lived unit of work the engine undertakes. Solved with series of Intents.
-
-Tasks:
-
-* persist across time
-* can pause / resume
-* may invoke capabilities repeatedly
-* are tracked in memory
+* **Core never touches the world** — Intent, not effects
+* **No lease, no execution** — Zero-Lease State
+* **No cross-instance memory** — Instance-local only
+* **No self-modification** — Stable code and Seeds
+* **Dangerous actions require confirmation** — Explicit user approval
 
 ---
 
-## Cortex
+## Summary
 
-The wrapper around a given AI model, connected to the engine for reasoning.
-
-Cortexes:
-* provide completion services
-* are interchangeable without needing to change the engine
-* are replaceable
-
----
-
-## Package
-
-A distributable group of modules, adapters, and capability definitions.
-Can be installed into an ANIMA instance to extend functionality in bulk.
-
-Packages:
-
-* bundle related capabilities
-* include adapters for those capabilities
-* are versioned
-* can be shared
-
----
-
-## Semantic Spine
-
-An explicit data structure for semantic representation of a message expected to be passed to user or received from user. 
-
-Semantic Spines are used to ensure consistent and meaningful communication between the engine and users, providing a standardized way to represent the meaning and context of messages.
-
-Semantic Spines:
-* encapsulate intent and context
-* facilitate accurate interpretation
-* are language-agnostic
-* support complex interactions
-* enable better memory encoding
-
-# 3️⃣ System Boundaries
-
-## What the engine can *never* do
-* Directly perform side effects
-* Modify its own code or Seed
-* Access the internet without explicit capability
-* Share memory between instances
-* Bypass permission checks
-
-## What must *always* require confirmation
-* Accessing sensitive user data
-* Executing high-risk capabilities (e.g., financial transactions, physical actions)
-* Handling destructive commands (e.g., deleting data, shutting down systems)
-* Replacing data
-* Non-read-only irreversible actions
-
-## What is delegated to modules
-
-* All external I/O operations
-* API calls
-* Hardware interactions
-* Intaking user commands and information
-* Executing capability commands
-
----
+> **ANIMA is an engine for growing identities, not a single personality.**
+>
+> **These foundations are constitutional. They define what ANIMA is and can never become.**
+>
+> **Precision in language prevents confusion in architecture.**

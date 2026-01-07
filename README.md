@@ -219,10 +219,18 @@ Comprehensive architecture documentation derived from ADRs:
 * [AI Model Topology](architecture/ai-model-topology.md) - Cortex and Arcuate
 * [Adapter-Actuator Split](architecture/adapter-actuator-split.md) - Module structure
 
+### Foundation Documents
+
+Constitutional principles and boundaries:
+
+* [Foundations](foundations.md) - Navigation to all foundation documents
+* [Project Charter](project-charter.md) - Core purpose, values, and non-goals
+* [Canonical Glossary](canonical-glossary.md) - Definitive terminology and concepts
+* [System Boundaries](system-boundaries.md) - What ANIMA can and cannot do
+
 ### Additional Documentation
 
 * [Vision](vision.md) - Long-term vision and goals
-* [Foundations](foundations.md) - Core architectural foundations
 * [Memory Integrity](memory-integrity.md) - Memory management and integrity
 * [Safety Model](safety-model.md) - Safety and security architecture
 * [Threat Model](threat-model.md) - Threat analysis and mitigation
