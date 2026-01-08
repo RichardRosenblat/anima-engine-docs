@@ -341,178 +341,159 @@ A **cryptographic warrant** of a connection between a Core and a Module, with al
 
 ### Gateway
 
-Un **límite de enrutamiento del Core** que posee una implementación de puerto/cliente y expone un único punto de entrada.
+Un **límite de enrutamiento** dentro del Core que proporciona separación limpia entre lógica de dominio e infraestructura.
 
-**Punto de Entrada:**
-* `send(operation) -> result`
+**Papel Arquitectónico:**
+* Aceptar solicitudes de operación tipadas
+* Despachar a implementaciones de puerto/cliente apropiadas
+* Aplicar restricciones de límite sin incorporar política
+* Mantener separación de arquitectura hexagonal
 
-**Responsabilidades:**
-* Aceptar objetos de operación
-* Despachar por tipo de operación
-* Aplicar restricciones de límite (tipado, operaciones permitidas, reglas "solo traductor", etc.)
-* Reenviar a una implementación de puerto/cliente inyectada
+**Relación con el Core:**
+* Se sitúa en el borde de la lógica de dominio del Core
+* Conecta operaciones de dominio a puertos de infraestructura
+* Previene contaminación del dominio con preocupaciones de infraestructura
+* Permite implementaciones intercambiables detrás de interfaces estables
 
-**No-responsabilidades:**
-* Sin política de dominio (sin "¿deberíamos hacer X?")
-* Sin I/O de infraestructura
+**Reglas de Límite:**
+* Sin política de dominio ("¿deberíamos hacer X?")
+* Sin I/O externo directo
+* Sin lógica de negocio
+* Enrutamiento puro y aplicación de restricciones
 
-**Características:**
-* Límite de enrutamiento sin lógica de negocio
-* Respaldado por implementaciones de puerto/cliente (ej: CortexPort, MemoryPort, ArcuateClient)
-* Preserva límites de arquitectura hexagonal
-
-**Relacionado:** ADR-012
-
----
-
-### CortexGateway / MemoryGateway / ArcuateGateway
-
-**Implementaciones específicas de gateway** para diferentes subsistemas del Core.
-
-**CortexGateway:**
-* Enruta operaciones cognitivas al puerto/cliente Cortex obligatorio
-* Maneja solicitudes de razonamiento cognitivo
-
-**MemoryGateway:**
-* Enruta operaciones de memoria a puertos de memoria (repositorios, servicios de memoria)
-* Sin política de memoria incorporada
-
-**ArcuateGateway:**
-* Enruta operaciones de traducción NLP a Arcuate (si está presente)
-* DEBE permanecer solo traductor (sin planificación ni toma de decisiones)
-
-**Relacionado:** ADR-012, ADR-009
-
----
-
-### Operation Objects
-
-**Objetos de operación tipados** despachados por Gateways que representan "qué comportamiento" sin codificar lógica de enrutamiento.
-
-**Categorías de Ejemplo:**
-* `ProcessEvent`
-* `EvaluateIntent`
-* `Reflect`
-* `TranslateInputNlToSemantic`
-* `RealizeIntentToNl`
-
-**Características:**
-* Type-safe
-* Descriptores de comportamiento
-* Agnóstico de enrutamiento
-* Específico de dominio
+**Propósito:**
+* Preservar límites arquitectónicos
+* Permitir testabilidad a través de inyección de puerto
+* Soportar múltiples gateways de subsistema (cognición, memoria, lenguaje)
+* Mantener lógica de enrutamiento explícita y auditable
 
 **Relacionado:** ADR-012
 
 ---
 
-### ModuleRegistry
+### Registry
 
-La **autoridad de descubrimiento de capacidades y conexión**.
+Una **autoridad de descubrimiento y rastreo** que mantiene conocimiento en tiempo de ejecución de capacidades disponibles sin controlar autorización.
 
-**Autoridad Para:**
-* Descubrimiento de módulos disponibles
-* Rastreo de atestación y handshake
-* Rastreo de vivacidad
-* Indexación de capacidades
-* Devolver handles de endpoint activos para capacidades
+**Papel Arquitectónico:**
+* Descubrir e indexar capacidades disponibles
+* Rastrear salud y vivacidad de proveedores de capacidad
+* Proporcionar resolución de endpoint para solicitudes de capacidad
+* Mantener atestación y estado de handshake
 
-**No Autoridad Para:**
-* Permisos (eso es territorio de lease + política de seguridad)
-* Concesión de lease
-* Promoción/degradación de alcance
+**Relación con el Core:**
+* Consultado durante ejecución de tarea para resolver capacidades
+* Separa "qué existe" de "qué está permitido"
+* Permite disponibilidad dinámica de capacidad
+* Sin autoridad sobre decisiones de lease o permisos
 
-**Características:**
-* Solo descubrimiento de capacidades
-* Sin decisiones de autorización
-* Rastrea salud y conectividad de módulos
-* Proporciona mapeo capacidad-a-endpoint
+**Límites de Autoridad:**
+* Rastrea disponibilidad de capacidad (no permiso)
+* Proporciona información de conexión (no autorización)
+* Monitorea salud (no política de seguridad)
+
+**Propósito:**
+* Desacoplar descubrimiento de capacidad de autorización
+* Permitir registro de capacidad en tiempo de ejecución
+* Soportar ciclo de vida de módulo sin acumulación de política
+* Hacer topología de capacidad observable
 
 **Relacionado:** ADR-012
 
 ---
 
-### LeaseManager
+### Lease Authority
 
-Un **componente dedicado propiedad del Core** responsable de toda autoridad de lease.
+Un **sistema de autorización dedicado** dentro del Core que controla todos los permisos de ejecución de módulo.
 
-**Responsabilidades:**
-* Emisión de leases
-* Renovación de leases
-* Revocación de leases
-* Gestión de epochs
-* Aplicación de la semántica "sin lease, sin ejecución"
+**Papel Arquitectónico:**
+* Emitir, renovar, revocar y validar leases
+* Gestionar epochs y alcance de lease
+* Aplicar invariante "sin lease, sin ejecución"
+* Mantener requisitos de prueba criptográfica
 
-**Reglas de Autoridad de Lease:**
-* Único componente permitido para mutar estado de lease
-* Propiedad y control del Core
-* Explícito y auditable
-* Refuerza aislamiento de proceso
+**Relación con el Core:**
+* Propiedad y control exclusivo del Core
+* Nunca delegado a módulos o componentes externos
+* Consultado antes de cada invocación de módulo
+* Fuente única de verdad para autorización de ejecución
 
-**Características:**
-* Fuente única de verdad para estado de lease
-* Consciente de epoch
-* Componente crítico de seguridad
-* Nunca delegado a módulos o puertos
+**Límites de Autoridad:**
+* Único componente que muta estado de lease
+* No puede ser ignorado por ningún otro componente
+* Aplica garantías de aislamiento de proceso
+* Mantiene protección anti-replay basada en epoch
+
+**Propósito:**
+* Centralizar decisiones de autorización
+* Prevenir acumulación de permiso distribuido
+* Permitir rastreo de ejecución de nivel de auditoría
+* Reforzar invariantes de seguridad
 
 **Relacionado:** ADR-012, ADR-003
 
 ---
 
-### ModulePort / ModuleSession
+### Port / Session
 
-Una **conexión de transporte opaca** vinculada a un módulo específico.
+Una **abstracción de transporte** que vincula contexto de lease y ejecución a la comunicación de módulo.
 
-**Vincula:**
-* `LeaseMeta` (lease_id, epoch, proofs)
-* `ExecMeta` (execution_id, trace_id, span_id, thread_id)
+**Papel Arquitectónico:**
+* Representar conexión a módulo fuera de proceso
+* Adjuntar pruebas de lease y metadatos de ejecución a todas las invocaciones
+* Manejar serialización y preocupaciones de nivel de transporte
+* Proporcionar superficie de invocación opaca para capas superiores
 
-**Superficie de Invocación:**
-* `invoke(capability_urn, payload, meta) -> result`
+**Relación con el Core:**
+* Usado por capa de orquestación para invocar módulos
+* Aplica requisitos de metadatos automáticamente
+* Abstrae mecanismo de transporte de lógica de negocio
+* Hace límites de proceso explícitos
 
-**Responsabilidades:**
-* Serialización/deserialización
-* Adjuntar metadatos requeridos
-* Reintentos para falla de transporte (si está configurado)
-* Surfacing de errores de forma determinística
+**Reglas de Límite:**
+* Sin semántica o política de negocio
+* Sin lógica de autorización (delega a autoridad de lease)
+* Solo transporte y serialización
+* Enriquecido con metadatos pero agnóstico de dominio
 
-**No-responsabilidades:**
-* Sin semántica de negocio
-* Sin decisiones de autorización
-* Sin lógica de política (ej: "cuántos reintentos porque es importante")
-
-**Características:**
-* Sesión vinculada a lease
-* Transporte enriquecido con metadatos
-* Opaco a la lógica de negocio
-* Aplicación de límite de proceso
+**Propósito:**
+* Aplicar separación de límite de proceso
+* Garantizar vinculación de lease para todas las invocaciones
+* Permitir evolución de transporte sin cambios de dominio
+* Hacer rastreabilidad de ejecución automática
 
 **Relacionado:** ADR-012, ADR-003
 
 ---
 
-### TaskOrchestrator
+### Orchestrator
 
-La **columna vertebral de ejecución supervisada del Kernel**.
+La **capa de coordinación de ejecución** que supervisa ciclo de vida de tarea sin incorporar política de dominio.
 
-**Responsabilidades:**
-* Gestionar ciclo de vida de tarea/span (spawn/run/pause/cancel/complete)
-* Cooperar con enrutamiento y políticas de interrupción
-* Resolver capacidades vía ModuleRegistry
-* Obtener/validar contexto de lease vía LeaseManager antes de la invocación
-* Despachar tareas a ModulePorts
-* Agregar resultados y emitir eventos
+**Papel Arquitectónico:**
+* Gestionar estados de ciclo de vida de tarea y span
+* Coordinar resolución de capacidad vía registry
+* Validar contexto de lease vía autoridad de lease
+* Enrutar tareas a puertos de módulo apropiados
+* Agregar resultados de ejecución en eventos
 
-**No-responsabilidades:**
-* Sin codificación de política de dominio (ej: específica de intent "reintentar porque tiene significado de negocio")
-* Sin lógica de planificación (eso pertenece a la cognición/Cortex)
+**Relación con el Core:**
+* Se sitúa entre cognición (Cortex) y ejecución (módulos)
+* Columna vertebral de ejecución supervisada, no motor de política
+* Consume intención, produce eventos estructurados
+* Coopera con sistema de interrupción
+
+**Reglas de Límite:**
+* Sin política de dominio (reglas de reintento, importancia, significado de negocio)
+* Sin lógica de planificación (pertenece a capa de cognición)
 * Sin bypass de autoridad de lease
+* Coordinación pura sin toma de decisiones
 
-**Características:**
-* Supervisa ejecución, no ejecuta
-* Coordinación libre de política
-* Invocación controlada por lease
-* Gestión de ciclo de vida orientada a eventos
+**Propósito:**
+* Separar supervisión de toma de decisiones
+* Permitir patrones de ejecución consistentes
+* Soportar observabilidad a través de emisión de eventos
+* Prevenir acumulación de política en infraestructura
 
 **Relacionado:** ADR-012, ADR-008, ADR-003, ADR-004
 

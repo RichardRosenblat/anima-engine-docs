@@ -341,178 +341,159 @@ A **cryptographic warrant** of a connection between a Core and a Module, with al
 
 ### Gateway
 
-A **Core routing boundary** that owns a port/client implementation and exposes a single entry point.
+A **routing boundary** within the Core that provides clean separation between domain logic and infrastructure.
 
-**Entry Point:**
-* `send(operation) -> result`
+**Architectural Role:**
+* Accept typed operation requests
+* Dispatch to appropriate port/client implementations
+* Enforce boundary constraints without embedding policy
+* Maintain hexagonal architecture separation
 
-**Responsibilities:**
-* Accept operation objects
-* Dispatch by operation type
-* Enforce boundary constraints (typing, allowed ops, "translator-only" rules, etc.)
-* Forward to an injected port/client implementation
+**Relationship to Core:**
+* Sits at the edge of Core domain logic
+* Connects domain operations to infrastructure ports
+* Prevents domain contamination with infrastructure concerns
+* Enables swappable implementations behind stable interfaces
 
-**Non-responsibilities:**
-* No domain policy (no "should we do X?")
-* No infrastructure I/O
+**Boundary Rules:**
+* No domain policy ("should we do X?")
+* No direct external I/O
+* No business logic
+* Pure routing and constraint enforcement
 
-**Characteristics:**
-* Routing boundary with no business logic
-* Backed by port/client implementations (e.g., CortexPort, MemoryPort, ArcuateClient)
-* Preserves hexagonal architecture boundaries
-
-**Related:** ADR-012
-
----
-
-### CortexGateway / MemoryGateway / ArcuateGateway
-
-**Specific gateway implementations** for different Core subsystems.
-
-**CortexGateway:**
-* Routes cognitive operations to the mandatory Cortex port/client
-* Handles cognitive reasoning requests
-
-**MemoryGateway:**
-* Routes memory operations to memory ports (repositories, memory services)
-* No embedded memory policy
-
-**ArcuateGateway:**
-* Routes NLP translation operations to Arcuate (if present)
-* MUST remain translator-only (no planning or decision-making)
-
-**Related:** ADR-012, ADR-009
-
----
-
-### Operation Objects
-
-**Typed operation objects** dispatched by Gateways representing "which behavior" without encoding routing logic.
-
-**Example Categories:**
-* `ProcessEvent`
-* `EvaluateIntent`
-* `Reflect`
-* `TranslateInputNlToSemantic`
-* `RealizeIntentToNl`
-
-**Characteristics:**
-* Type-safe
-* Behavior descriptors
-* Routing-agnostic
-* Domain-specific
+**Purpose:**
+* Preserve architectural boundaries
+* Enable testability through port injection
+* Support multiple subsystem gateways (cognition, memory, language)
+* Keep routing logic explicit and auditable
 
 **Related:** ADR-012
 
 ---
 
-### ModuleRegistry
+### Registry
 
-The **capability discovery and connection authority**.
+A **discovery and tracking authority** that maintains runtime knowledge of available capabilities without controlling authorization.
 
-**Authority For:**
-* Discovery of available modules
-* Attestation and handshake tracking
-* Liveness tracking
-* Capability indexing
-* Returning live endpoint handles for capabilities
+**Architectural Role:**
+* Discover and index available capabilities
+* Track capability provider health and liveness
+* Provide endpoint resolution for capability requests
+* Maintain attestation and handshake state
 
-**Not Authority For:**
-* Permissioning (that is lease + security policy territory)
-* Lease granting
-* Scope promotion/demotion
+**Relationship to Core:**
+* Consulted during task execution to resolve capabilities
+* Separates "what exists" from "what is permitted"
+* Enables dynamic capability availability
+* No authority over lease decisions or permissions
 
-**Characteristics:**
-* Capability discovery only
-* No authorization decisions
-* Tracks module health and connectivity
-* Provides capability-to-endpoint mapping
+**Authority Boundaries:**
+* Tracks capability availability (not permission)
+* Provides connection information (not authorization)
+* Monitors health (not security policy)
+
+**Purpose:**
+* Decouple capability discovery from authorization
+* Enable runtime capability registration
+* Support module lifecycle without policy creep
+* Make capability topology observable
 
 **Related:** ADR-012
 
 ---
 
-### LeaseManager
+### Lease Authority
 
-A **dedicated Core-owned component** responsible for all lease authority.
+A **dedicated authorization system** within the Core that controls all module execution permissions.
 
-**Responsibilities:**
-* Issuing leases
-* Renewing leases
-* Revoking leases
-* Managing epochs
-* Enforcing "no lease, no execution" semantics
+**Architectural Role:**
+* Issue, renew, revoke, and validate leases
+* Manage lease epochs and scope
+* Enforce "no lease, no execution" invariant
+* Maintain cryptographic proof requirements
 
-**Lease Authority Rules:**
-* Only component allowed to mutate lease state
-* Core-owned and Core-controlled
-* Explicit and auditable
-* Reinforces process isolation
+**Relationship to Core:**
+* Core-owned and Core-controlled exclusively
+* Never delegated to modules or external components
+* Consulted before every module invocation
+* Single source of truth for execution authorization
 
-**Characteristics:**
-* Single source of truth for lease state
-* Epoch-aware
-* Security-critical component
-* Never delegated to modules or ports
+**Authority Boundaries:**
+* Only component that mutates lease state
+* Cannot be bypassed by any other component
+* Enforces process isolation guarantees
+* Maintains epoch-based anti-replay protection
+
+**Purpose:**
+* Centralize authorization decisions
+* Prevent distributed permission creep
+* Enable audit-grade execution tracking
+* Reinforce security invariants
 
 **Related:** ADR-012, ADR-003
 
 ---
 
-### ModulePort / ModuleSession
+### Port / Session
 
-An **opaque transport connection** bound to a specific module.
+A **transport abstraction** that binds lease and execution context to module communication.
 
-**Binds:**
-* `LeaseMeta` (lease_id, epoch, proofs)
-* `ExecMeta` (execution_id, trace_id, span_id, thread_id)
+**Architectural Role:**
+* Represent connection to out-of-process module
+* Attach lease proofs and execution metadata to all invocations
+* Handle serialization and transport-level concerns
+* Provide opaque invocation surface to higher layers
 
-**Invocation Surface:**
-* `invoke(capability_urn, payload, meta) -> result`
+**Relationship to Core:**
+* Used by orchestration layer to invoke modules
+* Enforces metadata requirements automatically
+* Abstracts transport mechanism from business logic
+* Makes process boundaries explicit
 
-**Responsibilities:**
-* Serialization/deserialization
-* Attaching required metadata
-* Retries for transport failure (if configured)
-* Surfacing errors deterministically
+**Boundary Rules:**
+* No business semantics or policy
+* No authorization logic (delegates to lease authority)
+* Transport and serialization only
+* Metadata-enriched but domain-agnostic
 
-**Non-responsibilities:**
-* No business semantics
-* No authorization decisions
-* No policy logic (e.g., "how many retries because it's important")
-
-**Characteristics:**
-* Lease-bound session
-* Metadata-enriched transport
-* Opaque to business logic
-* Process boundary enforcement
+**Purpose:**
+* Enforce process boundary separation
+* Ensure lease binding for all invocations
+* Enable transport evolution without domain changes
+* Make execution traceability automatic
 
 **Related:** ADR-012, ADR-003
 
 ---
 
-### TaskOrchestrator
+### Orchestrator
 
-The **Kernel's supervised execution spine**.
+The **execution coordination layer** that supervises task lifecycle without embedding domain policy.
 
-**Responsibilities:**
-* Manage task/span lifecycle (spawn/run/pause/cancel/complete)
-* Cooperate with interruption routing and policies
-* Resolve capabilities via ModuleRegistry
-* Obtain/validate lease context via LeaseManager before invocation
-* Dispatch tasks to ModulePorts
-* Aggregate outcomes and emit events
+**Architectural Role:**
+* Manage task and span lifecycle states
+* Coordinate capability resolution via registry
+* Validate lease context via lease authority
+* Route tasks to appropriate module ports
+* Aggregate execution outcomes into events
 
-**Non-responsibilities:**
-* No domain policy encoding (e.g., intent-specific "retry because of business meaning")
-* No planning logic (that belongs in cognition/Cortex)
-* No bypassing lease authority
+**Relationship to Core:**
+* Sits between cognition (Cortex) and execution (modules)
+* Supervised execution spine, not policy engine
+* Consumes intent, produces structured events
+* Cooperates with interruption system
 
-**Characteristics:**
-* Supervises execution, doesn't execute
-* Policy-free coordination
-* Lease-gated invocation
-* Event-driven lifecycle management
+**Boundary Rules:**
+* No domain policy (retry rules, importance, business meaning)
+* No planning logic (belongs in cognition layer)
+* No lease authority bypass
+* Pure coordination without decision-making
+
+**Purpose:**
+* Separate supervision from decision-making
+* Enable consistent execution patterns
+* Support observability through event emission
+* Prevent policy accumulation in infrastructure
 
 **Related:** ADR-012, ADR-008, ADR-003, ADR-004
 
