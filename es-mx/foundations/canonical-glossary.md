@@ -337,6 +337,187 @@ A **cryptographic warrant** of a connection between a Core and a Module, with al
 
 ---
 
+## Componentes de Enrutamiento y Ejecución del Core
+
+### Gateway
+
+Un **límite de enrutamiento del Core** que posee una implementación de puerto/cliente y expone un único punto de entrada.
+
+**Punto de Entrada:**
+* `send(operation) -> result`
+
+**Responsabilidades:**
+* Aceptar objetos de operación
+* Despachar por tipo de operación
+* Aplicar restricciones de límite (tipado, operaciones permitidas, reglas "solo traductor", etc.)
+* Reenviar a una implementación de puerto/cliente inyectada
+
+**No-responsabilidades:**
+* Sin política de dominio (sin "¿deberíamos hacer X?")
+* Sin I/O de infraestructura
+
+**Características:**
+* Límite de enrutamiento sin lógica de negocio
+* Respaldado por implementaciones de puerto/cliente (ej: CortexPort, MemoryPort, ArcuateClient)
+* Preserva límites de arquitectura hexagonal
+
+**Relacionado:** ADR-012
+
+---
+
+### CortexGateway / MemoryGateway / ArcuateGateway
+
+**Implementaciones específicas de gateway** para diferentes subsistemas del Core.
+
+**CortexGateway:**
+* Enruta operaciones cognitivas al puerto/cliente Cortex obligatorio
+* Maneja solicitudes de razonamiento cognitivo
+
+**MemoryGateway:**
+* Enruta operaciones de memoria a puertos de memoria (repositorios, servicios de memoria)
+* Sin política de memoria incorporada
+
+**ArcuateGateway:**
+* Enruta operaciones de traducción NLP a Arcuate (si está presente)
+* DEBE permanecer solo traductor (sin planificación ni toma de decisiones)
+
+**Relacionado:** ADR-012, ADR-009
+
+---
+
+### Operation Objects
+
+**Objetos de operación tipados** despachados por Gateways que representan "qué comportamiento" sin codificar lógica de enrutamiento.
+
+**Categorías de Ejemplo:**
+* `ProcessEvent`
+* `EvaluateIntent`
+* `Reflect`
+* `TranslateInputNlToSemantic`
+* `RealizeIntentToNl`
+
+**Características:**
+* Type-safe
+* Descriptores de comportamiento
+* Agnóstico de enrutamiento
+* Específico de dominio
+
+**Relacionado:** ADR-012
+
+---
+
+### ModuleRegistry
+
+La **autoridad de descubrimiento de capacidades y conexión**.
+
+**Autoridad Para:**
+* Descubrimiento de módulos disponibles
+* Rastreo de atestación y handshake
+* Rastreo de vivacidad
+* Indexación de capacidades
+* Devolver handles de endpoint activos para capacidades
+
+**No Autoridad Para:**
+* Permisos (eso es territorio de lease + política de seguridad)
+* Concesión de lease
+* Promoción/degradación de alcance
+
+**Características:**
+* Solo descubrimiento de capacidades
+* Sin decisiones de autorización
+* Rastrea salud y conectividad de módulos
+* Proporciona mapeo capacidad-a-endpoint
+
+**Relacionado:** ADR-012
+
+---
+
+### LeaseManager
+
+Un **componente dedicado propiedad del Core** responsable de toda autoridad de lease.
+
+**Responsabilidades:**
+* Emisión de leases
+* Renovación de leases
+* Revocación de leases
+* Gestión de epochs
+* Aplicación de la semántica "sin lease, sin ejecución"
+
+**Reglas de Autoridad de Lease:**
+* Único componente permitido para mutar estado de lease
+* Propiedad y control del Core
+* Explícito y auditable
+* Refuerza aislamiento de proceso
+
+**Características:**
+* Fuente única de verdad para estado de lease
+* Consciente de epoch
+* Componente crítico de seguridad
+* Nunca delegado a módulos o puertos
+
+**Relacionado:** ADR-012, ADR-003
+
+---
+
+### ModulePort / ModuleSession
+
+Una **conexión de transporte opaca** vinculada a un módulo específico.
+
+**Vincula:**
+* `LeaseMeta` (lease_id, epoch, proofs)
+* `ExecMeta` (execution_id, trace_id, span_id, thread_id)
+
+**Superficie de Invocación:**
+* `invoke(capability_urn, payload, meta) -> result`
+
+**Responsabilidades:**
+* Serialización/deserialización
+* Adjuntar metadatos requeridos
+* Reintentos para falla de transporte (si está configurado)
+* Surfacing de errores de forma determinística
+
+**No-responsabilidades:**
+* Sin semántica de negocio
+* Sin decisiones de autorización
+* Sin lógica de política (ej: "cuántos reintentos porque es importante")
+
+**Características:**
+* Sesión vinculada a lease
+* Transporte enriquecido con metadatos
+* Opaco a la lógica de negocio
+* Aplicación de límite de proceso
+
+**Relacionado:** ADR-012, ADR-003
+
+---
+
+### TaskOrchestrator
+
+La **columna vertebral de ejecución supervisada del Kernel**.
+
+**Responsabilidades:**
+* Gestionar ciclo de vida de tarea/span (spawn/run/pause/cancel/complete)
+* Cooperar con enrutamiento y políticas de interrupción
+* Resolver capacidades vía ModuleRegistry
+* Obtener/validar contexto de lease vía LeaseManager antes de la invocación
+* Despachar tareas a ModulePorts
+* Agregar resultados y emitir eventos
+
+**No-responsabilidades:**
+* Sin codificación de política de dominio (ej: específica de intent "reintentar porque tiene significado de negocio")
+* Sin lógica de planificación (eso pertenece a la cognición/Cortex)
+* Sin bypass de autoridad de lease
+
+**Características:**
+* Supervisa ejecución, no ejecuta
+* Coordinación libre de política
+* Invocación controlada por lease
+* Gestión de ciclo de vida orientada a eventos
+
+**Relacionado:** ADR-012, ADR-008, ADR-003, ADR-004
+
+---
+
 ## AI Models
 
 ### Cortex
