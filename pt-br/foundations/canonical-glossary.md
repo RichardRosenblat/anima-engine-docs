@@ -337,6 +337,168 @@ A **cryptographic warrant** of a connection between a Core and a Module, with al
 
 ---
 
+## Componentes de Roteamento e Execução do Core
+
+### Gateway
+
+Um **limite de roteamento** dentro do Core que fornece separação limpa entre lógica de domínio e infraestrutura.
+
+**Papel Arquitetural:**
+* Aceitar solicitações de operação tipadas
+* Despachar para implementações de porta/cliente apropriadas
+* Aplicar restrições de limite sem incorporar política
+* Manter separação de arquitetura hexagonal
+
+**Relação com o Core:**
+* Fica na borda da lógica de domínio do Core
+* Conecta operações de domínio a portas de infraestrutura
+* Previne contaminação do domínio com preocupações de infraestrutura
+* Permite implementações substituíveis por trás de interfaces estáveis
+
+**Regras de Limite:**
+* Sem política de domínio ("devemos fazer X?")
+* Sem I/O externo direto
+* Sem lógica de negócio
+* Roteamento puro e aplicação de restrições
+
+**Propósito:**
+* Preservar limites arquiteturais
+* Permitir testabilidade através de injeção de porta
+* Suportar múltiplos gateways de subsistema (cognição, memória, linguagem)
+* Manter lógica de roteamento explícita e auditável
+
+**Relacionado:** ADR-012
+
+---
+
+### Registry
+
+Uma **autoridade de descoberta e rastreamento** que mantém conhecimento em tempo de execução de capacidades disponíveis sem controlar autorização.
+
+**Papel Arquitetural:**
+* Descobrir e indexar capacidades disponíveis
+* Rastrear saúde e vivacidade de provedores de capacidade
+* Fornecer resolução de endpoint para solicitações de capacidade
+* Manter atestado e estado de handshake
+
+**Relação com o Core:**
+* Consultado durante execução de tarefa para resolver capacidades
+* Separa "o que existe" de "o que é permitido"
+* Permite disponibilidade dinâmica de capacidade
+* Sem autoridade sobre decisões de lease ou permissões
+
+**Limites de Autoridade:**
+* Rastreia disponibilidade de capacidade (não permissão)
+* Fornece informação de conexão (não autorização)
+* Monitora saúde (não política de segurança)
+
+**Propósito:**
+* Desacoplar descoberta de capacidade da autorização
+* Permitir registro de capacidade em tempo de execução
+* Suportar ciclo de vida de módulo sem acumulação de política
+* Tornar topologia de capacidade observável
+
+**Relacionado:** ADR-012
+
+---
+
+### Lease Authority
+
+Um **sistema de autorização dedicado** dentro do Core que controla todas as permissões de execução de módulo.
+
+**Papel Arquitetural:**
+* Emitir, renovar, revogar e validar leases
+* Gerenciar epochs e escopo de lease
+* Aplicar invariante "sem lease, sem execução"
+* Manter requisitos de prova criptográfica
+
+**Relação com o Core:**
+* Propriedade e controle exclusivo do Core
+* Nunca delegado a módulos ou componentes externos
+* Consultado antes de cada invocação de módulo
+* Fonte única de verdade para autorização de execução
+
+**Limites de Autoridade:**
+* Único componente que muta estado de lease
+* Não pode ser ignorado por nenhum outro componente
+* Aplica garantias de isolamento de processo
+* Mantém proteção anti-replay baseada em epoch
+
+**Propósito:**
+* Centralizar decisões de autorização
+* Prevenir acumulação de permissão distribuída
+* Permitir rastreamento de execução de nível de auditoria
+* Reforçar invariantes de segurança
+
+**Relacionado:** ADR-012, ADR-003
+
+---
+
+### Port / Session
+
+Uma **abstração de transporte** que vincula contexto de lease e execução à comunicação de módulo.
+
+**Papel Arquitetural:**
+* Representar conexão a módulo fora de processo
+* Anexar provas de lease e metadados de execução a todas as invocações
+* Lidar com serialização e preocupações de nível de transporte
+* Fornecer superfície de invocação opaca para camadas superiores
+
+**Relação com o Core:**
+* Usado pela camada de orquestração para invocar módulos
+* Aplica requisitos de metadados automaticamente
+* Abstrai mecanismo de transporte da lógica de negócio
+* Torna limites de processo explícitos
+
+**Regras de Limite:**
+* Sem semântica ou política de negócio
+* Sem lógica de autorização (delega à autoridade de lease)
+* Apenas transporte e serialização
+* Enriquecido com metadados mas agnóstico de domínio
+
+**Propósito:**
+* Aplicar separação de limite de processo
+* Garantir vinculação de lease para todas as invocações
+* Permitir evolução de transporte sem mudanças de domínio
+* Tornar rastreabilidade de execução automática
+
+**Relacionado:** ADR-012, ADR-003
+
+---
+
+### Orchestrator
+
+A **camada de coordenação de execução** que supervisiona ciclo de vida de tarefa sem incorporar política de domínio.
+
+**Papel Arquitetural:**
+* Gerenciar estados de ciclo de vida de tarefa e span
+* Coordenar resolução de capacidade via registry
+* Validar contexto de lease via autoridade de lease
+* Rotear tarefas para portas de módulo apropriadas
+* Agregar resultados de execução em eventos
+
+**Relação com o Core:**
+* Fica entre cognição (Cortex) e execução (módulos)
+* Espinha de execução supervisionada, não motor de política
+* Consome intenção, produz eventos estruturados
+* Coopera com sistema de interrupção
+
+**Regras de Limite:**
+* Sem política de domínio (regras de retry, importância, significado de negócio)
+* Sem lógica de planejamento (pertence à camada de cognição)
+* Sem bypass de autoridade de lease
+* Coordenação pura sem tomada de decisão
+
+**Propósito:**
+* Separar supervisão de tomada de decisão
+* Permitir padrões de execução consistentes
+* Suportar observabilidade através de emissão de eventos
+* Prevenir acumulação de política em infraestrutura
+
+**Relacionado:** ADR-012, ADR-008, ADR-003, ADR-004
+
+---
+
 ## AI Models
 
 ### Cortex
