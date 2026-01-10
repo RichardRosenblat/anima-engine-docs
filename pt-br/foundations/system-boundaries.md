@@ -257,10 +257,10 @@ These actions require **explicit human confirmation** before execution.
 * System-level operations
 * External API calls with side effects
 
-**Confirmation Mechanism:**
-* Risk level declared in capability contract
-* Multi-channel confirmation (e.g., voice + GUI)
-* Explicit intent restatement required
+**Mecanismo de Confirmação:**
+* Nível de Risco do Usuário e Nível de Risco do Sistema declarados no contrato de capacidade (veja [Glossário Canônico](canonical-glossary.md))
+* Confirmação multi-canal (ex: voz + GUI)
+* Reafirmação explícita de intenção necessária
 
 ---
 

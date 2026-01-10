@@ -647,6 +647,48 @@ An explicit data structure for semantic representation of messages.
 
 ---
 
+## Safety & Risk
+
+### System Risk Level
+
+The maximum potential impact to the system's integrity, security, availability, or trust boundaries if the operation behaves incorrectly or is abused.
+
+**Characteristics:**
+* Expresses impact severity, not likelihood
+* Independent of User Risk Level
+* Evaluated for every capability
+* Stable across policy changes
+
+**Purpose:**
+* Inform consent mechanisms
+* Guide sandboxing decisions
+* Support policy enforcement
+* Enable audit classifications
+
+**Related:** [Safety Model](../safety/safety-model.md), [System Boundaries](system-boundaries.md)
+
+---
+
+### User Risk Level
+
+The maximum potential harm to the user's privacy, finances, reputation, autonomy, or irreversible outcomes if the operation is executed incorrectly or without full understanding.
+
+**Characteristics:**
+* Expresses impact severity, not likelihood
+* Independent of System Risk Level
+* Evaluated for every capability
+* Stable across policy changes
+
+**Purpose:**
+* Inform consent mechanisms
+* Guide confirmation requirements
+* Support policy enforcement
+* Enable audit classifications
+
+**Related:** [Safety Model](../safety/safety-model.md), [System Boundaries](system-boundaries.md)
+
+---
+
 ## Process & State
 
 ### Zero-Lease State

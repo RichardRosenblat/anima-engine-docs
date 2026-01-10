@@ -647,6 +647,48 @@ An explicit data structure for semantic representation of messages.
 
 ---
 
+## Segurança & Risco
+
+### Nível de Risco do Sistema
+
+O impacto potencial máximo à integridade, segurança, disponibilidade ou limites de confiança do sistema se a operação se comportar incorretamente ou for abusada.
+
+**Características:**
+* Expressa severidade do impacto, não probabilidade
+* Independente do Nível de Risco do Usuário
+* Avaliado para cada capacidade
+* Estável através de mudanças de política
+
+**Propósito:**
+* Informar mecanismos de consentimento
+* Guiar decisões de sandboxing
+* Apoiar aplicação de políticas
+* Habilitar classificações de auditoria
+
+**Relacionado:** [Modelo de Segurança](../safety/safety-model.md), [Limites do Sistema](system-boundaries.md)
+
+---
+
+### Nível de Risco do Usuário
+
+O dano potencial máximo à privacidade, finanças, reputação, autonomia ou resultados irreversíveis do usuário se a operação for executada incorretamente ou sem compreensão completa.
+
+**Características:**
+* Expressa severidade do impacto, não probabilidade
+* Independente do Nível de Risco do Sistema
+* Avaliado para cada capacidade
+* Estável através de mudanças de política
+
+**Propósito:**
+* Informar mecanismos de consentimento
+* Guiar requisitos de confirmação
+* Apoiar aplicação de políticas
+* Habilitar classificações de auditoria
+
+**Relacionado:** [Modelo de Segurança](../safety/safety-model.md), [Limites do Sistema](system-boundaries.md)
+
+---
+
 ## Process & State
 
 ### Zero-Lease State

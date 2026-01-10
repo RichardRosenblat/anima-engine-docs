@@ -1,5 +1,12 @@
 # ANIMA — Modelo de Ameaças
 
+**Documentação Relacionada:**
+* [Glossário Canônico](../foundations/canonical-glossary.md) - Definições de Nível de Risco do Usuário e Nível de Risco do Sistema
+* [Modelo de Segurança](safety-model.md) - Mecanismos de aplicação de segurança
+* [Limites do Sistema](../foundations/system-boundaries.md) - Restrições arquiteturais
+
+---
+
 ## Propósito
 
 Este documento delineia o **modelo de ameaças explícito** para a ANIMA.
@@ -25,7 +32,7 @@ Características principais:
 * Execução controlada por capacidades
 * Sem acesso à internet por padrão
 * Sem estado global compartilhado
-* Confirmação humana explícita para ações arriscadas
+* Confirmação humana explícita para ações com alto Nível de Risco do Usuário (veja [Glossário Canônico](../foundations/canonical-glossary.md))
 
 A ANIMA assume **nenhuma confiança implícita** em entradas, adaptadores ou capacidades.
 
@@ -90,7 +97,7 @@ Um usuário, adaptador ou módulo tentando executar ações além das capacidade
 * Registro centralizado de capacidades
 * Verificações de permissão obrigatórias
 * Restrições de capacidade no nível da Seed
-* Confirmação humana para ações sensíveis ou perigosas
+* Confirmação humana para ações com alto Nível de Risco do Usuário (veja [Glossário Canônico](../foundations/canonical-glossary.md))
 
 ---
 
@@ -111,7 +118,7 @@ Entrada maliciosa tentando anular comportamento, políticas ou restrições de s
 ### 4. Autoridade ou Conhecimento Alucinado
 
 **Ameaça:**
-A ANIMA apresentando suposições ou fabricações como fatos, especialmente em contextos de alto risco.
+A ANIMA apresentando suposições ou fabricações como fatos, especialmente em contextos com alto Nível de Risco do Sistema ou Nível de Risco do Usuário (veja [Glossário Canônico](../foundations/canonical-glossary.md)).
 
 **Mitigação:**
 
