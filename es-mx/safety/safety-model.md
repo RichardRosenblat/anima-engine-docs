@@ -86,18 +86,32 @@ Esto garantiza:
 
 Algunas capacidades requieren **confirmación humana** antes de la ejecución.
 
+### Evaluación de Nivel de Riesgo
+
+ANIMA evalúa cada capacidad a lo largo de dos ejes independientes:
+
+* **Nivel de Riesgo del Sistema** — Impacto potencial máximo a la integridad, seguridad, disponibilidad o límites de confianza del sistema si la operación se comporta incorrectamente o es abusada. (Ver [Glosario Canónico](../foundations/canonical-glossary.md))
+
+* **Nivel de Riesgo del Usuario** — Daño potencial máximo a la privacidad, finanzas, reputación, autonomía o resultados irreversibles del usuario si la operación se ejecuta incorrectamente o sin comprensión completa. (Ver [Glosario Canónico](../foundations/canonical-glossary.md))
+
+Estos niveles de riesgo expresan **severidad del impacto**, no probabilidad, y son independientes uno del otro.
+
 ### Cuándo Se Requiere Confirmación
 
-* Acciones irreversibles
-* Acciones que afectan sistemas externos
-* Operaciones de alto costo o alto riesgo
-* Acciones con intención ambigua
+Los requisitos de confirmación son determinados por el **Nivel de Riesgo del Usuario**:
+
+* Operaciones de alto Nivel de Riesgo del Usuario (ej: transacciones financieras, acciones irreversibles)
+* Operaciones que afectan la privacidad del usuario o datos personales
+* Acciones con consecuencias externas significativas
+* Operaciones donde la intención del usuario es ambigua
+
+El Nivel de Riesgo del Sistema influye en sandboxing, aislamiento y mecanismos de aplicación, pero no desencadena directamente confirmación del usuario.
 
 ### Propiedades de Confirmación
 
 * Explícita (no inferida)
 * Limitada en tiempo
-* Multi-factor
+* Multi-factor cuando el Nivel de Riesgo del Usuario lo justifique
 * Registrada
 * Vinculada a una instancia de acción específica
 
