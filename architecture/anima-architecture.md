@@ -33,7 +33,7 @@ The architecture follows **Hexagonal Architecture** and **Domain-Driven Design (
 
 The ANIMA Engine is identity-agnostic. Personality and behavior are introduced through **Seeds** (see [Seed System](seed-system.md)).
 
-* Engine: reasoning, planning, memory mechanics, security
+* Engine: reasoning, planning, MTL (memory subsystem), security
 * Identity: personality, tone, behavioral policies (defined by Seed)
 
 ### 2. Hexagonal Architecture
@@ -289,7 +289,7 @@ See [Seed System](seed-system.md) for details.
 ```
 
 * Instance-local
-* Queried, never blindly trusted
+* Queried via MTL (memory subsystem), never blindly trusted
 * Layered (episodic, semantic, narrative)
 * No cross-instance sharing
 

@@ -46,7 +46,7 @@ The engine is a private runtime responsible for:
 
 * Intent understanding and reasoning
 * Task planning and long-lived task orchestration
-* Memory mechanics (episodic, semantic, narrative)
+* MTL (memory subsystem; storage, retrieval, decay, promotion mechanics)
 * Capability discovery, permissioning, and execution
 * Security, confirmation flows, and audit logging
 * Adapter-agnostic input/output handling

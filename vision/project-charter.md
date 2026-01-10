@@ -41,7 +41,7 @@ ANIMA exists to:
    * Support continuous operation and task management
 
 2. **Separate engine from identity**
-   * Engine: reasoning, planning, memory mechanics, security
+   * Engine: reasoning, planning, MTL (memory subsystem), security
    * Identity: personality, tone, behavioral policies (defined by Seed)
    * Enable multiple independent instances from one engine
 

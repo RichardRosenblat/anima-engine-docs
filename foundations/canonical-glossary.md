@@ -26,7 +26,7 @@ The entirety of the ANIMA system.
 **Components:**
 * Core (Cognitive Kernel)
 * Seed
-* Memory (instance-local)
+* MTL (Medial Temporal Lobe; memory subsystem)
 * Capabilities (contracts)
 * Modules (out-of-process)
 * Adapters (pure translation)
@@ -114,9 +114,31 @@ A **static, declarative configuration artifact** loaded at initialization.
 
 ---
 
+### MTL (Medial Temporal Lobe)
+
+The **memory subsystem** responsible for storage, retrieval, decay, and promotion of instance-local memory.
+
+**Responsibilities:**
+* Memory storage mechanics (episodic, semantic, narrative layers)
+* Retrieval and querying with controlled slices
+* Decay and promotion policy enforcement
+* Confidence tracking and provenance
+* Memory integrity and boundaries
+
+**Characteristics:**
+* Instance-local (never shared between instances)
+* Mediates all memory access (prevents direct full access)
+* Enforces memory policies defined by Seed
+* Provides controlled memory slices to Cortex
+* Operates as a subsystem boundary within the Core
+
+**Related:** [Memory Integrity](../safety/memory-integrity.md), [AI Model Topology](../architecture/ai-model-topology.md)
+
+---
+
 ### Memory
 
-Instance-local data describing past and present state.
+Instance-local data describing past and present state, managed by the MTL subsystem.
 
 **Contains:**
 * Past interactions (episodic)
@@ -137,11 +159,11 @@ Instance-local data describing past and present state.
 
 **Memory Rules:**
 * Informs reasoning, never overrides policy
-* Queried with controlled slices (prevents full access)
+* Queried through MTL with controlled slices
 * Tracked as observed, remembered, inferred, or unknown
 * No cross-instance sharing ever
 
-**Related:** [Memory Integrity](memory-integrity.md)
+**Related:** [Memory Integrity](../safety/memory-integrity.md)
 
 ---
 
@@ -364,7 +386,7 @@ A **routing boundary** within the Core that provides clean separation between do
 **Purpose:**
 * Preserve architectural boundaries
 * Enable testability through port injection
-* Support multiple subsystem gateways (cognition, memory, language)
+* Support multiple subsystem gateways (cognition, MTL, language)
 * Keep routing logic explicit and auditable
 
 **Related:** ADR-012
