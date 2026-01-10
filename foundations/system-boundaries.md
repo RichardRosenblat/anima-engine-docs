@@ -258,7 +258,7 @@ These actions require **explicit human confirmation** before execution.
 * External API calls with side effects
 
 **Confirmation Mechanism:**
-* Risk level declared in capability contract
+* User Risk Level and System Risk Level declared in capability contract (see [Canonical Glossary](canonical-glossary.md))
 * Multi-channel confirmation (e.g., voice + GUI)
 * Explicit intent restatement required
 

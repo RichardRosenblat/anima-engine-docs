@@ -1,5 +1,12 @@
 # ANIMA — Threat Model
 
+**Related Documentation:**
+* [Canonical Glossary](../foundations/canonical-glossary.md) - Definitions of User Risk Level and System Risk Level
+* [Safety Model](safety-model.md) - Safety enforcement mechanisms
+* [System Boundaries](../foundations/system-boundaries.md) - Architectural constraints
+
+---
+
 ## Purpose
 
 This document outlines the **explicit threat model** for ANIMA.
@@ -25,7 +32,7 @@ Key characteristics:
 * Capability-gated execution
 * No internet access by default
 * No shared global state
-* Explicit human confirmation for risky actions
+* Explicit human confirmation for actions with high User Risk Level (see [Canonical Glossary](../foundations/canonical-glossary.md))
 
 ANIMA assumes **no implicit trust** in inputs, adapters, or capabilities.
 
@@ -90,7 +97,7 @@ A user, adapter, or module attempting to execute actions beyond authorized capab
 * Centralized capability registry
 * Mandatory permission checks
 * Seed-level capability restrictions
-* Human confirmation for sensitive or dangerous actions
+* Human confirmation for actions with high User Risk Level (see [Canonical Glossary](../foundations/canonical-glossary.md))
 
 ---
 
@@ -111,7 +118,7 @@ Malicious input attempting to override behavior, policies, or safety constraints
 ### 4. Hallucinated Authority or Knowledge
 
 **Threat:**
-ANIMA presenting guesses or fabrications as facts, especially in high-risk contexts.
+ANIMA presenting guesses or fabrications as facts, especially in contexts with high System Risk Level or User Risk Level (see [Canonical Glossary](../foundations/canonical-glossary.md)).
 
 **Mitigation:**
 

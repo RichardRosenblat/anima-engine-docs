@@ -86,18 +86,32 @@ This ensures:
 
 Some capabilities require **human confirmation** before execution.
 
+### Risk Level Assessment
+
+ANIMA evaluates every capability along two independent axes:
+
+* **System Risk Level** — Maximum potential impact to system integrity, security, availability, or trust boundaries if the operation behaves incorrectly or is abused. (See [Canonical Glossary](../foundations/canonical-glossary.md))
+
+* **User Risk Level** — Maximum potential harm to the user's privacy, finances, reputation, autonomy, or irreversible outcomes if the operation is executed incorrectly or without full understanding. (See [Canonical Glossary](../foundations/canonical-glossary.md))
+
+These risk levels express **impact severity**, not likelihood, and are independent of each other.
+
 ### When Confirmation Is Required
 
-* Irreversible actions
-* Actions affecting external systems
-* High-cost or high-risk operations
-* Actions with ambiguous intent
+Confirmation requirements are determined by the **User Risk Level**:
+
+* High User Risk operations (e.g., financial transactions, irreversible actions)
+* Operations affecting user privacy or personal data
+* Actions with significant external consequences
+* Operations where user intent is ambiguous
+
+System Risk Level influences sandboxing, isolation, and enforcement mechanisms but does not directly trigger user confirmation.
 
 ### Confirmation Properties
 
 * Explicit (not inferred)
 * Time-bound
-* Multi-factor
+* Multi-factor when User Risk Level warrants
 * Logged
 * Tied to a specific action instance
 
