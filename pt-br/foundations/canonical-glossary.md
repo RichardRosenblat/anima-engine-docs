@@ -367,7 +367,7 @@ Um **limite de roteamento** dentro do Core que fornece separação limpa entre l
 * Suportar múltiplos gateways de subsistema (cognição, memória, linguagem)
 * Manter lógica de roteamento explícita e auditável
 
-**Relacionado:** ADR-012
+**Relacionado:** ADR-006, ADR-007
 
 ---
 
@@ -398,7 +398,7 @@ Uma **autoridade de descoberta e rastreamento** que mantém conhecimento em temp
 * Suportar ciclo de vida de módulo sem acumulação de política
 * Tornar topologia de capacidade observável
 
-**Relacionado:** ADR-012
+**Relacionado:** ADR-003
 
 ---
 
@@ -430,7 +430,7 @@ Um **sistema de autorização dedicado** dentro do Core que controla todas as pe
 * Permitir rastreamento de execução de nível de auditoria
 * Reforçar invariantes de segurança
 
-**Relacionado:** ADR-012, ADR-003
+**Relacionado:** ADR-003
 
 ---
 
@@ -462,7 +462,7 @@ Uma **abstração de transporte** que vincula contexto de lease e execução à 
 * Permitir evolução de transporte sem mudanças de domínio
 * Tornar rastreabilidade de execução automática
 
-**Relacionado:** ADR-012, ADR-003
+**Relacionado:** ADR-003
 
 ---
 
@@ -495,7 +495,7 @@ A **camada de coordenação de execução** que supervisiona ciclo de vida de ta
 * Suportar observabilidade através de emissão de eventos
 * Prevenir acumulação de política em infraestrutura
 
-**Relacionado:** ADR-012, ADR-008, ADR-003, ADR-004
+**Relacionado:** ADR-008, ADR-003, ADR-004
 
 ---
 

@@ -367,7 +367,7 @@ A **routing boundary** within the Core that provides clean separation between do
 * Support multiple subsystem gateways (cognition, memory, language)
 * Keep routing logic explicit and auditable
 
-**Related:** ADR-012
+**Related:** ADR-006, ADR-007
 
 ---
 
@@ -398,7 +398,7 @@ A **discovery and tracking authority** that maintains runtime knowledge of avail
 * Support module lifecycle without policy creep
 * Make capability topology observable
 
-**Related:** ADR-012
+**Related:** ADR-003
 
 ---
 
@@ -430,7 +430,7 @@ A **dedicated authorization system** within the Core that controls all module ex
 * Enable audit-grade execution tracking
 * Reinforce security invariants
 
-**Related:** ADR-012, ADR-003
+**Related:** ADR-003
 
 ---
 
@@ -462,7 +462,7 @@ A **transport abstraction** that binds lease and execution context to module com
 * Enable transport evolution without domain changes
 * Make execution traceability automatic
 
-**Related:** ADR-012, ADR-003
+**Related:** ADR-003
 
 ---
 
@@ -495,7 +495,7 @@ The **execution coordination layer** that supervises task lifecycle without embe
 * Support observability through event emission
 * Prevent policy accumulation in infrastructure
 
-**Related:** ADR-012, ADR-008, ADR-003, ADR-004
+**Related:** ADR-008, ADR-003, ADR-004
 
 ---
 
