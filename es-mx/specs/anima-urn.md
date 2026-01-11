@@ -130,6 +130,9 @@ Ejemplo:
 2.3.1
 ```
 
+Si el versionado no tiene significado semántico, use `0.0.0`.
+
+
 ### 6.2 Significado Semántico
 
 Dentro de una URN:

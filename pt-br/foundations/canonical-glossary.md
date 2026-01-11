@@ -645,7 +645,7 @@ Um URN ANIMA que identifica de forma opaca e única um runtime específico do pr
 * Habilitar memória e execução com escopo de instância
 * Vincular leases a runtimes específicos do Núcleo
 
-**Formato:** `anima:instance:<instance-id>`
+**Formato:** `urn:anima:core:instance@<version>:<instance-id>`
 
 **Características:**
 * Gerado pelo Núcleo na inicialização
@@ -675,7 +675,7 @@ Um URN ANIMA que identifica exclusivamente o Núcleo ANIMA dentro do ecossistema
 * Habilitar identificação Núcleo-a-Núcleo em cenários distribuídos futuros
 * Vincular módulos a instalações específicas do Núcleo
 
-**Formato:** `anima:core:<core-id>`
+**Formato:** `urn:anima:core:core.identifier@<version>:<instance-id>`
 
 **Características:**
 * Estabelecido durante a configuração inicial do sistema Núcleo

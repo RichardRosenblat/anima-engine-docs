@@ -141,6 +141,8 @@ Example:
 
 ```
 
+if versioning has no semantic meaning, use `0.0.0`.
+
 ### 6.2 Semantic Meaning
 
 Within a URN:
