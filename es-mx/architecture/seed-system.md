@@ -46,7 +46,7 @@ El motor es un runtime privado responsable de:
 
 * Comprensión y razonamiento de intención
 * Planificación de tareas y orquestación de tareas de larga duración
-* Mecánica de memoria (episódica, semántica, narrativa)
+* MTL (subsistema de memoria; almacenamiento, recuperación, decaimiento, mecánicas de promoción)
 * Descubrimiento, permisos y ejecución de capacidades
 * Seguridad, flujos de confirmación y registro de auditoría
 * Manejo de entrada/salida agnóstico de adaptador

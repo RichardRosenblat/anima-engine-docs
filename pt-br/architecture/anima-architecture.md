@@ -33,7 +33,7 @@ A arquitetura segue princípios de **Arquitetura Hexagonal** e **Design Orientad
 
 O Motor ANIMA é agnóstico de identidade. Personalidade e comportamento são introduzidos através de **Seeds** (veja [Sistema de Seeds](seed-system.md)).
 
-* Motor: raciocínio, planejamento, mecânica de memória, segurança
+* Motor: raciocínio, planejamento, MTL (subsistema de memória), segurança
 * Identidade: personalidade, tom, políticas comportamentais (definidas por Seed)
 
 ### 2. Arquitetura Hexagonal
@@ -291,7 +291,7 @@ Veja [Sistema de Seeds](seed-system.md) para detalhes.
 ```
 
 * Local à instância
-* Consultada, nunca confiada cegamente
+* Consultada via MTL (subsistema de memória), nunca confiada cegamente
 * Em camadas (episódica, semântica, narrativa)
 * Sem compartilhamento entre instâncias
 

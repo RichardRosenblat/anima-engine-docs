@@ -26,7 +26,7 @@ A totalidade do sistema ANIMA.
 **Componentes:**
 * Core (Kernel Cognitivo)
 * Seed
-* Memory (instance-local)
+* MTL (Lobo Temporal Medial; subsistema de memória)
 * Capabilities (contracts)
 * Modules (out-of-process)
 * Adapters (pure translation)
@@ -114,9 +114,31 @@ Um **artefato de configuração estático e declarativo** carregado na inicializ
 
 ---
 
+### MTL (Lobo Temporal Medial)
+
+O **subsistema de memória** responsável pelo armazenamento, recuperação, decaimento e promoção de memória instance-local.
+
+**Responsabilidades:**
+* Mecânicas de armazenamento de memória (camadas episódica, semântica, narrativa)
+* Recuperação e consulta com fatias controladas
+* Aplicação de políticas de decaimento e promoção
+* Rastreamento de confiança e proveniência
+* Integridade e limites de memória
+
+**Características:**
+* Instance-local (nunca compartilhada entre instâncias)
+* Medeia todo acesso à memória (previne acesso completo direto)
+* Aplica políticas de memória definidas pelo Seed
+* Fornece fatias de memória controladas ao Cortex
+* Opera como um limite de subsistema dentro do Core
+
+**Relacionado:** [Memory Integrity](../safety/memory-integrity.md), [AI Model Topology](../architecture/ai-model-topology.md)
+
+---
+
 ### Memory
 
-Instance-local data describing past and present state.
+Instance-local data describing past and present state, managed by the MTL subsystem.
 
 **Contém:**
 * Past interactions (episodic)
@@ -137,11 +159,11 @@ Instance-local data describing past and present state.
 
 **Memory Rules:**
 * Informs reasoning, never overrides policy
-* Queried with controlled slices (prevents full access)
+* Queried through MTL with controlled slices
 * Tracked as observed, remembered, inferred, or unknown
 * No cross-instance sharing ever
 
-**Relacionado:** [Memory Integrity](memory-integrity.md)
+**Relacionado:** [Memory Integrity](../safety/memory-integrity.md)
 
 ---
 
@@ -364,7 +386,7 @@ Um **limite de roteamento** dentro do Core que fornece separação limpa entre l
 **Propósito:**
 * Preservar limites arquiteturais
 * Permitir testabilidade através de injeção de porta
-* Suportar múltiplos gateways de subsistema (cognição, memória, linguagem)
+* Suportar múltiplos gateways de subsistema (cognição, MTL, linguagem)
 * Manter lógica de roteamento explícita e auditável
 
 **Relacionado:** ADR-012
