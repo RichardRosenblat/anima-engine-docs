@@ -26,7 +26,7 @@ The entirety of the ANIMA system.
 **Components:**
 * Core (Cognitive Kernel)
 * Seed
-* MTL (Medial Temporal Lobe; memory subsystem)
+* MTL (Medial Temporal Lobe; memory domain)
 * Capabilities (contracts)
 * Modules (out-of-process)
 * Adapters (pure translation)
@@ -116,7 +116,7 @@ A **static, declarative configuration artifact** loaded at initialization.
 
 ### MTL (Medial Temporal Lobe)
 
-The **memory subsystem** responsible for storage, retrieval, decay, and promotion of instance-local memory.
+The **memory domain** responsible for storage, retrieval, decay, and promotion of instance-local memory.
 
 **Responsibilities:**
 * Memory storage mechanics (episodic, semantic, narrative layers)
@@ -130,7 +130,7 @@ The **memory subsystem** responsible for storage, retrieval, decay, and promotio
 * Mediates all memory access (prevents direct full access)
 * Enforces memory policies defined by Seed
 * Provides controlled memory slices to Cortex
-* Operates as a subsystem boundary within the Core
+* Operates as a domain boundary within the Core
 
 **Related:** [Memory Integrity](../safety/memory-integrity.md), [AI Model Topology](../architecture/ai-model-topology.md)
 
@@ -138,7 +138,7 @@ The **memory subsystem** responsible for storage, retrieval, decay, and promotio
 
 ### Memory
 
-Instance-local data describing past and present state, managed by the MTL subsystem.
+Instance-local data describing past and present state, managed by the MTL domain.
 
 **Contains:**
 * Past interactions (episodic)
@@ -386,7 +386,7 @@ A **routing boundary** within the Core that provides clean separation between do
 **Purpose:**
 * Preserve architectural boundaries
 * Enable testability through port injection
-* Support multiple subsystem gateways (cognition, MTL, language)
+* Support multiple domain gateways (cognition, MTL, language)
 * Keep routing logic explicit and auditable
 
 **Related:** ADR-012

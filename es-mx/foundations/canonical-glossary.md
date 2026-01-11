@@ -138,7 +138,7 @@ El **subsistema de memoria** responsable del almacenamiento, recuperación, deca
 
 ### Memory
 
-Instance-local data describing past and present state, managed by the MTL subsystem.
+Instance-local data describing past and present state, managed by the MTL domain.
 
 **Contains:**
 * Past interactions (episodic)

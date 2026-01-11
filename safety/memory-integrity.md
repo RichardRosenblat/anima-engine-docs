@@ -266,7 +266,7 @@ Memory exists to support trust — not authority.
 
 ## Summary
 
-ANIMA's MTL (memory subsystem) prioritizes:
+ANIMA's MTL (memory domain) prioritizes:
 
 * Integrity over volume
 * Continuity over completeness
