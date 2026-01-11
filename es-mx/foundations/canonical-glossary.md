@@ -631,6 +631,76 @@ events/
 
 ---
 
+## Identidad e Identificación
+
+### URN de Instancia ANIMA
+
+Un URN ANIMA que identifica de forma opaca y única un runtime específico del proceso ANIMA.
+
+**También conocido como:** URN de Instancia del Núcleo (Core Instance URN)
+
+**Propósito:**
+* Rastrear y gestionar el ciclo de vida de una instancia específica
+* Aplicar límites de aislamiento de instancia
+* Habilitar memoria y ejecución con alcance de instancia
+* Vincular leases a runtimes específicos del Núcleo
+
+**Formato:** `anima:instance:<instance-id>`
+
+**Características:**
+* Generado por el Núcleo en el inicio
+* Único para cada invocación de runtime
+* Identificador opaco (no derivado del contenido)
+* Permanece estable durante la vida del runtime
+* Usado en sobres de eventos para identificar la fuente del evento
+* Validado en la capa de acceso a memoria
+
+**Dónde se Usa:**
+* Sobre de evento (campo `instance_urn`)
+* Identidad del consumidor del lease
+* Aplicación de aislamiento de memoria
+* Codificación de certificado mTLS
+
+**Relacionado:** [Especificación URN ANIMA](../specs/anima-urn.md), [Límites del Sistema](system-boundaries.md)
+
+---
+
+### URN del Núcleo
+
+Un URN ANIMA que identifica exclusivamente el Núcleo ANIMA dentro del ecosistema ANIMA.
+
+**Propósito:**
+* Servir como punto de referencia estable para servicios del Núcleo
+* Identificar la instalación del Núcleo a través de instancias de runtime
+* Habilitar identificación Núcleo-a-Núcleo en escenarios distribuidos futuros
+* Vincular módulos a instalaciones específicas del Núcleo
+
+**Formato:** `anima:core:<core-id>`
+
+**Características:**
+* Establecido durante la configuración inicial del sistema Núcleo
+* Permanece constante a través de diferentes instancias de runtime
+* Identificador opaco (no derivado del contenido)
+* Estable a través de reinicios del Núcleo
+* Usado en sobres de eventos para identificar la fuente del Núcleo
+* Codificado en certificados mTLS
+
+**Dónde se Usa:**
+* Sobre de evento (campo `core_urn`)
+* Vinculación de módulos y establecimiento de confianza
+* Identidad del Núcleo en escenarios distribuidos
+* Autorización de capacidad a largo plazo
+
+**Distinción del URN de Instancia:**
+* URN del Núcleo identifica la **instalación/configuración**
+* URN de Instancia identifica el **runtime específico**
+* URN del Núcleo es estable a través de reinicios
+* URN de Instancia cambia con cada ejecución
+
+**Relacionado:** [Especificación URN ANIMA](../specs/anima-urn.md), [Tipos de Módulos y Leases](../architecture/module-types-and-leases.md)
+
+---
+
 ## Architecture Patterns
 
 ### Package
