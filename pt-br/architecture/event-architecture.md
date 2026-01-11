@@ -131,8 +131,8 @@ Every event MUST include at minimum:
 * **span_id / parent_span_id** → hierarchical structure
 * **thread_id** → concurrency visibility
 * **type** → semantic meaning (stable, documented)
-* **instance_urn** → unique identifier for the ANIMA instance
-* **core_urn** → unique identifier for the Core runtime
+* **instance_urn** → identificador único para a instância ANIMA
+* **core_urn** → identificador único para o runtime do Núcleo
 * **payload** → structured data only (no free text)
 
 ---
