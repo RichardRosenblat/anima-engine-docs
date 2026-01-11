@@ -631,6 +631,76 @@ events/
 
 ---
 
+## Identidade & Identificação
+
+### URN de Instância ANIMA
+
+Um URN ANIMA que identifica de forma opaca e única um runtime específico do processo ANIMA.
+
+**Também conhecido como:** URN de Instância do Núcleo (Core Instance URN)
+
+**Propósito:**
+* Rastrear e gerenciar o ciclo de vida de uma instância específica
+* Aplicar limites de isolamento de instância
+* Habilitar memória e execução com escopo de instância
+* Vincular leases a runtimes específicos do Núcleo
+
+**Formato:** `urn:anima:core:instance@<version>:<instance-id>`
+
+**Características:**
+* Gerado pelo Núcleo na inicialização
+* Único para cada invocação de runtime
+* Identificador opaco (não derivado do conteúdo)
+* Permanece estável durante o tempo de vida do runtime
+* Usado em envelopes de eventos para identificar a fonte do evento
+* Validado na camada de acesso à memória
+
+**Onde é Usado:**
+* Envelope de evento (campo `instance_urn`)
+* Identidade do consumidor do lease
+* Aplicação de isolamento de memória
+* Codificação de certificado mTLS
+
+**Relacionado:** [Especificação URN ANIMA](../specs/anima-urn.md), [Limites do Sistema](system-boundaries.md)
+
+---
+
+### URN do Núcleo
+
+Um URN ANIMA que identifica exclusivamente o Núcleo ANIMA dentro do ecossistema ANIMA.
+
+**Propósito:**
+* Servir como ponto de referência estável para serviços do Núcleo
+* Identificar a instalação do Núcleo através de instâncias de runtime
+* Habilitar identificação Núcleo-a-Núcleo em cenários distribuídos futuros
+* Vincular módulos a instalações específicas do Núcleo
+
+**Formato:** `urn:anima:core:core.identifier@<version>:<instance-id>`
+
+**Características:**
+* Estabelecido durante a configuração inicial do sistema Núcleo
+* Permanece constante através de diferentes instâncias de runtime
+* Identificador opaco (não derivado do conteúdo)
+* Estável através de reinicializações do Núcleo
+* Usado em envelopes de eventos para identificar a fonte do Núcleo
+* Codificado em certificados mTLS
+
+**Onde é Usado:**
+* Envelope de evento (campo `core_urn`)
+* Vinculação de módulos e estabelecimento de confiança
+* Identidade do Núcleo em cenários distribuídos
+* Autorização de capacidade de longo prazo
+
+**Distinção do URN de Instância:**
+* URN do Núcleo identifica a **instalação/configuração**
+* URN de Instância identifica o **runtime específico**
+* URN do Núcleo é estável através de reinicializações
+* URN de Instância muda a cada execução
+
+**Relacionado:** [Especificação URN ANIMA](../specs/anima-urn.md), [Tipos de Módulos e Leases](../architecture/module-types-and-leases.md)
+
+---
+
 ## Architecture Patterns
 
 ### Package

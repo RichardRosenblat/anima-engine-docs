@@ -118,6 +118,8 @@ Every event MUST include at minimum:
   "timestamp": "RFC3339",
   "source": "core | module:<name>",
   "type": "event.type.identifier",
+  "instance_urn": "anima:instance:<instance-id>",
+  "core_urn": "anima:core:<core-id>",
   "payload": {}
 }
 ```
@@ -129,6 +131,8 @@ Every event MUST include at minimum:
 * **span_id / parent_span_id** → hierarchical structure
 * **thread_id** → concurrency visibility
 * **type** → semantic meaning (stable, documented)
+* **instance_urn** → unique identifier for the ANIMA instance runtime
+* **core_urn** → unique identifier for the Core installation
 * **payload** → structured data only (no free text)
 
 ---
@@ -186,6 +190,8 @@ Example:
   "timestamp": "2026-01-07T12:34:56Z",
   "source": "module:microphone",
   "type": "input.nl",
+  "instance_urn": "anima:instance:main-desktop",
+  "core_urn": "anima:core:primary-01",
   "payload": {
     "text": "send this file to discord",
     "language": "en-US",
@@ -219,6 +225,8 @@ Example:
   "timestamp": "2026-01-07T12:35:10Z",
   "source": "module:vscode",
   "type": "input.system",
+  "instance_urn": "anima:instance:main-desktop",
+  "core_urn": "anima:core:primary-01",
   "payload": {
     "action": "file_opened",
     "path": "/project/main.py"
@@ -250,6 +258,8 @@ Example:
   "timestamp": "2026-01-07T12:35:20Z",
   "source": "adapter:arcuate",
   "type": "input.semantic",
+  "instance_urn": "anima:instance:main-desktop",
+  "core_urn": "anima:core:primary-01",
   "payload": {
     "intent": "send_message",
     "target": "discord",
@@ -269,6 +279,8 @@ Interruptions enter as input events (see [ADR-005: Interruption & Preemption Mod
 ```json
 {
   "type": "input.semantic",
+  "instance_urn": "anima:instance:main-desktop",
+  "core_urn": "anima:core:primary-01",
   "payload": {
     "intent": "interrupt",
     "target": "speech_output",
