@@ -20,7 +20,7 @@
 |------|-------|----------|-------|
 | README.md | 646 | 🔴 HIGH | Main entry point, partially has translations embedded |
 | specs/json_reference_system.md | 411 | 🔴 HIGH | Critical technical specification |
-| architecture/directry-overview.md | 214 | 🟡 MEDIUM | Navigation document, has typo in filename |
+| architecture/directory-overview.md | 214 | 🟡 MEDIUM | Navigation document |
 | future-posts.md | 61 | 🟢 LOW | Draft content, review needed |
 
 ---
@@ -99,9 +99,7 @@ Contains:
    - **Impact**: Critical technical specification for developers
 
 ### Short-term (Medium Priority)
-3. **Fix and Translate architecture/directry-overview.md**
-   - Consider renaming to `directory-overview.md` (fix typo)
-   - Then translate to both languages
+3. **Translate architecture/directory-overview.md**
    - **Impact**: Improves navigation in architecture section
 
 ### Review Required

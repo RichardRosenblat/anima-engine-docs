@@ -62,7 +62,7 @@ echo "Spanish (es-mx):    $(count_md_files ./es-mx)"
 #!/bin/bash
 # Show translation status per directory
 
-for dir in adr annoucements architecture foundations governance roadmaps safety specs vision; do
+for dir in adr announcements architecture foundations governance roadmaps safety specs vision; do
     en_count=$(find "./$dir" -maxdepth 1 -type f -name "*.md" 2>/dev/null | wc -l)
     pt_count=$(find "./pt-br/$dir" -maxdepth 1 -type f -name "*.md" 2>/dev/null | wc -l)
     es_count=$(find "./es-mx/$dir" -maxdepth 1 -type f -name "*.md" 2>/dev/null | wc -l)
@@ -275,7 +275,7 @@ As of the last check (see TRANSLATION_REPORT.md for details):
 - `specs/json_reference_system.md` (411 lines)
 
 ### Medium Priority
-- `architecture/directry-overview.md` (214 lines) - Note: typo in filename
+- `architecture/directory-overview.md` (214 lines) - Navigation document
 
 ### Review Needed
 - `future-posts.md` (61 lines) - Internal draft, may not need translation

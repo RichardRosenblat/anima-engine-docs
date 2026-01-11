@@ -13,7 +13,7 @@
 |----------|------|-------|------|
 | 🔴 HIGH | README.md | 646 | Main documentation entry |
 | 🔴 HIGH | specs/json_reference_system.md | 411 | Technical specification |
-| 🟡 MEDIUM | architecture/directry-overview.md | 214 | Navigation index |
+| 🟡 MEDIUM | architecture/directory-overview.md | 214 | Navigation index |
 | 🟢 LOW | future-posts.md | 61 | Draft/Internal content |
 
 ---
@@ -25,7 +25,6 @@
 - [ ] Translate `specs/json_reference_system.md` to pt-br and es-mx
 
 ### Medium Priority
-- [ ] Fix typo: `directry-overview.md` → `directory-overview.md`
 - [ ] Translate `architecture/directory-overview.md` to pt-br and es-mx
 
 ### Review Needed

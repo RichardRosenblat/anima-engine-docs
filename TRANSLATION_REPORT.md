@@ -42,11 +42,9 @@ The root README.md is the primary entry point for the project and contains:
 
 ---
 
-### 2. architecture/directry-overview.md
+### 2. architecture/directory-overview.md
 **Lines**: 214  
 **Priority**: 🟡 **MEDIUM** (Navigation document)
-
-**Note**: There's a typo in the filename - should be "directory-overview.md" not "directry-overview.md"
 
 This file serves as the architecture documentation index/navigation, containing:
 - Links to all architecture documents
@@ -121,10 +119,8 @@ Comprehensive technical specification for the JSON Scoped Reference System (JSRS
 
 ### Medium Priority Actions
 
-3. **Translate architecture/directry-overview.md**
+3. **Translate architecture/directory-overview.md**
    - Important for navigation
-   - Consider fixing the typo in the filename first
-   - Then create translations
 
 ### Low Priority / Review Needed
 
@@ -144,7 +140,7 @@ Comprehensive technical specification for the JSON Scoped Reference System (JSRS
 - ✅ adr/ADR-001.md through ADR-011.md
 
 #### Announcements (1 file)
-- ✅ annoucements/2025-12-28-engine-core-start.md
+- ✅ announcements/2025-12-28-engine-core-start.md
 
 #### Architecture (8 files)
 - ✅ architecture/adapter-actuator-split.md
@@ -182,7 +178,7 @@ Comprehensive technical specification for the JSON Scoped Reference System (JSRS
 ### ❌ Missing Translations (4 files)
 
 - ❌ README.md
-- ❌ architecture/directry-overview.md
+- ❌ architecture/directory-overview.md
 - ❌ future-posts.md
 - ❌ specs/json_reference_system.md
 
@@ -230,7 +226,7 @@ Both translation directories maintain the same structure:
 ```
 pt-br/
 ├── adr/
-├── annoucements/
+├── announcements/
 ├── architecture/
 ├── foundations/
 ├── governance/
@@ -241,7 +237,7 @@ pt-br/
 
 es-mx/
 ├── adr/
-├── annoucements/
+├── announcements/
 ├── architecture/
 ├── foundations/
 ├── governance/

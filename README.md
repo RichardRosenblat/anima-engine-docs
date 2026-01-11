@@ -237,7 +237,7 @@ Constitutional principles and boundaries:
 * [Licensing Model](licensing-model.md) - Licensing and distribution
 * [Non-Goals](non-goals.md) - Explicit non-goals and boundaries
 * [Roadmap](roadmaps/roadmap.md) - Development roadmap
-* [Announcements](annoucements) - Project announcements and updates
+* [Announcements](announcements) - Project announcements and updates
 
 ---
 
@@ -552,7 +552,7 @@ Explore a documentação completa em português:
 ### Planejamento
 
 * [Roadmap](pt-br/roadmaps/roadmap.md) - Roteiro de desenvolvimento
-* [Anúncios](pt-br/annoucements) - Anúncios e atualizações do projeto
+* [Anúncios](pt-br/announcements) - Anúncios e atualizações do projeto
 
 ---
 
@@ -626,7 +626,7 @@ Explora la documentación completa en español:
 ### Planificación
 
 * [Roadmap](es-mx/roadmaps/roadmap.md) - Hoja de ruta del desarrollo
-* [Anuncios](es-mx/annoucements) - Anuncios y actualizaciones del proyecto
+* [Anuncios](es-mx/announcements) - Anuncios y actualizaciones del proyecto
 
 ---
 
