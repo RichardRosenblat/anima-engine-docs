@@ -201,6 +201,7 @@ Tipos de eventos:
 
 Todos los eventos incluyen:
 * `execution_id`, `trace_id`, `span_id`, `thread_id`, `timestamp`
+* `instance_urn`, `core_urn`
 * `source=module:<name>`
 * `type=<event.type.identifier>`
 * `payload=<structured fields only>`
