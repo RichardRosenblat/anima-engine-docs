@@ -266,7 +266,7 @@ A memória existe para apoiar confiança — não autoridade.
 
 ## Resumo
 
-O sistema de memória da ANIMA prioriza:
+O MTL (subsistema de memória) da ANIMA prioriza:
 
 * Integridade sobre volume
 * Continuidade sobre completude

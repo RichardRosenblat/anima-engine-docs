@@ -26,7 +26,7 @@ La totalidad del sistema ANIMA.
 **Componentes:**
 * Core (Kernel Cognitivo)
 * Seed
-* Memory (instance-local)
+* MTL (Lóbulo Temporal Medial; subsistema de memoria)
 * Capabilities (contracts)
 * Modules (out-of-process)
 * Adapters (pure translation)
@@ -114,9 +114,31 @@ A **static, declarative configuration artifact** loaded at initialization.
 
 ---
 
+### MTL (Lóbulo Temporal Medial)
+
+El **subsistema de memoria** responsable del almacenamiento, recuperación, decaimiento y promoción de memoria instance-local.
+
+**Responsabilidades:**
+* Mecánicas de almacenamiento de memoria (capas episódica, semántica, narrativa)
+* Recuperación y consulta con rebanadas controladas
+* Aplicación de políticas de decaimiento y promoción
+* Rastreo de confianza y procedencia
+* Integridad y límites de memoria
+
+**Características:**
+* Instance-local (nunca compartida entre instancias)
+* Media todo acceso a la memoria (previene acceso completo directo)
+* Aplica políticas de memoria definidas por el Seed
+* Proporciona rebanadas de memoria controladas al Cortex
+* Opera como un límite de subsistema dentro del Core
+
+**Relacionado:** [Memory Integrity](../safety/memory-integrity.md), [AI Model Topology](../architecture/ai-model-topology.md)
+
+---
+
 ### Memory
 
-Instance-local data describing past and present state.
+Instance-local data describing past and present state, managed by the MTL domain.
 
 **Contains:**
 * Past interactions (episodic)
@@ -137,11 +159,11 @@ Instance-local data describing past and present state.
 
 **Memory Rules:**
 * Informs reasoning, never overrides policy
-* Queried with controlled slices (prevents full access)
+* Queried through MTL with controlled slices
 * Tracked as observed, remembered, inferred, or unknown
 * No cross-instance sharing ever
 
-**Relacionado:** [Memory Integrity](memory-integrity.md)
+**Relacionado:** [Memory Integrity](../safety/memory-integrity.md)
 
 ---
 
@@ -364,7 +386,7 @@ Un **límite de enrutamiento** dentro del Core que proporciona separación limpi
 **Propósito:**
 * Preservar límites arquitectónicos
 * Permitir testabilidad a través de inyección de puerto
-* Soportar múltiples gateways de subsistema (cognición, memoria, lenguaje)
+* Soportar múltiples gateways de subsistema (cognición, MTL, lenguaje)
 * Mantener lógica de enrutamiento explícita y auditable
 
 **Relacionado:** ADR-006, ADR-007

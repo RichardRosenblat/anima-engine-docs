@@ -41,7 +41,7 @@ ANIMA existe para:
    * Soportar operación continua y gestión de tareas
 
 2. **Separar motor de identidad**
-   * Motor: razonamiento, planificación, mecánica de memoria, seguridad
+   * Motor: razonamiento, planificación, MTL (subsistema de memoria), seguridad
    * Identidad: personalidad, tono, políticas de comportamiento (definidas por Seed)
    * Habilitar múltiples instancias independientes de un único motor
 
