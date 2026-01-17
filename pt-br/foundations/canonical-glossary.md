@@ -763,7 +763,7 @@ O impacto potencial máximo à integridade, segurança, disponibilidade ou limit
 
 ### Nível de Risco do Usuário
 
-O dano potencial máximo à privacidade, finanças, reputação, autonomia ou resultados irreversíveis do usuário se a operação for executada incorretamente ou sem compreensão completa.
+O dano potencial máximo à privacidade, finanças, reputação, autonomia, saúde (mental ou física) ou resultados irreversíveis do usuário se a operação for executada incorretamente ou sem compreensão completa.
 
 **Características:**
 * Expressa severidade do impacto, não probabilidade

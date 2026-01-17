@@ -92,7 +92,7 @@ ANIMA evaluates every capability along two independent axes:
 
 * **System Risk Level** — Maximum potential impact to system integrity, security, availability, or trust boundaries if the operation behaves incorrectly or is abused. (See [Canonical Glossary](../foundations/canonical-glossary.md))
 
-* **User Risk Level** — Maximum potential harm to the user's privacy, finances, reputation, autonomy, or irreversible outcomes if the operation is executed incorrectly or without full understanding. (See [Canonical Glossary](../foundations/canonical-glossary.md))
+* **User Risk Level** — Maximum potential harm to the user's privacy, finances, reputation, autonomy, health (mental or physical), or irreversible outcomes if the operation is executed incorrectly or without full understanding. (See [Canonical Glossary](../foundations/canonical-glossary.md))
 
 These risk levels express **impact severity**, not likelihood, and are independent of each other.
 
