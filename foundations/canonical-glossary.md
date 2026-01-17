@@ -456,7 +456,7 @@ A **dedicated authorization system** within the Core that controls all module ex
 
 ---
 
-### Port / Session
+### Synapse
 
 A **transport abstraction** that binds lease and execution context to module communication.
 
