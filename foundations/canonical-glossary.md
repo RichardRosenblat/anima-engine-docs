@@ -763,7 +763,7 @@ The maximum potential impact to the system's integrity, security, availability, 
 
 ### User Risk Level
 
-The maximum potential harm to the user's privacy, finances, reputation, autonomy, or irreversible outcomes if the operation is executed incorrectly or without full understanding.
+The maximum potential harm to the user's privacy, finances, reputation, autonomy, health (mental or physical), or irreversible outcomes if the operation is executed incorrectly or without full understanding.
 
 **Characteristics:**
 * Expresses impact severity, not likelihood

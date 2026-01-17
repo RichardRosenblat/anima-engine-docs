@@ -92,7 +92,7 @@ A ANIMA avalia cada capacidade ao longo de dois eixos independentes:
 
 * **Nível de Risco do Sistema** — Impacto potencial máximo à integridade, segurança, disponibilidade ou limites de confiança do sistema se a operação se comportar incorretamente ou for abusada. (Veja [Glossário Canônico](../foundations/canonical-glossary.md))
 
-* **Nível de Risco do Usuário** — Dano potencial máximo à privacidade, finanças, reputação, autonomia ou resultados irreversíveis do usuário se a operação for executada incorretamente ou sem compreensão completa. (Veja [Glossário Canônico](../foundations/canonical-glossary.md))
+* **Nível de Risco do Usuário** — Dano potencial máximo à privacidade, finanças, reputação, autonomia, saúde (mental ou física) ou resultados irreversíveis do usuário se a operação for executada incorretamente ou sem compreensão completa. (Veja [Glossário Canônico](../foundations/canonical-glossary.md))
 
 Estes níveis de risco expressam **severidade do impacto**, não probabilidade, e são independentes um do outro.
 
