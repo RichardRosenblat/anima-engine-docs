@@ -456,7 +456,7 @@ Um **sistema de autorização dedicado** dentro do Core que controla todas as pe
 
 ---
 
-### Port / Session
+### Synapse
 
 Uma **abstração de transporte** que vincula contexto de lease e execução à comunicação de módulo.
 
