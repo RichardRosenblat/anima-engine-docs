@@ -124,7 +124,7 @@ All instances run on the **same engine**, but remain fully isolated.
 
 ANIMA uses layered memory to balance realism, safety, and cost.
 
-memory types, promotion and decay policies specified in the [memory integrity document](memory-integrity.md)
+Memory types, promotion, and decay policies are specified in the [memory integrity document](safety/memory-integrity.md)
 
 ANIMA tracks whether knowledge is:
 
@@ -223,19 +223,19 @@ Comprehensive architecture documentation derived from ADRs:
 
 Constitutional principles and boundaries:
 
-* [Foundations](foundations.md) - Navigation to all foundation documents
-* [Project Charter](project-charter.md) - Core purpose, values, and non-goals
-* [Canonical Glossary](canonical-glossary.md) - Definitive terminology and concepts
-* [System Boundaries](system-boundaries.md) - What ANIMA can and cannot do
+* [Foundations](foundations/) - Navigation to all foundation documents
+* [Project Charter](vision/project-charter.md) - Core purpose, values, and non-goals
+* [Canonical Glossary](foundations/canonical-glossary.md) - Definitive terminology and concepts
+* [System Boundaries](foundations/system-boundaries.md) - What ANIMA can and cannot do
 
 ### Additional Documentation
 
-* [Vision](vision.md) - Long-term vision and goals
-* [Memory Integrity](memory-integrity.md) - Memory management and integrity
-* [Safety Model](safety-model.md) - Safety and security architecture
-* [Threat Model](threat-model.md) - Threat analysis and mitigation
-* [Licensing Model](licensing-model.md) - Licensing and distribution
-* [Non-Goals](non-goals.md) - Explicit non-goals and boundaries
+* [Vision](vision/vision.md) - Long-term vision and goals
+* [Memory Integrity](safety/memory-integrity.md) - Memory management and integrity
+* [Safety Model](safety/safety-model.md) - Safety and security architecture
+* [Threat Model](safety/threat-model.md) - Threat analysis and mitigation
+* [Licensing Model](governance/licensing-model.md) - Licensing and distribution
+* [Non-Goals](vision/non-goals.md) - Explicit non-goals and boundaries
 * [Roadmap](roadmaps/roadmap.md) - Development roadmap
 * [Announcements](announcements) - Project announcements and updates
 
@@ -535,13 +535,13 @@ Explore a documentação completa em português:
 
 ### Documentos Principais
 
-* [Visão](pt-br/vision.md) - Visão de longo prazo e objetivos
-* [Fundamentos](pt-br/foundations.md) - Fundamentos arquiteturais centrais
-* [Integridade da Memória](pt-br/memory-integrity.md) - Gerenciamento e integridade da memória
-* [Modelo de Segurança](pt-br/safety-model.md) - Arquitetura de segurança
-* [Modelo de Ameaças](pt-br/threat-model.md) - Análise e mitigação de ameaças
-* [Modelo de Licenciamento](pt-br/licensing-model.md) - Licenciamento e distribuição
-* [Não-Objetivos](pt-br/non-goals.md) - Não-objetivos e limites explícitos
+* [Visão](pt-br/vision/vision.md) - Visão de longo prazo e objetivos
+* [Fundamentos](pt-br/foundations/) - Fundamentos arquiteturais centrais
+* [Integridade da Memória](pt-br/safety/memory-integrity.md) - Gerenciamento e integridade da memória
+* [Modelo de Segurança](pt-br/safety/safety-model.md) - Arquitetura de segurança
+* [Modelo de Ameaças](pt-br/safety/threat-model.md) - Análise e mitigação de ameaças
+* [Modelo de Licenciamento](pt-br/governance/licensing-model.md) - Licenciamento e distribuição
+* [Não-Objetivos](pt-br/vision/non-goals.md) - Não-objetivos e limites explícitos
 
 ### Arquitetura e Especificações
 
@@ -609,13 +609,13 @@ Explora la documentación completa en español:
 
 ### Documentos Principales
 
-* [Visión](es-mx/vision.md) - Visión a largo plazo y objetivos
-* [Fundamentos](es-mx/foundations.md) - Fundamentos arquitectónicos centrales
-* [Integridad de la Memoria](es-mx/memory-integrity.md) - Gestión e integridad de la memoria
-* [Modelo de Seguridad](es-mx/safety-model.md) - Arquitectura de seguridad
-* [Modelo de Amenazas](es-mx/threat-model.md) - Análisis y mitigación de amenazas
-* [Modelo de Licenciamiento](es-mx/licensing-model.md) - Licenciamiento y distribución
-* [No-Objetivos](es-mx/non-goals.md) - No-objetivos y límites explícitos
+* [Visión](es-mx/vision/vision.md) - Visión a largo plazo y objetivos
+* [Fundamentos](es-mx/foundations/) - Fundamentos arquitectónicos centrales
+* [Integridad de la Memoria](es-mx/safety/memory-integrity.md) - Gestión e integridad de la memoria
+* [Modelo de Seguridad](es-mx/safety/safety-model.md) - Arquitectura de seguridad
+* [Modelo de Amenazas](es-mx/safety/threat-model.md) - Análisis y mitigación de amenazas
+* [Modelo de Licenciamiento](es-mx/governance/licensing-model.md) - Licenciamiento y distribución
+* [No-Objetivos](es-mx/vision/non-goals.md) - No-objetivos y límites explícitos
 
 ### Arquitectura y Especificaciones
 
