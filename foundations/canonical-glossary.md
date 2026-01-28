@@ -99,7 +99,8 @@ A **static, declarative configuration artifact** loaded at initialization.
 * Cross-instance state
 
 **Characteristics:**
-* Data, not code
+* Declarative configuration data, not executable code
+* Defines parameters and policies interpreted by the engine
 * Immutable during runtime
 * Instance-defining but not instance-unique
 * Loaded once at startup

@@ -87,7 +87,9 @@ The engine has **no knowledge of platforms, personalities, or embodiment**.
 
 A **Seed** defines an ANIMA identity.
 
-A seed is **data**, not code.
+A seed is **declarative configuration data**, not executable code.
+
+Seeds define parameters, policies, and constraints that the engine interprets—they do not contain scripts, functions, or executable logic.
 
 ### A seed may define:
 
@@ -219,7 +221,7 @@ Key architectural decisions are tracked as ADRs in [`/adr`](adr):
 
 Comprehensive architecture documentation derived from ADRs:
 
-* [Architecture Overview](architecture/README.md) - Complete navigation guide
+* [Architecture Overview](architecture/directory-overview.md) - Complete navigation guide
 * [ANIMA Architecture](architecture/anima-architecture.md) - Comprehensive system overview
 * [Seed System](architecture/seed-system.md) - Identity initialization and separation
 * [Module Types and Leases](architecture/module-types-and-leases.md) - Module lifecycle and authorization

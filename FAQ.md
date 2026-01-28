@@ -108,7 +108,7 @@ After initialization, each ANIMA instance develops **instance-local memory only*
 
 Unlike private instances, ANIMA Prime is designed to be:
 * **Streaming** - updates may be released over time
-* **Public** - the Seed will be published and reviewable
+* **Protected** - the Seed is not publicly distributed
 * **Reference implementation** - demonstrates ANIMA's design philosophy
 
 **ANIMA Prime is not:**
