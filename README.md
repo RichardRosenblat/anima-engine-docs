@@ -115,7 +115,8 @@ After initialization, each ANIMA instance develops **instance-local memory only*
 ## ANIMA Prime vs User Instances
 
 * **ANIMA Prime**
-  A protected identity used for streaming / VTuber embodiment.
+  The first canonical identity designed for the ANIMA Engine.
+  Used for streaming / VTuber embodiment and as a reference implementation.
   Implemented as:
 
   ```
@@ -205,17 +206,17 @@ This project is intentionally evolving slowly.
 
 Key architectural decisions are tracked as ADRs in [`/adr`](adr):
 
-* ADR-001: Engine / Identity Separation via Seed System
+* ADR-001: Separation of ANIMA Engine and Identity via Seed System
 * ADR-002: Self-Validating Schemas with Internal-Only Constraints
 * ADR-003: Core ↔ Module Communication Protocol, Module Types, and Lease Lifecycle
 * ADR-004: Observability, Event Logging, and Execution Traceability
 * ADR-005: Interruption & Preemption Model
 * ADR-006: Domain Dependency & Sharing Rules
 * ADR-007: Infrastructure Layer & Adapter Rules
-* ADR-008: ANIMA Core Behaves as a Cognitive Kernel
-* ADR-009: Configurable AI Model Topology with Mandatory Cortex and Optional Arcuate
-* ADR-010: Adapter–Actuator Split with Strict Process Boundary
-* ADR-011: Event-Based Input Architecture
+* ADR-008: ANIMA Core Behaves as a Cognitive Kernel with Multitasking and Interruptible Execution
+* ADR-009: Configurable AI Model Topology with Mandatory Cortex and Optional Arcuate (NLP)
+* ADR-010: Adapter–Actuator Split with Strict Process Boundary (No Third-Party Code in Core)
+* ADR-011: Event-Based Input Architecture with Natural Language, System, and Semantic Events
 
 ### Architecture Documentation
 
