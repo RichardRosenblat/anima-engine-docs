@@ -78,11 +78,11 @@ A seed grants a **starting configuration**, not a permanent personality.
 ANIMA does **not** claim ownership over:
 
 * Conversation history
-* Instance-local memory
+* Identity-local memory
 * Narrative development
 * Preferences or relationships
 
-Memory belongs to the **instance owner**.
+Memory belongs to the **Identity owner**.
 
 Licensing does not grant:
 
@@ -161,7 +161,7 @@ Licensing gates **what the engine is allowed to do**, not what the user owns.
 
 A useful distinction:
 
-* **Ownership** → memory, identity, instance evolution
+* **Ownership** → memory, identity, Identity evolution
 * **Licensing** → execution rights, capability exposure
 
 These concerns are deliberately separated.

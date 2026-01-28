@@ -432,7 +432,7 @@ Modules are the **only** place where external effects occur.
 
 **Enforcement:**
 * Instance-scoped data stores
-* No cross-instance queries
+* No cross-Identity queries
 * Instance URN validated on all memory operations
 
 ---
@@ -502,7 +502,7 @@ ANIMA's boundaries are **explicit, enforced, and observable**.
 Ask yourself:
 
 * **Can the Core directly touch the world?** → No
-* **Can instances share memory?** → No
+* **Can Identities share memory?** → No
 * **Can modules execute without leases?** → No
 * **Can the engine modify itself?** → No
 * **Can capabilities bypass permissions?** → No

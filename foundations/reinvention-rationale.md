@@ -97,7 +97,7 @@ Standard plugin systems violate:
 - ANIMA needs **provenance tracking** (observed/remembered/inferred/unknown)
 - ANIMA needs **intentional decay** to prevent identity ossification
 - ANIMA needs **confidence weighting** per memory item
-- ANIMA needs **instance-scoped isolation** (no cross-instance queries)
+- ANIMA needs **identity-scoped isolation** (no cross-Identity queries)
 
 From [Memory Integrity](safety/memory-integrity.md):
 > "Perfect recall is not the same as meaningful memory. ANIMA is not designed to remember everything — she is designed to remember **what matters**."
@@ -298,7 +298,7 @@ ANIMA goes against these trends:
 - Long-lived, evolving identities
 - Honesty over confident hallucination
 - Identity continuity over general capability
-- User owns instance data and memory
+- User owns Identity data and memory
 
 ### 4. **Novelty of the Problem**
 
@@ -347,7 +347,7 @@ This requires rethinking the entire stack.
 → You need process boundaries and cryptographic leases (can't use plugins or OAuth)
 
 ### If You Want Private Instances
-→ You need instance-scoped memory and Seed-based identity (can't use shared learning)
+→ You need identity-scoped memory and Seed-based identity (can't use shared learning)
 
 ### If You Want Observable, Deterministic Behavior
 → You need execution-scoped, immutable events (can't use standard logging)

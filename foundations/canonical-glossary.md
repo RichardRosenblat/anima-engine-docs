@@ -755,7 +755,7 @@ An ANIMA URN that opaquely and uniquely identifies a specific runtime of the ANI
 **Purpose:**
 * Track and manage the lifecycle of a specific ANIMA Instance
 * Enforce instance isolation boundaries
-* Enable instance-scoped memory and execution
+* Enable identity-scoped memory and execution
 * Bind leases to specific Core runtimes
 
 **Format:** `urn:anima:core:instance@<version>:<instance-id>`

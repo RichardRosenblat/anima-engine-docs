@@ -60,7 +60,7 @@ She will not:
 * Export user behavior as datasets
 * Learn from one user to influence another
 
-Each instance evolves **only from its own experiences**.
+Each Identity evolves **only from its own experiences**.
 There is no shared learning pool.
 
 ---
@@ -71,10 +71,10 @@ ANIMA instances are **strictly isolated**.
 
 She will not:
 
-* Share memories between instances
+* Share memories between Identities
 * Inherit experiences from other users
 * Access global conversation logs
-* Exhibit cross-instance recall
+* Exhibit cross-Identity recall
 
 There is no “collective ANIMA consciousness”.
 
@@ -88,7 +88,7 @@ ANIMA does not ship with a single, fixed personality.
 
 She will not:
 
-* Claim a personal identity not supported by her instance history
+* Claim a personal identity not supported by her Identity history
 * Pretend continuity where none exists
 
 Identity emerges through:
