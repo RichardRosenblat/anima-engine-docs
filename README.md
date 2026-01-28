@@ -21,6 +21,16 @@ ANIMA is an **engine for growing identities**.
 
 ---
 
+## Getting Started
+
+**New to ANIMA?** Start here:
+
+* **[Getting Started Guide](GETTING_STARTED.md)** - Navigate the documentation efficiently with suggested reading orders for different audiences
+* **[FAQ](FAQ.md)** - Common questions and quick answers
+* **[Vision](vision/vision.md)** - Understand what ANIMA is trying to enable
+
+---
+
 ## Core Principles
 
 * **Engine ≠ Identity**
@@ -247,243 +257,42 @@ ANIMA is not designed to feel intelligent at all costs.
 
 She is designed to feel **consistent, honest, and safe to grow with**.
 
-## FAQ
+## Frequently Asked Questions
+
+**For complete FAQ, see [FAQ.md](FAQ.md)**
 
 ### What is ANIMA, exactly?
 
 ANIMA is a **private, modular AI engine** designed to host long-lived, evolving artificial identities under strict safety, memory, and capability constraints.
 
-What that means is that you can create your own unique AI identity by providing a **Seed** and give it specific capabilities, while ensuring that it operates safely and respects your privacy.
-
 It is **not**:
-
 * a chatbot
 * a single personality
 * an autonomous agent that acts on its own
 
 ANIMA is an *engine for growing identities*, not a prepackaged character.
 
----
-
 ### Where can I find the ANIMA engine?
 
-The ANIMA engine lives in a **separate repository** called `engine-core`.
+The ANIMA engine lives in a separate repository called `engine-core`, which is currently **not public** while core safety, memory, and identity boundaries are under development.
 
-That repository is currently **not public** while core safety, memory, and identity boundaries are still under development.
-
-This public docs repository exists to:
-
-* explain the architecture
-* document design decisions
-* make the long-term vision transparent
-
-Once the engine reaches stable phases, more parts of the ecosystem may be opened.
-
----
+This public docs repository exists to explain the architecture, document design decisions, and make the long-term vision transparent.
 
 ### How do I download or run ANIMA?
 
-At the moment, ANIMA is **not yet available for download**.
-
-When released:
-
-* ANIMA will be distributed as an engine runtime
-* users will initialize their own private instances using approved seeds
-* memory will always remain instance-local
-
-Details about installation and supported platforms will be published closer to release.
-
----
-
-### Will ANIMA be free once released?
-
-The current plan is a **mixed model**:
-
-* Some components (documentation, seed formats, adapters) may be public
-* Running the ANIMA engine itself will likely require a license or subscription
-* Certain curated seeds may be premium
-
-ANIMA is designed as a **long-term system**, not a one-off app, and sustainability is a core consideration.
-
-Exact pricing is not finalized yet.
-
----
-
-### Is ANIMA safe to use?
-
-Safety is a **core architectural requirement**, not an afterthought.
-
-ANIMA enforces:
-
-* explicit permissions
-* capability allow/deny lists
-* human confirmation for dangerous actions
-* audit logging
-* strict separation between identity and execution
-
-If ANIMA cannot safely perform an action, it must explain *why* and refuse.
-
----
-
-### Can ANIMA delete my files?
-
-Not unless you explicitly allow it.
-
-ANIMA:
-
-* has **no access to your system by default**
-* cannot execute capabilities it does not have
-* cannot escalate permissions on its own
-
-Any capability that can affect files, devices, or systems must be:
-
-1. explicitly installed
-2. explicitly allowed by the seed
-3. explicitly permitted by the user by at least two separate channels
-4. confirmed at runtime if dangerous
-
----
-
-### Can ANIMA spy on me, record me, or access the internet?
-
-No — not by default.
-
-ANIMA:
-
-* does not have internet access unless a capability provides it
-* does not record audio or video unless an adapter is installed
-* does not share memory across instances
-* does not upload your data to other users' instances
-* does not monitor you passively unless you explicitly ask it to
-
-If ANIMA can perceive something, it must be because you **explicitly connected** that input and told her to use it.
-
----
-
-### Does ANIMA share memory between users?
-
-No. Never.
-
-Each ANIMA instance:
-
-* has its own isolated memory
-* evolves independently
-* cannot access or influence other instances
-
-There is no cross-user learning or shared "global memory" beyond model training.
-
----
-
-### Will ANIMA hallucinate or invent things?
-
-ANIMA is designed to **avoid silent hallucinations**.
-
-The engine tracks whether information is:
-
-* observed
-* remembered
-* inferred
-* unknown
-
-If ANIMA is unsure, it is expected to say so.
-
-Perfect accuracy is not guaranteed, but **confident fabrication is treated as a bug**.
-
----
-
-### Is ANIMA an autonomous agent?
-
-No.
-
-ANIMA does not:
-
-* self-deploy
-* self-modify its core
-* pursue goals without user involvement
-* act without explicit intent and permission
-
-Long-lived tasks (like streaming or monitoring) exist, but they are:
-
-* user-initiated
-* interruptible
-* auditable
-* constrained by permissions
-
----
+ANIMA is **not yet available for download**. When released, it will be distributed as an engine runtime where users initialize their own private instances using Seeds.
 
 ### What is a "Seed"?
 
-A seed is a **structured identity blueprint** used only at initialization.
+A Seed is a **structured identity blueprint** used at initialization. It defines personality parameters, behavioral constraints, allowed capabilities, and initial narrative framing—but does not include memories, conversation history, or learned behavior.
 
-It defines:
+### Is ANIMA safe to use?
 
-* personality parameters
-* behavioral constraints
-* allowed capabilities
-* initial narrative framing
+Safety is a **core architectural requirement**. ANIMA enforces explicit permissions, capability allow/deny lists, human confirmation for dangerous actions, audit logging, and strict separation between identity and execution.
 
-A seed does **not** include:
+### More Questions?
 
-* memories
-* conversation history
-* learned behavior
-* execution logic
-
-After initialization, each instance grows its own identity through experience.
-
----
-
-### What is ANIMA Prime?
-
-ANIMA Prime is a **future protected internal identity** used for streaming / VTuber embodiment.
-
-It will run on the same engine as all other instances but uses a private, non-distributed seed.
-
-ANIMA Prime will not be sold or shared.
-
----
-
-### Is ANIMA open source?
-
-Parts of the ANIMA ecosystem may be open.
-
-The engine core itself is currently **closed** to ensure:
-
-* identity safety
-* memory integrity
-* controlled evolution of capabilities
-
-This may change over time, but the engine will never be released in a way that compromises user trust or privacy.
-
----
-
-### When will ANIMA be released?
-
-ANIMA is under active development, but there is **no fixed release date** yet.
-The current focus is on:
-* Core engine correctness
-* Memory integrity
-* Capability boundaries
-* Seed validation
-* Safety features
-
-Future announcements will be made as milestones are reached and stable phases are approached.
-Demos will be shared when appropriate.
-
----
-
-### Why is development slow?
-
-Intentionally so.
-
-ANIMA prioritizes:
-
-* correctness over speed
-* safety over novelty
-* long-term trust over short-term demos
-
-Some things are easy to build quickly — and very hard to fix later.
-ANIMA is being built to last.
+See the complete [FAQ](FAQ.md) for detailed answers to common questions about architecture, safety, privacy, and development.
 
 ---
 
@@ -494,6 +303,17 @@ Updates, architectural decisions, and philosophy are documented in this reposito
 Major milestones will be announced once the engine reaches stable phases.
 
 Announcements will be added in the `/announcements` folder and shared via future official channels.
+
+---
+
+## Contributing to Documentation
+
+Interested in improving ANIMA documentation? See [DOCUMENTATION_MAINTENANCE.md](DOCUMENTATION_MAINTENANCE.md) for:
+
+* How to propose documentation changes
+* When to create new ADRs vs. update existing ones
+* Documentation review guidelines
+* Style and tone guidelines
 
 ---
 
