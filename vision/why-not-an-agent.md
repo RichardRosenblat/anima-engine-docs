@@ -54,7 +54,7 @@ From [ADR-008](adr/ADR-008.md):
 **ANIMA:** Engine and identity are **completely separate**
 - [Seed System](architecture/seed-system.md) for identity initialization
 - Same engine powers multiple independent identities
-- Private instances vs. ANIMA Prime (streaming identity)
+- Private Identities vs. ANIMA Prime (streaming identity)
 - **You own your identity's evolution**, not a company
 
 From [ADR-001](adr/ADR-001.md):
@@ -111,13 +111,13 @@ From [Memory Integrity](safety/memory-integrity.md):
 - Potential cross-user leakage
 
 **ANIMA:** Strict instance isolation
-- **No cross-instance memory sharing** - ever
-- Each instance evolves **only from its own experiences**
+- **No cross-Identity memory sharing** - ever
+- Each Identity evolves **only from its own experiences**
 - No shared learning pool
-- Your data never trains other instances
+- Your data never trains other Identities
 
 From [ADR-001](adr/ADR-001.md):
-> "Memory is strictly instance-scoped. Once initialized, an ANIMA instance evolves independently using instance-local memory only."
+> "Memory is strictly identity-scoped. Once initialized, an ANIMA instance evolves independently using identity-local memory only."
 
 ---
 
@@ -219,7 +219,7 @@ From [Non-Goals](vision/non-goals.md), ANIMA **will never**:
 1. ❌ **Autonomous internet agent** - No unsupervised online autonomy
 2. ❌ **Mass surveillance** - No passive monitoring or background tracking
 3. ❌ **Personality harvesting** - No extracting/selling user behavioral data
-4. ❌ **Shared memory/hive-mind** - No cross-instance learning
+4. ❌ **Shared memory/hive-mind** - No cross-Identity learning
 5. ❌ **Hardcoded personality** - Identity comes from Seeds, not code
 6. ❌ **Replace human judgment** - Supports humans, doesn't replace them
 7. ❌ **Optimize for engagement** - No manipulation or dependency building

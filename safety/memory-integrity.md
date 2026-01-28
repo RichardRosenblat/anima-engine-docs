@@ -238,15 +238,18 @@ Nothing is silently erased without reason.
 
 ---
 
-## No Cross-Instance Memory
+## No Cross-Identity Memory
 
-Each ANIMA instance owns its memory.
+Each ANIMA Identity owns its memory.
 
 * No shared memory pools
 * No training on user data
 * No identity leakage
+* Memory is identity-local (bound to Seed + Memory, not shared)
 
-What one ANIMA learns stays with that ANIMA.
+What one ANIMA Identity learns stays with that Identity.
+
+**Note:** Memory is part of an ANIMA Identity (Seed + Memory), not the Instance (running execution).
 
 ---
 

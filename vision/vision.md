@@ -24,12 +24,14 @@ ANIMA is designed to enable a future where artificial systems can:
 
 The goal is not intelligence for its own sake, but **reliability**.
 
-An ANIMA instance should feel:
+An ANIMA Identity should feel:
 
 * Predictable without being rigid
 * Adaptive without being volatile
 * Helpful without being blindly obedient
 * Honest about what it knows and what it does not
+
+**Note:** An ANIMA Identity (Seed + Memory) persists across ANIMA Instance executions.
 
 ---
 
@@ -110,10 +112,12 @@ Progress is measured not by how much ANIMA can do, but by how reliably she does 
 The long-term vision for ANIMA is not a single AI, but a **platform**:
 
 * One engine
-* Many seeds
-* Many private instances
+* Many Seeds
+* Many private Identities
 * Each growing differently
-* None sharing memory or identity
+* None sharing memory or identity state
+
+**Note:** Each ANIMA Identity (Seed + Memory) can be loaded into an ANIMA Instance (running execution).
 
 ---
 

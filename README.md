@@ -21,13 +21,23 @@ ANIMA is an **engine for growing identities**.
 
 ---
 
+## Getting Started
+
+**New to ANIMA?** Start here:
+
+* **[Getting Started Guide](GETTING_STARTED.md)** - Navigate the documentation efficiently with suggested reading orders for different audiences
+* **[FAQ](FAQ.md)** - Common questions and quick answers
+* **[Vision](vision/vision.md)** - Understand what ANIMA is trying to enable
+
+---
+
 ## Core Principles
 
 * **Engine ≠ Identity**
   Reasoning and execution are strictly separated from personality and behavior.
 
 * **Private by Design**
-  Each ANIMA instance owns its memory and evolves independently.
+  Each ANIMA Identity owns its memory and evolves independently.
 
 * **Safety over Capability**
   Permissions, confirmations, and boundaries are enforced at the engine level.
@@ -75,9 +85,11 @@ The engine has **no knowledge of platforms, personalities, or embodiment**.
 
 ## The Seed System
 
-A **Seed** defines an ANIMA identity.
+A **Seed** defines the initial parameters of an ANIMA Identity.
 
-A seed is **data**, not code.
+A seed is **declarative configuration data**, not executable code.
+
+Seeds define parameters, policies, and constraints that the engine interprets—they do not contain scripts, functions, or executable logic.
 
 ### A seed may define:
 
@@ -96,27 +108,41 @@ A seed is **data**, not code.
 * Execution logic
 * Cross-instance state
 
-After initialization, each ANIMA instance develops **instance-local memory only**.
+After initialization, each ANIMA Identity develops **identity-local memory** that evolves independently.
+
+An **ANIMA Identity** is composed of: **Seed** (identity priors) + **Memory** (evolving experiences).
+
+An **ANIMA Instance** is a running execution that hosts an ANIMA Identity.
+
+**Canonical Sentence:** "An ANIMA Instance executes an ANIMA Identity derived from an ANIMA Seed and Memories."
 
 ---
 
-## ANIMA Prime vs User Instances
+## ANIMA Prime Identity vs User Identities
 
-* **ANIMA Prime**
-  A protected identity used for streaming / VTuber embodiment.
+* **ANIMA Prime Identity**
+  A special, protected identity designed for the ANIMA Engine.
+  Used exclusively for streaming / VTuber embodiment and as a reference implementation.
   Implemented as:
 
   ```
-  ANIMA Engine + Prime Seed
+  ANIMA Engine + Prime Seed + Prime Memory
   ```
 
-  The Prime seed is never distributed.
+  **Critical Constraints:**
+  * Prime Seed is NEVER distributed or shared
+  * Prime Memory is NEVER exported or shared
+  * Prime Identity cannot be instantiated by third parties
+  * Prime Identity is non-cloneable and non-exportable
 
-* **User ANIMA Instances**
-  Private instances initialized with user-selected seeds.
-  Users own their instance's memory and evolution.
+* **User ANIMA Identities**
+  Private identities initialized with user-selected seeds.
+  Users own their Identity's memory and evolution.
+  Each Identity can be loaded into an ANIMA Instance.
 
-All instances run on the **same engine**, but remain fully isolated.
+All Identities run on the **same engine**, but remain fully isolated.
+
+**Note:** An ANIMA Instance (running execution) hosts an ANIMA Identity (Seed + Memory).
 
 ---
 
@@ -124,7 +150,7 @@ All instances run on the **same engine**, but remain fully isolated.
 
 ANIMA uses layered memory to balance realism, safety, and cost.
 
-memory types, promotion and decay policies specified in the [memory integrity document](memory-integrity.md)
+Memory types, promotion, and decay policies are specified in the [memory integrity document](safety/memory-integrity.md)
 
 ANIMA tracks whether knowledge is:
 
@@ -193,23 +219,23 @@ This project is intentionally evolving slowly.
 
 Key architectural decisions are tracked as ADRs in [`/adr`](adr):
 
-* ADR-001: Engine / Identity Separation via Seed System
+* ADR-001: Separation of ANIMA Engine and Identity via Seed System
 * ADR-002: Self-Validating Schemas with Internal-Only Constraints
 * ADR-003: Core ↔ Module Communication Protocol, Module Types, and Lease Lifecycle
 * ADR-004: Observability, Event Logging, and Execution Traceability
 * ADR-005: Interruption & Preemption Model
 * ADR-006: Domain Dependency & Sharing Rules
 * ADR-007: Infrastructure Layer & Adapter Rules
-* ADR-008: ANIMA Core Behaves as a Cognitive Kernel
-* ADR-009: Configurable AI Model Topology with Mandatory Cortex and Optional Arcuate
-* ADR-010: Adapter–Actuator Split with Strict Process Boundary
-* ADR-011: Event-Based Input Architecture
+* ADR-008: ANIMA Core Behaves as a Cognitive Kernel with Multitasking and Interruptible Execution
+* ADR-009: Configurable AI Model Topology with Mandatory Cortex and Optional Arcuate (NLP)
+* ADR-010: Adapter–Actuator Split with Strict Process Boundary (No Third-Party Code in Core)
+* ADR-011: Event-Based Input Architecture with Natural Language, System, and Semantic Events
 
 ### Architecture Documentation
 
 Comprehensive architecture documentation derived from ADRs:
 
-* [Architecture Overview](architecture/README.md) - Complete navigation guide
+* [Architecture Overview](architecture/directory-overview.md) - Complete navigation guide
 * [ANIMA Architecture](architecture/anima-architecture.md) - Comprehensive system overview
 * [Seed System](architecture/seed-system.md) - Identity initialization and separation
 * [Module Types and Leases](architecture/module-types-and-leases.md) - Module lifecycle and authorization
@@ -223,19 +249,19 @@ Comprehensive architecture documentation derived from ADRs:
 
 Constitutional principles and boundaries:
 
-* [Foundations](foundations.md) - Navigation to all foundation documents
-* [Project Charter](project-charter.md) - Core purpose, values, and non-goals
-* [Canonical Glossary](canonical-glossary.md) - Definitive terminology and concepts
-* [System Boundaries](system-boundaries.md) - What ANIMA can and cannot do
+* [Foundations](foundations/) - Navigation to all foundation documents
+* [Project Charter](vision/project-charter.md) - Core purpose, values, and non-goals
+* [Canonical Glossary](foundations/canonical-glossary.md) - Definitive terminology and concepts
+* [System Boundaries](foundations/system-boundaries.md) - What ANIMA can and cannot do
 
 ### Additional Documentation
 
-* [Vision](vision.md) - Long-term vision and goals
-* [Memory Integrity](memory-integrity.md) - Memory management and integrity
-* [Safety Model](safety-model.md) - Safety and security architecture
-* [Threat Model](threat-model.md) - Threat analysis and mitigation
-* [Licensing Model](licensing-model.md) - Licensing and distribution
-* [Non-Goals](non-goals.md) - Explicit non-goals and boundaries
+* [Vision](vision/vision.md) - Long-term vision and goals
+* [Memory Integrity](safety/memory-integrity.md) - Memory management and integrity
+* [Safety Model](safety/safety-model.md) - Safety and security architecture
+* [Threat Model](safety/threat-model.md) - Threat analysis and mitigation
+* [Licensing Model](governance/licensing-model.md) - Licensing and distribution
+* [Non-Goals](vision/non-goals.md) - Explicit non-goals and boundaries
 * [Roadmap](roadmaps/roadmap.md) - Development roadmap
 * [Announcements](announcements) - Project announcements and updates
 
@@ -247,243 +273,42 @@ ANIMA is not designed to feel intelligent at all costs.
 
 She is designed to feel **consistent, honest, and safe to grow with**.
 
-## FAQ
+## Frequently Asked Questions
+
+**For complete FAQ, see [FAQ.md](FAQ.md)**
 
 ### What is ANIMA, exactly?
 
 ANIMA is a **private, modular AI engine** designed to host long-lived, evolving artificial identities under strict safety, memory, and capability constraints.
 
-What that means is that you can create your own unique AI identity by providing a **Seed** and give it specific capabilities, while ensuring that it operates safely and respects your privacy.
-
 It is **not**:
-
 * a chatbot
 * a single personality
 * an autonomous agent that acts on its own
 
 ANIMA is an *engine for growing identities*, not a prepackaged character.
 
----
-
 ### Where can I find the ANIMA engine?
 
-The ANIMA engine lives in a **separate repository** called `engine-core`.
+The ANIMA engine lives in a separate repository called `engine-core`, which is currently **not public** while core safety, memory, and identity boundaries are under development.
 
-That repository is currently **not public** while core safety, memory, and identity boundaries are still under development.
-
-This public docs repository exists to:
-
-* explain the architecture
-* document design decisions
-* make the long-term vision transparent
-
-Once the engine reaches stable phases, more parts of the ecosystem may be opened.
-
----
+This public docs repository exists to explain the architecture, document design decisions, and make the long-term vision transparent.
 
 ### How do I download or run ANIMA?
 
-At the moment, ANIMA is **not yet available for download**.
-
-When released:
-
-* ANIMA will be distributed as an engine runtime
-* users will initialize their own private instances using approved seeds
-* memory will always remain instance-local
-
-Details about installation and supported platforms will be published closer to release.
-
----
-
-### Will ANIMA be free once released?
-
-The current plan is a **mixed model**:
-
-* Some components (documentation, seed formats, adapters) may be public
-* Running the ANIMA engine itself will likely require a license or subscription
-* Certain curated seeds may be premium
-
-ANIMA is designed as a **long-term system**, not a one-off app, and sustainability is a core consideration.
-
-Exact pricing is not finalized yet.
-
----
-
-### Is ANIMA safe to use?
-
-Safety is a **core architectural requirement**, not an afterthought.
-
-ANIMA enforces:
-
-* explicit permissions
-* capability allow/deny lists
-* human confirmation for dangerous actions
-* audit logging
-* strict separation between identity and execution
-
-If ANIMA cannot safely perform an action, it must explain *why* and refuse.
-
----
-
-### Can ANIMA delete my files?
-
-Not unless you explicitly allow it.
-
-ANIMA:
-
-* has **no access to your system by default**
-* cannot execute capabilities it does not have
-* cannot escalate permissions on its own
-
-Any capability that can affect files, devices, or systems must be:
-
-1. explicitly installed
-2. explicitly allowed by the seed
-3. explicitly permitted by the user by at least two separate channels
-4. confirmed at runtime if dangerous
-
----
-
-### Can ANIMA spy on me, record me, or access the internet?
-
-No — not by default.
-
-ANIMA:
-
-* does not have internet access unless a capability provides it
-* does not record audio or video unless an adapter is installed
-* does not share memory across instances
-* does not upload your data to other users' instances
-* does not monitor you passively unless you explicitly ask it to
-
-If ANIMA can perceive something, it must be because you **explicitly connected** that input and told her to use it.
-
----
-
-### Does ANIMA share memory between users?
-
-No. Never.
-
-Each ANIMA instance:
-
-* has its own isolated memory
-* evolves independently
-* cannot access or influence other instances
-
-There is no cross-user learning or shared "global memory" beyond model training.
-
----
-
-### Will ANIMA hallucinate or invent things?
-
-ANIMA is designed to **avoid silent hallucinations**.
-
-The engine tracks whether information is:
-
-* observed
-* remembered
-* inferred
-* unknown
-
-If ANIMA is unsure, it is expected to say so.
-
-Perfect accuracy is not guaranteed, but **confident fabrication is treated as a bug**.
-
----
-
-### Is ANIMA an autonomous agent?
-
-No.
-
-ANIMA does not:
-
-* self-deploy
-* self-modify its core
-* pursue goals without user involvement
-* act without explicit intent and permission
-
-Long-lived tasks (like streaming or monitoring) exist, but they are:
-
-* user-initiated
-* interruptible
-* auditable
-* constrained by permissions
-
----
+ANIMA is **not yet available for download**. When released, it will be distributed as an engine runtime where users initialize their own private Identities using Seeds.
 
 ### What is a "Seed"?
 
-A seed is a **structured identity blueprint** used only at initialization.
+A Seed is a **structured identity blueprint** used at initialization. It defines personality parameters, behavioral constraints, allowed capabilities, and initial narrative framing—but does not include memories, conversation history, or learned behavior.
 
-It defines:
+### Is ANIMA safe to use?
 
-* personality parameters
-* behavioral constraints
-* allowed capabilities
-* initial narrative framing
+Safety is a **core architectural requirement**. ANIMA enforces explicit permissions, capability allow/deny lists, human confirmation for dangerous actions, audit logging, and strict separation between identity and execution.
 
-A seed does **not** include:
+### More Questions?
 
-* memories
-* conversation history
-* learned behavior
-* execution logic
-
-After initialization, each instance grows its own identity through experience.
-
----
-
-### What is ANIMA Prime?
-
-ANIMA Prime is a **future protected internal identity** used for streaming / VTuber embodiment.
-
-It will run on the same engine as all other instances but uses a private, non-distributed seed.
-
-ANIMA Prime will not be sold or shared.
-
----
-
-### Is ANIMA open source?
-
-Parts of the ANIMA ecosystem may be open.
-
-The engine core itself is currently **closed** to ensure:
-
-* identity safety
-* memory integrity
-* controlled evolution of capabilities
-
-This may change over time, but the engine will never be released in a way that compromises user trust or privacy.
-
----
-
-### When will ANIMA be released?
-
-ANIMA is under active development, but there is **no fixed release date** yet.
-The current focus is on:
-* Core engine correctness
-* Memory integrity
-* Capability boundaries
-* Seed validation
-* Safety features
-
-Future announcements will be made as milestones are reached and stable phases are approached.
-Demos will be shared when appropriate.
-
----
-
-### Why is development slow?
-
-Intentionally so.
-
-ANIMA prioritizes:
-
-* correctness over speed
-* safety over novelty
-* long-term trust over short-term demos
-
-Some things are easy to build quickly — and very hard to fix later.
-ANIMA is being built to last.
+See the complete [FAQ](FAQ.md) for detailed answers to common questions about architecture, safety, privacy, and development.
 
 ---
 
@@ -494,6 +319,17 @@ Updates, architectural decisions, and philosophy are documented in this reposito
 Major milestones will be announced once the engine reaches stable phases.
 
 Announcements will be added in the `/announcements` folder and shared via future official channels.
+
+---
+
+## Contributing to Documentation
+
+Interested in improving ANIMA documentation? See [DOCUMENTATION_MAINTENANCE.md](DOCUMENTATION_MAINTENANCE.md) for:
+
+* How to propose documentation changes
+* When to create new ADRs vs. update existing ones
+* Documentation review guidelines
+* Style and tone guidelines
 
 ---
 
@@ -535,13 +371,13 @@ Explore a documentação completa em português:
 
 ### Documentos Principais
 
-* [Visão](pt-br/vision.md) - Visão de longo prazo e objetivos
-* [Fundamentos](pt-br/foundations.md) - Fundamentos arquiteturais centrais
-* [Integridade da Memória](pt-br/memory-integrity.md) - Gerenciamento e integridade da memória
-* [Modelo de Segurança](pt-br/safety-model.md) - Arquitetura de segurança
-* [Modelo de Ameaças](pt-br/threat-model.md) - Análise e mitigação de ameaças
-* [Modelo de Licenciamento](pt-br/licensing-model.md) - Licenciamento e distribuição
-* [Não-Objetivos](pt-br/non-goals.md) - Não-objetivos e limites explícitos
+* [Visão](pt-br/vision/vision.md) - Visão de longo prazo e objetivos
+* [Fundamentos](pt-br/foundations/) - Fundamentos arquiteturais centrais
+* [Integridade da Memória](pt-br/safety/memory-integrity.md) - Gerenciamento e integridade da memória
+* [Modelo de Segurança](pt-br/safety/safety-model.md) - Arquitetura de segurança
+* [Modelo de Ameaças](pt-br/safety/threat-model.md) - Análise e mitigação de ameaças
+* [Modelo de Licenciamento](pt-br/governance/licensing-model.md) - Licenciamento e distribuição
+* [Não-Objetivos](pt-br/vision/non-goals.md) - Não-objetivos e limites explícitos
 
 ### Arquitetura e Especificações
 
@@ -609,13 +445,13 @@ Explora la documentación completa en español:
 
 ### Documentos Principales
 
-* [Visión](es-mx/vision.md) - Visión a largo plazo y objetivos
-* [Fundamentos](es-mx/foundations.md) - Fundamentos arquitectónicos centrales
-* [Integridad de la Memoria](es-mx/memory-integrity.md) - Gestión e integridad de la memoria
-* [Modelo de Seguridad](es-mx/safety-model.md) - Arquitectura de seguridad
-* [Modelo de Amenazas](es-mx/threat-model.md) - Análisis y mitigación de amenazas
-* [Modelo de Licenciamiento](es-mx/licensing-model.md) - Licenciamiento y distribución
-* [No-Objetivos](es-mx/non-goals.md) - No-objetivos y límites explícitos
+* [Visión](es-mx/vision/vision.md) - Visión a largo plazo y objetivos
+* [Fundamentos](es-mx/foundations/) - Fundamentos arquitectónicos centrales
+* [Integridad de la Memoria](es-mx/safety/memory-integrity.md) - Gestión e integridad de la memoria
+* [Modelo de Seguridad](es-mx/safety/safety-model.md) - Arquitectura de seguridad
+* [Modelo de Amenazas](es-mx/safety/threat-model.md) - Análisis y mitigación de amenazas
+* [Modelo de Licenciamiento](es-mx/governance/licensing-model.md) - Licenciamiento y distribución
+* [No-Objetivos](es-mx/vision/non-goals.md) - No-objetivos y límites explícitos
 
 ### Arquitectura y Especificaciones
 

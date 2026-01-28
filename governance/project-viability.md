@@ -152,7 +152,7 @@ Focus on proving the **core concepts**:
 ✅ **Seed-based identity separation**
 - Load a seed at startup
 - Show that personality is data, not code
-- Demonstrate instance isolation
+- Demonstrate Identity isolation
 
 ✅ **One working capability module**
 - Simple CLI I/O or file operations
@@ -162,7 +162,7 @@ Focus on proving the **core concepts**:
 ✅ **Basic memory layer**
 - Episodic and semantic memory (simplified)
 - No need for full MTL immediately
-- Prove memory is instance-local
+- Prove memory is identity-local
 
 ✅ **Event-based observability**
 - Execution-partitioned files
@@ -194,7 +194,7 @@ Only after mid-term is stable:
 - Ecosystem of modules
 - Community contributions (by then, you'll have attracted them)
 - Commercial viability
-- ANIMA Prime implementation
+- ANIMA Prime Identity implementation (protected, non-exportable)
 
 ---
 

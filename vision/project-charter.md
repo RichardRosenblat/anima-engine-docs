@@ -37,18 +37,18 @@ ANIMA exists to:
 
 1. **Provide a private, evolving AI runtime**
    * Host long-lived artificial identities
-   * Enable instance-local memory and learning
+   * Enable identity-local memory and learning
    * Support continuous operation and task management
 
 2. **Separate engine from identity**
    * Engine: reasoning, planning, MTL (memory domain), security
    * Identity: personality, tone, behavioral policies (defined by Seed)
-   * Enable multiple independent instances from one engine
+   * Enable multiple independent Identities from one engine
 
 3. **Support multiple incarnations via Seeds**
    * Private user instances with custom Seeds
-   * Protected identities (e.g., ANIMA Prime for streaming)
-   * No cross-instance memory or state sharing
+   * Protected identities (e.g., ANIMA Prime Identity for streaming)
+   * No cross-Identity memory or state sharing
 
 4. **Enable safe, auditable interaction with the world**
    * Lease-based authorization for all capabilities
@@ -116,7 +116,7 @@ ANIMA emphasizes external configuration rather than fixed behaviors.
 
 ANIMA values keeping components and processes separate to enhance security and reliability.
 
-* Instance-scoped memory (no cross-instance sharing)
+* Identity-scoped memory (no cross-Identity sharing)
 * Process boundaries between Core and Modules
 * Execution partitioning for observability
 * Cryptographic lease boundaries
@@ -146,8 +146,8 @@ These are **explicitly excluded** from ANIMA's purpose:
   * Requires explicit capability and permission
   * Subject to lease enforcement and audit
 
-* **No shared memory between instances**
-  * Each instance has isolated, instance-local memory
+* **No shared memory between Identities**
+  * Each Identity has isolated, identity-local memory
   * No cross-user learning or global memory
   * No data sharing beyond model training
   * Prevents identity and privacy leakage
@@ -172,7 +172,7 @@ These are **explicitly excluded** from ANIMA's purpose:
 
 * **Not a cloud service by default**
   * Private, local-first runtime
-  * User owns instance data
+  * User owns Identity data
   * No telemetry or data upload without explicit capability
 
 ---
@@ -186,7 +186,7 @@ These constraints are **non-negotiable** and enforced by design:
 3. **All execution requires valid leases** — no lease, no execution (Zero-Lease State)
 4. **Domains never import infrastructure** — only ports/interfaces (hexagonal architecture)
 5. **All observability is event-based** — no traditional logs, only structured facts
-6. **Memory is strictly instance-scoped** — no cross-instance sharing ever
+6. **Memory is strictly identity-scoped** — no cross-Identity sharing ever
 7. **Cortex is mandatory, Arcuate is optional** — cognition essential, language is a capability
 8. **Core supervises, doesn't execute** — cognitive kernel model
 9. **All actions are interruptible** — cooperative interruption by design
@@ -200,7 +200,7 @@ ANIMA is successful when it enables:
 
 * **Long-lived identities** that evolve consistently over time
 * **Safe interaction** with the world through auditable capabilities
-* **Private instances** where users own their data and memory
+* **Private Identities** where users own their data and memory
 * **Multiple incarnations** from a single engine via Seeds
 * **Trust and transparency** through observable, explainable behavior
 * **Architectural stability** that supports long-term evolution

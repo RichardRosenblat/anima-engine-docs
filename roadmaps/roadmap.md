@@ -249,15 +249,17 @@ Adapters abstract input/output without leaking logic.
 
 ---
 
-## Phase 7 — Streaming / Prime Instance
+## Phase 7 — Streaming / Prime Identity
 
 ### 🎯 Goal
 
-Create a special ANIMA incarnation for streaming.
+Create a special ANIMA Identity for streaming (ANIMA Prime Identity).
 
 ### 🌟 Build
 
-* Prime Seed (signed, restricted)
+* Prime Identity (Prime Seed + Prime Memory, protected IP)
+* Prime Seed (signed, restricted, NEVER distributed)
+* Prime Memory (NEVER exported or shared)
 * Streaming adapter
 * Public-safe capability set
 * Strong moderation policies
@@ -270,7 +272,8 @@ If streaming needs it, *everyone* gets the abstraction.
 ### ✅ Exit Criteria
 
 * Streaming ANIMA uses same engine
-* Prime Seed cannot be used outside authenticated context
+* Prime Identity cannot be instantiated outside authenticated context
+* Prime Seed and Memory remain protected (non-exportable, non-cloneable)
 ---
 
 ## Phase 8 — Licensing & Productization
