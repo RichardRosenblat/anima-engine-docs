@@ -81,21 +81,23 @@ These constraints are **architectural invariants** and cannot be bypassed.
 
 ---
 
-### 4. Share Memory Between Instances
+### 4. Share Memory Between Identities
 
-**Boundary:** Each ANIMA instance has isolated, instance-local memory.
+**Boundary:** Each ANIMA Identity has isolated, identity-local memory.
 
 **Enforcement:**
-* Memory is scoped to execution_id and instance
-* No shared databases or memory stores across instances
-* No cross-instance querying or learning
-* Instance URN enforced at memory access layer
+* Memory is scoped to execution_id and Identity
+* No shared databases or memory stores across Identities
+* No cross-Identity querying or learning
+* Identity isolation enforced at memory access layer
 
 **Why:**
 * Prevents identity and privacy leakage
 * Ensures user data ownership
-* Enables truly private instances
-* Supports commercial model (private instances vs. ANIMA Prime)
+* Enables truly private Identities
+* Supports commercial model (private Identities vs. ANIMA Prime Identity)
+
+**Note:** Memory is part of an ANIMA Identity (Seed + Memory), not the Instance (running execution).
 
 **Related:** [Seed System](architecture/seed-system.md), [Memory Integrity](memory-integrity.md)
 

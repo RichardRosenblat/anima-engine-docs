@@ -140,11 +140,13 @@ Before diving deep, familiarize yourself with these fundamental concepts:
 ### Engine ≠ Identity
 ANIMA separates the reasoning engine from the identity. The engine is identity-agnostic; personalities are defined by **Seeds** (declarative configuration files).
 
+An **ANIMA Instance** executes an **ANIMA Identity** derived from an **ANIMA Seed** and **Memories**.
+
 ### Safety Over Capability
 ANIMA treats capability as risk. Every action requires explicit authorization, can be inspected, and leaves an audit trail. Safety is architectural, not prompt-based.
 
 ### Private by Design
-Each ANIMA instance owns its memory and evolves independently. There is no shared memory pool or cross-instance learning.
+Each ANIMA Identity owns its memory and evolves independently. There is no shared memory pool or cross-Identity learning.
 
 ### Continuity Over Recall
 ANIMA prioritizes consistent identity and narrative continuity over perfect photographic memory. Memory has intentional decay policies.

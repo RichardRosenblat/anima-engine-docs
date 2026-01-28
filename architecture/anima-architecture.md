@@ -249,11 +249,11 @@ See [Cognitive Kernel](cognitive-kernel.md) and [AI Model Topology](ai-model-top
 
 These surround the core but **do not execute**.
 
-### 🧬 Seed (Static Identity)
+### 🧬 Seed (Identity Priors)
 
 ```
 ┌───────────────────────────┐
-│           SEED            │
+│         ANIMA SEED        │
 │                           │
 │  • Personality parameters │
 │  • Tone / expressiveness  │
@@ -267,7 +267,10 @@ These surround the core but **do not execute**.
 * Loaded at startup
 * Immutable during runtime
 * Data, not code
-* Instance-defining but not instance-unique
+* Memoryless (no learned experiences)
+* Combined with Memory to form an ANIMA Identity
+
+**Note:** An ANIMA Seed defines identity priors. An ANIMA Identity = Seed + Memory.
 
 See [Seed System](seed-system.md) for details.
 
@@ -284,14 +287,16 @@ See [Seed System](seed-system.md) for details.
 │  • Task states            │
 │  • Confidence-weighted    │
 │    facts                  │
-│  • Instance-local only    │
+│  • Identity-local only    │
 └───────────────────────────┘
 ```
 
-* Instance-local
+* Identity-local (part of ANIMA Identity: Seed + Memory)
 * Queried via MTL (Medial Temporal Lobe, memory domain), never blindly trusted
 * Layered (episodic, semantic, narrative)
-* No cross-instance sharing
+* No cross-Identity sharing
+
+**Note:** Memory evolves over time and is part of an ANIMA Identity, not the Instance.
 
 ---
 

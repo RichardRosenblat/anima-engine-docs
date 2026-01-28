@@ -80,44 +80,21 @@ The reasoning and supervisory system inside the engine.
 
 ### Seed
 
-A **static, declarative configuration artifact** loaded at initialization.
+See **[ANIMA Seed](#anima-seed)** in the Identity & Identification section for the complete canonical definition.
 
-**Contains:**
-* Personality parameters (tone, verbosity, emotional expressiveness)
-* Behavioral policies (risk tolerance, uncertainty handling)
-* Capability allow/deny lists
-* Default interaction style
-* Initial self-concept and narrative framing
-* Memory decay and promotion policies
+**Quick Reference:**
+* A static, declarative configuration artifact defining identity priors
+* Memoryless (contains no learned memories or experiences)
+* Combined with Memory to form an ANIMA Identity
+* Portable and shareable (except ANIMA Prime Seed)
 
-**Must NOT contain:**
-* Learned memories
-* User data
-* Conversation logs
-* Private behavior evolution
-* Execution logic
-* Cross-instance state
-
-**Characteristics:**
-* Declarative configuration data, not executable code
-* Defines parameters and policies interpreted by the engine
-* Immutable during runtime
-* Instance-defining but not instance-unique
-* Loaded once at startup
-
-**Purpose:**
-* Separate engine from identity
-* Enable multiple independent instances
-* Support commercialization (engine vs. identity IP)
-* Prevent identity and memory leakage
-
-**Related:** [Seed System](architecture/seed-system.md)
+**Related:** [Seed System](architecture/seed-system.md), [ANIMA Identity](#anima-identity)
 
 ---
 
 ### MTL (Medial Temporal Lobe)
 
-The **memory domain** responsible for storage, retrieval, decay, and promotion of instance-local memory.
+The **memory domain** responsible for storage, retrieval, decay, and promotion of identity-local memory.
 
 **Responsibilities:**
 * Memory storage mechanics (episodic, semantic, narrative layers)
@@ -127,7 +104,7 @@ The **memory domain** responsible for storage, retrieval, decay, and promotion o
 * Memory integrity and boundaries
 
 **Characteristics:**
-* Instance-local (never shared between instances)
+* Identity-local (never shared between Identities)
 * Mediates all memory access (prevents direct full access)
 * Enforces memory policies defined by Seed
 * Provides controlled memory slices to Cortex
@@ -139,7 +116,7 @@ The **memory domain** responsible for storage, retrieval, decay, and promotion o
 
 ### Memory
 
-Instance-local data describing past and present state, managed by the MTL domain.
+Identity-local data describing past and present state, managed by the MTL domain.
 
 **Contains:**
 * Past interactions (episodic)
@@ -148,10 +125,11 @@ Instance-local data describing past and present state, managed by the MTL domain
 * Confidence-weighted facts
 
 **Characteristics:**
-* Instance-local (never shared between instances)
+* Identity-local (never shared between Identities)
 * Fallible and queryable (never blindly trusted)
 * Confidence-weighted
 * Subject to decay and promotion policies
+* Part of an ANIMA Identity (Seed + Memory)
 
 **Memory Layers:**
 * Episodic — specific events and interactions
@@ -162,9 +140,9 @@ Instance-local data describing past and present state, managed by the MTL domain
 * Informs reasoning, never overrides policy
 * Queried through MTL with controlled slices
 * Tracked as observed, remembered, inferred, or unknown
-* No cross-instance sharing ever
+* No cross-Identity sharing ever
 
-**Related:** [Memory Integrity](../safety/memory-integrity.md)
+**Related:** [Memory Integrity](../safety/memory-integrity.md), [ANIMA Identity](#anima-identity)
 
 ---
 
@@ -634,6 +612,140 @@ events/
 
 ## Identity & Identification
 
+### ANIMA Instance
+
+A single running execution of the ANIMA engine.
+
+**Definition:** An ANIMA Instance is a running process that executes the ANIMA engine logic.
+
+**Properties:**
+* Ephemeral (exists only during runtime, destroyed on shutdown)
+* Owns execution lifecycle and resources
+* Hosts one active ANIMA Identity at a time
+* Identified by a unique Instance URN generated at startup
+
+**What it is NOT:**
+* Not an identity (identities are persistent, instances are ephemeral)
+* Not persistent across restarts
+* Not what provides continuity (continuity comes from Identity: Seed + Memory)
+
+**Canonical Sentence:** "An ANIMA Instance executes an ANIMA Identity derived from an ANIMA Seed and Memories."
+
+**Related:** [Seed System](../architecture/seed-system.md), [System Boundaries](system-boundaries.md)
+
+---
+
+### ANIMA Identity
+
+A materialized identity composed of an ANIMA Seed plus its associated Memory.
+
+**Definition:** An ANIMA Identity is the persistent, evolving personality and knowledge state that can be loaded into an ANIMA Instance.
+
+**Composition:**
+* **ANIMA Seed** (identity priors and configuration)
+* **Memory** (episodic, semantic, and narrative layers that evolve over time)
+
+**Properties:**
+* Persistent across Instance executions
+* Evolves over time through experience
+* Can be migrated between Instances (with Seed + Memory)
+* Instance-independent (the "who" that transcends runtimes)
+
+**What it is NOT:**
+* Not a running process (that's an Instance)
+* Not ephemeral (persists across runtimes)
+* Not cloneable without complete migration of Seed and Memories
+
+**Relationship Model:** Seed → Identity (Seed + Memory) → Instance (executes Identity)
+
+**Related:** [Seed System](../architecture/seed-system.md), [Memory Integrity](../safety/memory-integrity.md)
+
+---
+
+### ANIMA Seed
+
+A cryptographic, unmaterialized identity definition that contains identity priors but no memory.
+
+**Definition:** An ANIMA Seed is a static, declarative configuration artifact that defines the initial parameters and policies for an ANIMA Identity.
+
+**Contains:**
+* Personality parameters (tone, verbosity, emotional expressiveness)
+* Behavioral policies (risk tolerance, uncertainty handling)
+* Capability allow/deny lists
+* Default interaction style
+* Initial self-concept and narrative framing
+* Memory decay and promotion policies
+
+**Properties:**
+* Memoryless (contains no learned experiences or conversation history)
+* Portable (can be distributed and shared)
+* Defines who ANIMA can become (not what she remembers)
+* Used to initialize an Identity
+
+**What it is NOT:**
+* Not an identity by itself (Identity = Seed + Memory)
+* Not executable code (declarative configuration only)
+* Not stateful (does not evolve or change)
+
+**Must NOT contain:**
+* Learned memories
+* User data
+* Conversation logs
+* Private behavior evolution
+* Execution logic
+* Cross-instance state
+
+**Characteristics:**
+* Declarative configuration data, not executable code
+* Defines parameters and policies interpreted by the engine
+* Immutable during runtime
+* Instance-defining but not instance-unique
+* Loaded once at startup
+
+**Purpose:**
+* Separate engine from identity
+* Enable multiple independent identities
+* Support commercialization (engine vs. identity IP)
+* Prevent identity and memory leakage
+
+**Related:** [Seed System](../architecture/seed-system.md)
+
+---
+
+### ANIMA Prime Identity
+
+A special, protected identity with unique non-exportable Seed and private evolving Memory.
+
+**Definition:** ANIMA Prime Identity is the canonical public-facing identity used exclusively for streaming, VTuber embodiment, and reference implementation.
+
+**Properties:**
+* Unique protected Seed (never distributed or shared)
+* Private evolving Memory (never exported or shared)
+* Non-cloneable (cannot be instantiated by third parties)
+* Non-exportable (Seed and Memory remain protected IP)
+
+**What it is NOT:**
+* Not cloneable or forkable
+* Not distributable to users
+* Not instantiable outside authorized contexts
+* Not available for private use
+
+**Critical Constraints:**
+* Prime Seed is NEVER shared publicly
+* Prime Memory is NEVER exported or distributed
+* No private Instance may load Prime Identity
+* Prime Identity cannot be cloned or forked
+
+**Purpose:**
+* Public-facing streaming and VTuber incarnation
+* Reference implementation of ANIMA capabilities
+* Demonstration of engine design philosophy
+* Protected commercial identity
+
+**Related:** [Seed System](../architecture/seed-system.md), [Licensing Model](../governance/licensing-model.md)
+
+---
+
 ### Anima Instance URN
 
 An ANIMA URN that opaquely and uniquely identifies a specific runtime of the ANIMA process.
@@ -641,7 +753,7 @@ An ANIMA URN that opaquely and uniquely identifies a specific runtime of the ANI
 **Also known as:** Core Instance URN
 
 **Purpose:**
-* Track and manage the lifecycle of a specific instance
+* Track and manage the lifecycle of a specific ANIMA Instance
 * Enforce instance isolation boundaries
 * Enable instance-scoped memory and execution
 * Bind leases to specific Core runtimes

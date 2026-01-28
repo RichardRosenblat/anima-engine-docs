@@ -37,7 +37,7 @@ ANIMA is an **engine for growing identities**.
   Reasoning and execution are strictly separated from personality and behavior.
 
 * **Private by Design**
-  Each ANIMA instance owns its memory and evolves independently.
+  Each ANIMA Identity owns its memory and evolves independently.
 
 * **Safety over Capability**
   Permissions, confirmations, and boundaries are enforced at the engine level.
@@ -85,7 +85,7 @@ The engine has **no knowledge of platforms, personalities, or embodiment**.
 
 ## The Seed System
 
-A **Seed** defines an ANIMA identity.
+A **Seed** defines the initial parameters of an ANIMA Identity.
 
 A seed is **declarative configuration data**, not executable code.
 
@@ -108,28 +108,41 @@ Seeds define parameters, policies, and constraints that the engine interprets—
 * Execution logic
 * Cross-instance state
 
-After initialization, each ANIMA instance develops **instance-local memory only**.
+After initialization, each ANIMA Identity develops **identity-local memory** that evolves independently.
+
+An **ANIMA Identity** is composed of: **Seed** (identity priors) + **Memory** (evolving experiences).
+
+An **ANIMA Instance** is a running execution that hosts an ANIMA Identity.
+
+**Canonical Sentence:** "An ANIMA Instance executes an ANIMA Identity derived from an ANIMA Seed and Memories."
 
 ---
 
-## ANIMA Prime vs User Instances
+## ANIMA Prime Identity vs User Identities
 
-* **ANIMA Prime**
-  The first canonical identity designed for the ANIMA Engine.
-  Used for streaming / VTuber embodiment and as a reference implementation.
+* **ANIMA Prime Identity**
+  A special, protected identity designed for the ANIMA Engine.
+  Used exclusively for streaming / VTuber embodiment and as a reference implementation.
   Implemented as:
 
   ```
-  ANIMA Engine + Prime Seed
+  ANIMA Engine + Prime Seed + Prime Memory
   ```
 
-  The Prime seed is never distributed.
+  **Critical Constraints:**
+  * Prime Seed is NEVER distributed or shared
+  * Prime Memory is NEVER exported or shared
+  * Prime Identity cannot be instantiated by third parties
+  * Prime Identity is non-cloneable and non-exportable
 
-* **User ANIMA Instances**
-  Private instances initialized with user-selected seeds.
-  Users own their instance's memory and evolution.
+* **User ANIMA Identities**
+  Private identities initialized with user-selected seeds.
+  Users own their Identity's memory and evolution.
+  Each Identity can be loaded into an ANIMA Instance.
 
-All instances run on the **same engine**, but remain fully isolated.
+All Identities run on the **same engine**, but remain fully isolated.
+
+**Note:** An ANIMA Instance (running execution) hosts an ANIMA Identity (Seed + Memory).
 
 ---
 
@@ -283,7 +296,7 @@ This public docs repository exists to explain the architecture, document design 
 
 ### How do I download or run ANIMA?
 
-ANIMA is **not yet available for download**. When released, it will be distributed as an engine runtime where users initialize their own private instances using Seeds.
+ANIMA is **not yet available for download**. When released, it will be distributed as an engine runtime where users initialize their own private Identities using Seeds.
 
 ### What is a "Seed"?
 

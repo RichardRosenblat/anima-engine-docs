@@ -10,11 +10,11 @@ This document answers common questions about ANIMA. For deeper architectural det
 
 ANIMA is a **private, modular AI engine** designed to host long-lived, evolving artificial identities under strict safety, memory, and capability constraints.
 
-ANIMA enables you to create your own unique AI identity by providing a **Seed** (declarative configuration) and granting specific capabilities, while ensuring the system operates safely and respects your privacy.
+ANIMA enables you to create your own unique AI identity by providing a **Seed** (declarative configuration defining identity priors) and granting specific capabilities, while ensuring the system operates safely and respects your privacy.
 
 **ANIMA is:**
 * An engine for growing identities over time
-* Private by design (each instance owns its own memory)
+* Private by design (each Identity owns its own memory)
 * Safety-first (capability gating, lease-based authorization)
 * Modular (inputs, outputs, and capabilities are pluggable)
 
@@ -23,6 +23,11 @@ ANIMA enables you to create your own unique AI identity by providing a **Seed** 
 * A single fixed personality
 * An autonomous agent that acts independently
 * A shared-memory or hive-mind system
+
+**Key Concepts:**
+* **ANIMA Instance** - A running execution of the engine (ephemeral)
+* **ANIMA Identity** - Seed + Memory (persistent, evolves over time)
+* **ANIMA Seed** - Identity priors without memory (memoryless, portable)
 
 **Related:** [Vision](vision/vision.md), [ANIMA Architecture](architecture/anima-architecture.md)
 
@@ -51,8 +56,8 @@ At the moment, ANIMA is **not yet available for download**.
 
 When released:
 * ANIMA will be distributed as an engine runtime
-* Users will initialize their own private instances using approved Seeds
-* Memory will always remain instance-local
+* Users will initialize their own private Identities using approved Seeds
+* Memory will always remain identity-local
 * Capabilities must be explicitly granted
 
 Details about installation and supported platforms will be published closer to release.
@@ -66,7 +71,7 @@ Details about installation and supported platforms will be published closer to r
 The current plan is a **mixed model**:
 
 * **ANIMA Engine (Runtime):** Open source (likely MIT or Apache 2.0)
-* **ANIMA Prime Seed:** Available under specific terms (TBD)
+* **ANIMA Prime Seed + Memory:** Protected IP, never distributed
 * **Third-party Seeds:** Created and distributed by users or vendors
 
 The goal is to make the engine freely available while allowing identity diversity and user autonomy.
@@ -79,7 +84,7 @@ The goal is to make the engine freely available while allowing identity diversit
 
 ### What is a "Seed"?
 
-A **Seed** is a static, declarative configuration file that defines an ANIMA identity.
+A **Seed** is a static, declarative configuration file that defines the initial parameters of an ANIMA Identity.
 
 **A Seed contains:**
 * Personality parameters (tone, verbosity, emotional expressiveness)
@@ -96,29 +101,41 @@ A **Seed** is a static, declarative configuration file that defines an ANIMA ide
 * Execution logic
 * Cross-instance state
 
-After initialization, each ANIMA instance develops **instance-local memory only**. The Seed provides the starting configuration, not the ongoing experience.
+After initialization, each ANIMA Identity develops **identity-local memory** that evolves independently. The Seed provides the starting configuration, not the ongoing experience.
+
+**Key Distinction:**
+* **ANIMA Seed** = Identity priors (memoryless, portable)
+* **ANIMA Identity** = Seed + Memory (persistent, evolving)
+* **ANIMA Instance** = Running execution that hosts an Identity (ephemeral)
 
 **Related:** [Seed System](architecture/seed-system.md), [ADR-001](adr/ADR-001.md)
 
 ---
 
-### What is ANIMA Prime?
+### What is ANIMA Prime Identity?
 
-**ANIMA Prime** is the **first canonical identity** designed for the ANIMA Engine.
+**ANIMA Prime Identity** is a **special, protected identity** designed exclusively for public-facing use in the ANIMA Engine.
 
-Unlike private instances, ANIMA Prime is designed to be:
-* **Streaming** - updates may be released over time
-* **Protected** - the Seed is not publicly distributed
-* **Reference implementation** - demonstrates ANIMA's design philosophy
+Unlike user identities, ANIMA Prime Identity is designed to be:
+* **Public-facing** - used for streaming, VTuber embodiment, reference demonstrations
+* **Protected** - the Seed and Memory are never publicly distributed
+* **Non-exportable** - cannot be cloned, forked, or instantiated by third parties
 
-**ANIMA Prime is not:**
-* The only possible identity
+**ANIMA Prime Identity is not:**
+* Shareable (Seed and Memory are protected IP)
+* Cloneable (cannot be duplicated or forked)
+* Available for private use (restricted to authorized contexts only)
 * Required to use the engine
-* A hive-mind shared across instances
 
-Each instance of ANIMA Prime, even if initialized from the same Seed version, evolves independently based on its own experiences.
+**Critical Constraints:**
+* **Prime Seed is NEVER shared** - It remains protected intellectual property
+* **Prime Memory is NEVER exported** - Experiences and evolution stay private
+* **No third-party instantiation** - Only authorized systems can load Prime Identity
+* **Non-transferable** - Cannot be migrated to user Instances
 
-**Private instances** can be created with entirely different Seeds, personalities, and behavioral policies.
+**Each ANIMA Identity** (including Prime) is composed of **Seed + Memory** and evolves independently based on its experiences when loaded into an Instance.
+
+**User identities** can be created with entirely different Seeds, personalities, and behavioral policies.
 
 **Related:** [Seed System](architecture/seed-system.md), [Vision](vision/vision.md)
 
@@ -130,11 +147,11 @@ ANIMA is architecturally different from typical conversational AI systems:
 
 | Aspect | Typical LLM Assistants | ANIMA |
 |--------|------------------------|-------|
-| **Identity** | Fixed personality per model | Configurable via Seed, evolves over time |
+| **Identity** | Fixed personality per model | Configurable via Seed, evolves over time (Identity = Seed + Memory) |
 | **Memory** | Ephemeral context window | Layered, persistent, decay-aware memory |
 | **Safety** | Prompt-based guardrails | Architectural capability gating and leases |
-| **Continuity** | Resets between sessions | Long-lived, continuous identity |
-| **Privacy** | Shared training/fine-tuning | Strictly instance-local, no cross-instance learning |
+| **Continuity** | Resets between sessions | Long-lived, continuous Identity |
+| **Privacy** | Shared training/fine-tuning | Strictly identity-local, no cross-Identity learning |
 | **Capabilities** | Broad, implicit permissions | Explicit, declarative, auditable authorization |
 
 ANIMA is optimized for **long-term identity continuity, trust through consistency, and strict safety boundaries**, not just intelligent-sounding responses.
@@ -160,11 +177,11 @@ ANIMA optimizes for:
 
 1. **Long-Lived Identity vs. Ephemeral Sessions**
    * Agents: Reset between sessions, simulate memory through retrieval
-   * ANIMA: Continuous, evolving identity with intentional memory decay
+   * ANIMA: Continuous, evolving Identity (Seed + Memory) with intentional memory decay
 
 2. **Engine ≠ Identity (Separation)**
    * Agents: Personality baked into prompts/training
-   * ANIMA: Engine and identity completely separate via Seed System
+   * ANIMA: Engine and Identity completely separate via Seed System
 
 3. **Safety as Architecture vs. Safety as Prompt**
    * Agents: Guardrails through prompts and fine-tuning
@@ -190,7 +207,7 @@ No. While ANIMA has a sophisticated memory system, it is not a RAG system.
 * Maintains semantic knowledge (what is known)
 * Supports narrative memory (identity continuity)
 * Uses layered memory with intentional decay policies
-* Persists across sessions as part of identity
+* Persists across sessions as part of Identity (Seed + Memory)
 
 ANIMA's memory is **identity-centric**, not document-centric. It serves continuity and trust, not just information retrieval.
 
@@ -237,6 +254,8 @@ Every action in ANIMA:
 
 Users must explicitly grant capabilities. ANIMA cannot use a capability without a valid lease.
 
+**Note:** Capabilities are granted to ANIMA Instances (running executions), not Seeds or Identities directly.
+
 **Related:** [ADR-004](adr/ADR-004.md), [Module Types and Leases](architecture/module-types-and-leases.md)
 
 ---
@@ -282,18 +301,18 @@ Safety constraints are **enforced at the engine level**, not delegated to person
 
 ---
 
-### Is my data shared across ANIMA instances?
+### Is my data shared across ANIMA Identities?
 
-**No.** ANIMA instances are **strictly isolated**.
+**No.** ANIMA Identities are **strictly isolated**.
 
 **Privacy guarantees:**
-* Each instance has private, instance-local memory
+* Each Identity has private, identity-local memory
 * No shared learning pool
-* No cross-instance memory access
+* No cross-Identity memory access
 * No global conversation logs
 * No personality data extraction
 
-When you run an ANIMA instance, **you own its memory** and evolution. It does not learn from other users, and other users do not learn from you.
+When you run an ANIMA Instance with your Identity, **you own its memory** and evolution. It does not learn from other users, and other users do not learn from you.
 
 **Related:** [Non-Goals](vision/non-goals.md), [Memory Integrity](safety/memory-integrity.md)
 
