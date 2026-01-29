@@ -25,6 +25,7 @@ ANIMA enables you to create your own unique AI identity by providing a **Seed** 
 * A shared-memory or hive-mind system
 
 **Key Concepts:**
+For complete definitions, see [Canonical Glossary](foundations/canonical-glossary.md):
 * **ANIMA Instance** - A running execution of the engine (ephemeral)
 * **ANIMA Identity** - Seed + Memory (persistent, evolves over time)
 * **ANIMA Seed** - Identity priors without memory (memoryless, portable)
@@ -70,7 +71,7 @@ Details about installation and supported platforms will be published closer to r
 
 The current plan is a **mixed model**:
 
-* **ANIMA Engine (Runtime):** Open source (likely MIT or Apache 2.0)
+* **ANIMA Engine (Runtime):** Open source
 * **ANIMA Prime Seed + Memory:** Protected IP, never distributed
 * **Third-party Seeds:** Created and distributed by users or vendors
 
@@ -195,7 +196,7 @@ ANIMA is not a more capable agent; it's a different category of system optimized
 
 ### Is ANIMA a RAG (Retrieval-Augmented Generation) system?
 
-No. While ANIMA has a sophisticated memory system, it is not a RAG system.
+No. While ANIMA has a sophisticated memory system that may use RAG techniques (such as embeddings for indexing in the MTL), it is not primarily a RAG system.
 
 **RAG systems:**
 * Retrieve documents from external sources
@@ -223,8 +224,7 @@ ANIMA uses **hexagonal architecture** (also called ports-and-adapters):
 
 * The **Core** (Cognitive Kernel) has no knowledge of platforms, personalities, or embodiment
 * All I/O happens through **Modules** (out-of-process components)
-* **Adapters** translate intent to platform-specific commands
-* **Actuators** execute commands with effects
+* **Adapters** and **Actuators** are parts of modules that translate intent to platform-specific commands and execute commands with effects
 
 This means:
 * The engine is platform-agnostic
@@ -254,7 +254,7 @@ Every action in ANIMA:
 
 Users must explicitly grant capabilities. ANIMA cannot use a capability without a valid lease.
 
-**Note:** Capabilities are granted to ANIMA Instances (running executions), not Seeds or Identities directly.
+**Note:** Capabilities are granted to ANIMA Instances (running executions). Seeds can also gate (allow/deny) capabilities, defining which capabilities an Identity is permitted to use.
 
 **Related:** [ADR-004](adr/ADR-004.md), [Module Types and Leases](architecture/module-types-and-leases.md)
 
@@ -269,7 +269,7 @@ ANIMA treats hallucination as a **bug, not a feature**.
 * The Core reasons over structured events, not raw text
 * Actions require **cryptographic leases** - hallucinated capabilities fail at execution
 * Uncertain knowledge is marked explicitly (epistemic state tracking)
-* Execution happens in lease-gated modules, not the reasoning core
+* Execution of side effects happens in lease-gated modules, not the reasoning core
 
 ANIMA cannot execute an action she does not have permission for, even if she "thinks" she can. The architecture enforces this.
 

@@ -296,7 +296,7 @@ See [Seed System](seed-system.md) for details.
 * Layered (episodic, semantic, narrative)
 * No cross-Identity sharing
 
-**Note:** Memory evolves over time and is part of an ANIMA Identity, not the Instance.
+**Note:** Memory evolves over time and is part of an ANIMA Identity. An Instance consumes the Memory along with the Seed to execute the Identity.
 
 ---
 

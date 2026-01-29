@@ -80,15 +80,74 @@ The reasoning and supervisory system inside the engine.
 
 ### Seed
 
-See **[ANIMA Seed](#anima-seed)** in the Identity & Identification section for the complete canonical definition.
+A **static, declarative configuration artifact** loaded at initialization.
 
-**Quick Reference:**
-* A static, declarative configuration artifact defining identity priors
-* Memoryless (contains no learned memories or experiences)
+**Contains:**
+* Personality parameters (tone, verbosity, emotional expressiveness)
+* Behavioral policies (risk tolerance, uncertainty handling)
+* Capability allow/deny lists
+* Default interaction style
+* Initial self-concept and narrative framing
+* Memory decay and promotion policies
+
+**Must NOT contain:**
+* Learned memories
+* User data
+* Conversation logs
+* Private behavior evolution
+* Execution logic
+* Cross-instance state
+
+**Characteristics:**
+* Declarative configuration data, not executable code
+* Defines parameters and policies interpreted by the engine
+* Immutable during runtime
+* Instance-defining but not instance-unique
+* Loaded once at startup
 * Combined with Memory to form an ANIMA Identity
 * Portable and shareable (except ANIMA Prime Seed)
 
-**Related:** [Seed System](architecture/seed-system.md), [ANIMA Identity](#anima-identity)
+**Purpose:**
+* Separate engine from identity
+* Enable multiple independent instances
+* Support commercialization (engine vs. identity IP)
+* Prevent identity and memory leakage
+
+**Related:** [Seed System](architecture/seed-system.md), [ANIMA Seed](#anima-seed), [ANIMA Identity](#anima-identity)
+
+---
+
+### ANIMA Prime Identity
+
+A special, protected identity with unique non-exportable Seed and private evolving Memory.
+
+**Definition:** ANIMA Prime Identity is the canonical public-facing identity used exclusively for streaming, VTuber embodiment, and reference implementation.
+
+**Properties:**
+* Unique protected Seed (never distributed or shared)
+* Private evolving Memory (never exported or shared)
+* Non-cloneable (cannot be instantiated by third parties)
+* Non-exportable (Seed and Memory remain protected IP)
+
+**What it is NOT:**
+* Not cloneable or forkable
+* Not distributable to users
+* Not instantiable outside authorized contexts
+* Not available for private use
+
+**Critical Constraints:**
+* Prime Seed is NEVER shared publicly
+* Prime Memory is NEVER exported or distributed
+* No private Instance may load Prime Identity
+* Prime Identity cannot be cloned or forked
+
+**Purpose:**
+* Public-facing streaming and VTuber incarnation
+* Reference implementation of ANIMA capabilities
+* Demonstration of engine design philosophy
+* Protected commercial identity
+
+**Related:** [Seed System](architecture/seed-system.md), [Licensing Model](../governance/licensing-model.md)
 
 ---
 
@@ -659,90 +718,6 @@ A materialized identity composed of an ANIMA Seed plus its associated Memory.
 **Relationship Model:** Seed → Identity (Seed + Memory) → Instance (executes Identity)
 
 **Related:** [Seed System](../architecture/seed-system.md), [Memory Integrity](../safety/memory-integrity.md)
-
----
-
-### ANIMA Seed
-
-A cryptographic, unmaterialized identity definition that contains identity priors but no memory.
-
-**Definition:** An ANIMA Seed is a static, declarative configuration artifact that defines the initial parameters and policies for an ANIMA Identity.
-
-**Contains:**
-* Personality parameters (tone, verbosity, emotional expressiveness)
-* Behavioral policies (risk tolerance, uncertainty handling)
-* Capability allow/deny lists
-* Default interaction style
-* Initial self-concept and narrative framing
-* Memory decay and promotion policies
-
-**Properties:**
-* Memoryless (contains no learned experiences or conversation history)
-* Portable (can be distributed and shared)
-* Defines who ANIMA can become (not what she remembers)
-* Used to initialize an Identity
-
-**What it is NOT:**
-* Not an identity by itself (Identity = Seed + Memory)
-* Not executable code (declarative configuration only)
-* Not stateful (does not evolve or change)
-
-**Must NOT contain:**
-* Learned memories
-* User data
-* Conversation logs
-* Private behavior evolution
-* Execution logic
-* Cross-instance state
-
-**Characteristics:**
-* Declarative configuration data, not executable code
-* Defines parameters and policies interpreted by the engine
-* Immutable during runtime
-* Instance-defining but not instance-unique
-* Loaded once at startup
-
-**Purpose:**
-* Separate engine from identity
-* Enable multiple independent identities
-* Support commercialization (engine vs. identity IP)
-* Prevent identity and memory leakage
-
-**Related:** [Seed System](../architecture/seed-system.md)
-
----
-
-### ANIMA Prime Identity
-
-A special, protected identity with unique non-exportable Seed and private evolving Memory.
-
-**Definition:** ANIMA Prime Identity is the canonical public-facing identity used exclusively for streaming, VTuber embodiment, and reference implementation.
-
-**Properties:**
-* Unique protected Seed (never distributed or shared)
-* Private evolving Memory (never exported or shared)
-* Non-cloneable (cannot be instantiated by third parties)
-* Non-exportable (Seed and Memory remain protected IP)
-
-**What it is NOT:**
-* Not cloneable or forkable
-* Not distributable to users
-* Not instantiable outside authorized contexts
-* Not available for private use
-
-**Critical Constraints:**
-* Prime Seed is NEVER shared publicly
-* Prime Memory is NEVER exported or distributed
-* No private Instance may load Prime Identity
-* Prime Identity cannot be cloned or forked
-
-**Purpose:**
-* Public-facing streaming and VTuber incarnation
-* Reference implementation of ANIMA capabilities
-* Demonstration of engine design philosophy
-* Protected commercial identity
-
-**Related:** [Seed System](../architecture/seed-system.md), [Licensing Model](../governance/licensing-model.md)
 
 ---
 
