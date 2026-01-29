@@ -11,6 +11,16 @@ ANIMA es un **motor para cultivar identidades**.
 
 ---
 
+## Comenzando
+
+**¿Nuevo en ANIMA?** Comienza aquí:
+
+* **[Guía de Inicio](es-mx/GETTING_STARTED.md)** - Navega la documentación de manera eficiente con órdenes de lectura sugeridos para diferentes audiencias
+* **[FAQ](es-mx/FAQ.md)** - Preguntas comunes y respuestas rápidas
+* **[Visión](es-mx/vision/vision.md)** - Comprende lo que ANIMA está tratando de habilitar
+
+---
+
 ## Principios Fundamentales
 
 * **Motor ≠ Identidad**
@@ -242,254 +252,53 @@ Está diseñada para parecer **consistente, honesta y segura para crecer junto a
 
 ---
 
-## Preguntas Frecuentes (FAQ)
+## Preguntas Frecuentes
+
+**Para el FAQ completo, consulta [FAQ.md](es-mx/FAQ.md)**
 
 ### ¿Qué es ANIMA, exactamente?
 
 ANIMA es un **motor de IA privado y modular** diseñado para alojar identidades artificiales de larga duración y en evolución bajo estrictas restricciones de seguridad, memoria y capacidades.
 
-Lo que esto significa es que puedes crear tu propia identidad de IA única proporcionando un **Seed** y dándole capacidades específicas, asegurando al mismo tiempo que opere de forma segura y respete tu privacidad.
-
 **No es**:
-
 * un chatbot
 * una personalidad única
 * un agente autónomo que actúa por sí mismo
 
 ANIMA es un *motor para cultivar identidades*, no un personaje preempaquetado.
 
----
-
 ### ¿Dónde puedo encontrar el motor ANIMA?
 
-El motor ANIMA está en un **repositorio separado** llamado `engine-core`.
+El motor ANIMA está en un repositorio separado llamado `engine-core`, que está actualmente **no público** mientras los límites centrales de seguridad, memoria e identidad están en desarrollo.
 
-Ese repositorio está actualmente **no público** mientras los límites centrales de seguridad, memoria e identidad aún están en desarrollo.
-
-Este repositorio de documentación pública existe para:
-
-* explicar la arquitectura
-* documentar decisiones de diseño
-* hacer transparente la visión a largo plazo
-
-Una vez que el motor alcance fases estables, más partes del ecosistema pueden abrirse.
-
----
+Este repositorio de documentación pública existe para explicar la arquitectura, documentar decisiones de diseño y hacer transparente la visión a largo plazo.
 
 ### ¿Cómo descargo o ejecuto ANIMA?
 
-En este momento, ANIMA **aún no está disponible para descarga**.
-
-Cuando se lance:
-
-* ANIMA se distribuirá como un runtime de motor
-* los usuarios inicializarán sus propias instancias privadas usando seeds aprobados
-* la memoria siempre permanecerá local de la instancia
-
-Los detalles sobre instalación y plataformas compatibles se publicarán más cerca del lanzamiento.
-
----
-
-### ¿ANIMA será gratis una vez lanzado?
-
-El plan actual es un **modelo mixto**:
-
-* Algunos componentes (documentación, formatos de seed, adaptadores) pueden ser públicos
-* Ejecutar el propio motor ANIMA probablemente requerirá una licencia o suscripción
-* Ciertos seeds curados pueden ser premium
-
-ANIMA está diseñada como un **sistema a largo plazo**, no una aplicación única, y la sostenibilidad es una consideración central.
-
-El precio exacto aún no está finalizado.
-
----
-
-### ¿Es seguro usar ANIMA?
-
-La seguridad es un **requisito arquitectónico central**, no una idea tardía.
-
-ANIMA impone:
-
-* permisos explícitos
-* listas de permitir/denegar capacidades
-* confirmación humana para acciones peligrosas
-* registro de auditoría
-* separación estricta entre identidad y ejecución
-
-Si ANIMA no puede realizar una acción de forma segura, debe explicar *por qué* y negarse.
-
----
-
-### ¿Puede ANIMA eliminar mis archivos?
-
-No, a menos que lo permitas explícitamente.
-
-ANIMA:
-
-* **no tiene acceso a tu sistema por defecto**
-* no puede ejecutar capacidades que no posee
-* no puede escalar permisos por sí misma
-
-Cualquier capacidad que pueda afectar archivos, dispositivos o sistemas debe ser:
-
-1. explícitamente instalada
-2. explícitamente permitida por el seed
-3. explícitamente permitida por el usuario por al menos dos canales separados
-4. confirmada en tiempo de ejecución si es peligrosa
-
----
-
-### ¿Puede ANIMA espiarme, grabarme o acceder a internet?
-
-No — no por defecto.
-
-ANIMA:
-
-* no tiene acceso a internet a menos que una capacidad lo proporcione
-* no graba audio o video a menos que un adaptador esté instalado
-* no comparte memoria entre instancias
-* no sube tus datos a instancias de otros usuarios
-* no te monitorea pasivamente a menos que se lo pidas explícitamente
-
-Si ANIMA puede percibir algo, debe ser porque **conectaste explícitamente** esa entrada y le dijiste que la usara.
-
----
-
-### ¿ANIMA comparte memoria entre usuarios?
-
-No. Nunca.
-
-Cada instancia ANIMA:
-
-* tiene su propia memoria aislada
-* evoluciona independientemente
-* no puede acceder o influir en otras instancias
-
-No hay aprendizaje entre usuarios o "memoria global" compartida más allá del entrenamiento del modelo.
-
----
-
-### ¿ANIMA alucinará o inventará cosas?
-
-ANIMA está diseñada para **evitar alucinaciones silenciosas**.
-
-El motor rastrea si la información es:
-
-* observada
-* recordada
-* inferida
-* desconocida
-
-Si ANIMA no está segura, se espera que lo diga.
-
-La precisión perfecta no está garantizada, pero **la fabricación confiada se trata como un error**.
-
----
-
-### ¿Es ANIMA un agente autónomo?
-
-No.
-
-ANIMA no:
-
-* se auto-implementa
-* auto-modifica su núcleo
-* persigue objetivos sin participación del usuario
-* actúa sin intención y permiso explícitos
-
-Las tareas de larga duración (como streaming o monitoreo) existen, pero son:
-
-* iniciadas por el usuario
-* interrumpibles
-* auditables
-* limitadas por permisos
-
----
+ANIMA **aún no está disponible para descarga**. Cuando se lance, se distribuirá como un runtime de motor donde los usuarios inicializan sus propias instancias privadas usando Seeds.
 
 ### ¿Qué es un "Seed"?
 
-Un seed es un **modelo de identidad estructurado** usado solo en la inicialización.
+Un Seed es un **blueprint de identidad estructurado** usado en la inicialización. Define parámetros de personalidad, restricciones de comportamiento, capacidades permitidas y marco narrativo inicial—pero no incluye memorias, historial de conversaciones o comportamiento aprendido.
 
-Define:
+### ¿Es seguro usar ANIMA?
 
-* parámetros de personalidad
-* restricciones de comportamiento
-* capacidades permitidas
-* marco narrativo inicial
+La seguridad es un **requisito arquitectónico central**. ANIMA impone permisos explícitos, listas de permitir/denegar capacidades, confirmación humana para acciones peligrosas, registro de auditoría y separación estricta entre identidad y ejecución.
 
-Un seed **no** incluye:
+### ¿Más Preguntas?
 
-* memorias
-* historial de conversación
-* comportamiento aprendido
-* lógica de ejecución
-
-Después de la inicialización, cada instancia cultiva su propia identidad a través de la experiencia.
+Consulta el [FAQ](es-mx/FAQ.md) completo para respuestas detalladas a preguntas comunes sobre arquitectura, seguridad, privacidad y desarrollo.
 
 ---
 
-### ¿Qué es ANIMA Prime?
+## Contribuyendo a la Documentación
 
-ANIMA Prime es una **identidad interna protegida futura** utilizada para encarnación en streaming / VTuber.
+¿Interesado en mejorar la documentación de ANIMA? Consulta [DOCUMENTATION_MAINTENANCE.md](es-mx/DOCUMENTATION_MAINTENANCE.md) para:
 
-Se ejecutará en el mismo motor que todas las demás instancias, pero usa un seed privado y no distribuido.
-
-ANIMA Prime no se venderá ni se compartirá.
-
----
-
-### ¿Es ANIMA de código abierto?
-
-Partes del ecosistema ANIMA pueden ser abiertas.
-
-El núcleo del motor en sí está actualmente **cerrado** para asegurar:
-
-* seguridad de identidad
-* integridad de la memoria
-* evolución controlada de capacidades
-
-Esto puede cambiar con el tiempo, pero el motor nunca se lanzará de una manera que comprometa la confianza o privacidad del usuario.
-
----
-
-### ¿Cuándo se lanzará ANIMA?
-
-ANIMA está en desarrollo activo, pero no hay **fecha de lanzamiento fija** todavía.
-
-El enfoque actual es en:
-* Corrección del motor central
-* Integridad de la memoria
-* Límites de capacidades
-* Validación de seeds
-* Características de seguridad
-
-Los anuncios futuros se harán a medida que se alcancen hitos y se acerquen fases estables.
-Las demostraciones se compartirán cuando sea apropiado.
-
----
-
-### ¿Por qué el desarrollo es lento?
-
-Intencionalmente.
-
-ANIMA prioriza:
-
-* corrección sobre velocidad
-* seguridad sobre novedad
-* confianza a largo plazo sobre demostraciones a corto plazo
-
-Algunas cosas son fáciles de construir rápidamente — y muy difíciles de arreglar después.
-ANIMA se está construyendo para durar.
-
----
-
-### ¿Cómo puedo seguir el desarrollo?
-
-Actualizaciones, decisiones arquitectónicas y filosofía están documentadas en este repositorio.
-
-Los hitos importantes se anunciarán una vez que el motor alcance fases estables.
-
-Los anuncios se agregarán en la carpeta `/announcements` y se compartirán a través de canales oficiales futuros.
+* Cómo proponer cambios en la documentación
+* Cuándo crear nuevos ADRs vs. actualizar existentes
+* Pautas de revisión de documentación
+* Pautas de estilo y tono
 
 ---
 

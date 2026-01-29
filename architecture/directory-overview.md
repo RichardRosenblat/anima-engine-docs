@@ -135,7 +135,7 @@ Specifies how Modules are structured with Adapters and Actuators running out-of-
 3. **Lease-based authorization** — All execution requires valid leases
 4. **Domains never import infrastructure** — Clean hexagonal boundaries
 5. **Event-based everything** — No traditional logs, only structured events
-6. **Instance-scoped memory** — No cross-instance sharing
+6. **Identity-scoped memory** — No cross-Identity sharing (Memory is part of Identity, consumed by Instance along with Seed)
 7. **Cortex mandatory, Arcuate optional** — Cognition vs. language separation
 8. **Core supervises, doesn't execute** — Cognitive kernel model
 9. **Cooperative interruption** — All actions are interruptible by design
