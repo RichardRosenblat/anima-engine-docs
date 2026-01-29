@@ -14,36 +14,36 @@ Esta documentación sirve a múltiples audiencias:
 Deseas comprender el diseño del sistema de ANIMA, patrones arquitectónicos y la razón fundamental del diseño.
 
 **Comienza aquí:**
-* [Vision](es-mx/vision/vision.md) - Comprende qué intenta habilitar ANIMA
-* [ANIMA Architecture](es-mx/architecture/anima-architecture.md) - Vista general completa del sistema
-* [ADRs](es-mx/adr/) - Registros de Decisiones de Arquitectura (lee en orden, ADR-001 hasta ADR-011)
+* [Vision](vision/vision.md) - Comprende qué intenta habilitar ANIMA
+* [ANIMA Architecture](architecture/anima-architecture.md) - Vista general completa del sistema
+* [ADRs](adr/) - Registros de Decisiones de Arquitectura (lee en orden, ADR-001 hasta ADR-011)
 
 ### 2. **Revisores de Seguridad y Gobernanza**
 Necesitas evaluar el modelo de seguridad de ANIMA, límites de amenazas y enfoque de gobernanza.
 
 **Comienza aquí:**
-* [Safety Model](es-mx/safety/safety-model.md) - Arquitectura de seguridad y protección
-* [Threat Model](es-mx/safety/threat-model.md) - Análisis de amenazas y estrategias de mitigación
-* [Memory Integrity](es-mx/safety/memory-integrity.md) - Restricciones de gestión de memoria
-* [Non-Goals](es-mx/vision/non-goals.md) - Límites explícitos y lo que ANIMA se rehúsa a convertirse
+* [Safety Model](safety/safety-model.md) - Arquitectura de seguridad y protección
+* [Threat Model](safety/threat-model.md) - Análisis de amenazas y estrategias de mitigación
+* [Memory Integrity](safety/memory-integrity.md) - Restricciones de gestión de memoria
+* [Non-Goals](vision/non-goals.md) - Límites explícitos y lo que ANIMA se rehúsa a convertirse
 
 ### 3. **Futuros Implementadores**
 Eventualmente podrías implementar, integrar o extender componentes de ANIMA.
 
 **Comienza aquí:**
-* [Canonical Glossary](es-mx/foundations/canonical-glossary.md) - Terminología autoritativa (lee primero)
-* [Seed System](es-mx/architecture/seed-system.md) - Cómo se inicializan las identidades
-* [Module Types and Leases](es-mx/architecture/module-types-and-leases.md) - Ciclo de vida y autorización de módulos
-* [Event Architecture](es-mx/architecture/event-architecture.md) - Sistema de entrada y observabilidad
+* [Canonical Glossary](foundations/canonical-glossary.md) - Terminología autoritativa (lee primero)
+* [Seed System](architecture/seed-system.md) - Cómo se inicializan las identidades
+* [Module Types and Leases](architecture/module-types-and-leases.md) - Ciclo de vida y autorización de módulos
+* [Event Architecture](architecture/event-architecture.md) - Sistema de entrada y observabilidad
 
 ### 4. **Lectores Técnicos Generales**
 Deseas una comprensión amplia de qué es ANIMA y por qué existe.
 
 **Comienza aquí:**
-* [README](es-mx/README.md) - Introducción de alto nivel y FAQ
-* [Vision](es-mx/vision/vision.md) - Objetivos a largo plazo y fundamentos filosóficos
-* [Why Not an Agent?](es-mx/vision/why-not-an-agent.md) - Qué hace diferente a ANIMA
-* [Project Charter](es-mx/vision/project-charter.md) - Propósito y valores centrales
+* [README](README.md) - Introducción de alto nivel y FAQ
+* [Vision](vision/vision.md) - Objetivos a largo plazo y fundamentos filosóficos
+* [Why Not an Agent?](vision/why-not-an-agent.md) - Qué hace diferente a ANIMA
+* [Project Charter](vision/project-charter.md) - Propósito y valores centrales
 
 ---
 
@@ -52,84 +52,84 @@ Deseas una comprensión amplia de qué es ANIMA y por qué existe.
 ### Vista General Rápida (15-30 minutos)
 Para una comprensión rápida de los conceptos centrales de ANIMA:
 
-1. [README](es-mx/README.md) - Introducción y vista general de alto nivel
-2. [Vision](es-mx/vision/vision.md) - Propósito y filosofía
-3. [ANIMA Architecture](es-mx/architecture/anima-architecture.md) - Vista general del diseño del sistema
-4. [Non-Goals](es-mx/vision/non-goals.md) - Lo que ANIMA no es
+1. [README](README.md) - Introducción y vista general de alto nivel
+2. [Vision](vision/vision.md) - Propósito y filosofía
+3. [ANIMA Architecture](architecture/anima-architecture.md) - Vista general del diseño del sistema
+4. [Non-Goals](vision/non-goals.md) - Lo que ANIMA no es
 
 ### Revisión Completa (2-4 horas)
 Para una comprensión exhaustiva de todo el sistema:
 
 1. **Fundamentos** (30 minutos)
-   * [Vision](es-mx/vision/vision.md)
-   * [Project Charter](es-mx/vision/project-charter.md)
-   * [Canonical Glossary](es-mx/foundations/canonical-glossary.md)
-   * [System Boundaries](es-mx/foundations/system-boundaries.md)
+   * [Vision](vision/vision.md)
+   * [Project Charter](vision/project-charter.md)
+   * [Canonical Glossary](foundations/canonical-glossary.md)
+   * [System Boundaries](foundations/system-boundaries.md)
 
 2. **Arquitectura** (1-2 horas)
-   * [ANIMA Architecture](es-mx/architecture/anima-architecture.md)
-   * [Cognitive Kernel](es-mx/architecture/cognitive-kernel.md)
-   * [Seed System](es-mx/architecture/seed-system.md)
-   * [Module Types and Leases](es-mx/architecture/module-types-and-leases.md)
-   * [Event Architecture](es-mx/architecture/event-architecture.md)
+   * [ANIMA Architecture](architecture/anima-architecture.md)
+   * [Cognitive Kernel](architecture/cognitive-kernel.md)
+   * [Seed System](architecture/seed-system.md)
+   * [Module Types and Leases](architecture/module-types-and-leases.md)
+   * [Event Architecture](architecture/event-architecture.md)
 
 3. **Seguridad y Gobernanza** (30-45 minutos)
-   * [Safety Model](es-mx/safety/safety-model.md)
-   * [Threat Model](es-mx/safety/threat-model.md)
-   * [Memory Integrity](es-mx/safety/memory-integrity.md)
-   * [Licensing Model](es-mx/governance/licensing-model.md)
+   * [Safety Model](safety/safety-model.md)
+   * [Threat Model](safety/threat-model.md)
+   * [Memory Integrity](safety/memory-integrity.md)
+   * [Licensing Model](governance/licensing-model.md)
 
 4. **Decisiones de Diseño** (45-60 minutos)
-   * Lee los ADRs en orden: [ADR-001](es-mx/adr/ADR-001.md) hasta [ADR-011](es-mx/adr/ADR-011.md)
+   * Lee los ADRs en orden: [ADR-001](adr/ADR-001.md) hasta [ADR-011](adr/ADR-011.md)
 
 ### Inmersión Arquitectónica Profunda (4-6 horas)
 Para implementadores y revisores de arquitectura que necesitan una comprensión completa:
 
 1. **Definiciones Canónicas Primero**
-   * [Canonical Glossary](es-mx/foundations/canonical-glossary.md) - Lee esto antes que cualquier otra cosa
-   * [System Boundaries](es-mx/foundations/system-boundaries.md)
+   * [Canonical Glossary](foundations/canonical-glossary.md) - Lee esto antes que cualquier otra cosa
+   * [System Boundaries](foundations/system-boundaries.md)
 
 2. **Fundamentación Filosófica**
-   * [Vision](es-mx/vision/vision.md)
-   * [Why Not an Agent?](es-mx/vision/why-not-an-agent.md)
-   * [Reinvention Rationale](es-mx/foundations/reinvention-rationale.md)
-   * [Non-Goals](es-mx/vision/non-goals.md)
+   * [Vision](vision/vision.md)
+   * [Why Not an Agent?](vision/why-not-an-agent.md)
+   * [Reinvention Rationale](foundations/reinvention-rationale.md)
+   * [Non-Goals](vision/non-goals.md)
 
 3. **Conjunto Completo de ADRs** (en orden)
-   * [ADR-001: Engine/Identity Split & Seed System](es-mx/adr/ADR-001.md)
-   * [ADR-002: Hexagonal Architecture](es-mx/adr/ADR-002.md)
-   * [ADR-003: Memory Layers & Integrity](es-mx/adr/ADR-003.md)
-   * [ADR-004: Declarative Capability System](es-mx/adr/ADR-004.md)
-   * [ADR-005: Interruption & Preemption Model](es-mx/adr/ADR-005.md)
-   * [ADR-006: Domain Dependency & Sharing Rules](es-mx/adr/ADR-006.md)
-   * [ADR-007: Infrastructure Layer & Adapter Rules](es-mx/adr/ADR-007.md)
-   * [ADR-008: ANIMA Core Behaves as a Cognitive Kernel](es-mx/adr/ADR-008.md)
-   * [ADR-009: Configurable AI Model Topology](es-mx/adr/ADR-009.md)
-   * [ADR-010: Adapter–Actuator Split](es-mx/adr/ADR-010.md)
-   * [ADR-011: Event-Based Input Architecture](es-mx/adr/ADR-011.md)
+   * [ADR-001: Engine/Identity Split & Seed System](adr/ADR-001.md)
+   * [ADR-002: Hexagonal Architecture](adr/ADR-002.md)
+   * [ADR-003: Memory Layers & Integrity](adr/ADR-003.md)
+   * [ADR-004: Declarative Capability System](adr/ADR-004.md)
+   * [ADR-005: Interruption & Preemption Model](adr/ADR-005.md)
+   * [ADR-006: Domain Dependency & Sharing Rules](adr/ADR-006.md)
+   * [ADR-007: Infrastructure Layer & Adapter Rules](adr/ADR-007.md)
+   * [ADR-008: ANIMA Core Behaves as a Cognitive Kernel](adr/ADR-008.md)
+   * [ADR-009: Configurable AI Model Topology](adr/ADR-009.md)
+   * [ADR-010: Adapter–Actuator Split](adr/ADR-010.md)
+   * [ADR-011: Event-Based Input Architecture](adr/ADR-011.md)
 
 4. **Documentación Completa de Arquitectura**
-   * [ANIMA Architecture](es-mx/architecture/anima-architecture.md)
-   * [Cognitive Kernel](es-mx/architecture/cognitive-kernel.md)
-   * [Seed System](es-mx/architecture/seed-system.md)
-   * [Module Types and Leases](es-mx/architecture/module-types-and-leases.md)
-   * [Event Architecture](es-mx/architecture/event-architecture.md)
-   * [Domain and Infrastructure](es-mx/architecture/domain-and-infrastructure.md)
-   * [AI Model Topology](es-mx/architecture/ai-model-topology.md)
-   * [Adapter-Actuator Split](es-mx/architecture/adapter-actuator-split.md)
-   * [Explicit Semantics and Model Topology](es-mx/architecture/explicit-semantics-and-model-topology.md)
-   * [Directory Overview](es-mx/architecture/directory-overview.md)
+   * [ANIMA Architecture](architecture/anima-architecture.md)
+   * [Cognitive Kernel](architecture/cognitive-kernel.md)
+   * [Seed System](architecture/seed-system.md)
+   * [Module Types and Leases](architecture/module-types-and-leases.md)
+   * [Event Architecture](architecture/event-architecture.md)
+   * [Domain and Infrastructure](architecture/domain-and-infrastructure.md)
+   * [AI Model Topology](architecture/ai-model-topology.md)
+   * [Adapter-Actuator Split](architecture/adapter-actuator-split.md)
+   * [Explicit Semantics and Model Topology](architecture/explicit-semantics-and-model-topology.md)
+   * [Directory Overview](architecture/directory-overview.md)
 
 5. **Revisión Completa de Seguridad y Gobernanza**
-   * [Safety Model](es-mx/safety/safety-model.md)
-   * [Threat Model](es-mx/safety/threat-model.md)
-   * [Memory Integrity](es-mx/safety/memory-integrity.md)
-   * [Licensing Model](es-mx/governance/licensing-model.md)
-   * [Project Viability](es-mx/governance/project-viability.md)
+   * [Safety Model](safety/safety-model.md)
+   * [Threat Model](safety/threat-model.md)
+   * [Memory Integrity](safety/memory-integrity.md)
+   * [Licensing Model](governance/licensing-model.md)
+   * [Project Viability](governance/project-viability.md)
 
 6. **Especificaciones**
-   * [ANIMA URN Specification](es-mx/specs/anima-urn.md)
-   * [JSON Reference System (JSRS)](es-mx/specs/json_reference_system.md)
+   * [ANIMA URN Specification](specs/anima-urn.md)
+   * [JSON Reference System (JSRS)](specs/json_reference_system.md)
 
 ---
 
@@ -156,15 +156,15 @@ ANIMA usa arquitectura de puertos y adaptadores. El Core no tiene conocimiento d
 
 ## Preguntas Comunes
 
-Para preguntas frecuentes, consulta [FAQ.md](es-mx/FAQ.md).
+Para preguntas frecuentes, consulta [FAQ.md](FAQ.md).
 
-Para preguntas sobre qué ANIMA no está diseñado a hacer, consulta [Non-Goals](es-mx/vision/non-goals.md).
+Para preguntas sobre qué ANIMA no está diseñado a hacer, consulta [Non-Goals](vision/non-goals.md).
 
 ---
 
 ## Consejos de Navegación
 
-* **Canonical Glossary** ([foundations/canonical-glossary.md](es-mx/foundations/canonical-glossary.md)) - Usa esto como tu referencia para toda la terminología. Las definiciones son autoritativas y nunca deben desviarse.
+* **Canonical Glossary** ([foundations/canonical-glossary.md](foundations/canonical-glossary.md)) - Usa esto como tu referencia para toda la terminología. Las definiciones son autoritativas y nunca deben desviarse.
 
 * **Los ADRs están numerados** - Léelos en orden (001-011) para comprender la evolución del pensamiento arquitectónico.
 
@@ -185,7 +185,7 @@ Para evitar malentendidos sobre el propósito de ANIMA, comprende lo que explíc
 * No es un framework de ingeniería de prompts
 * No es un sistema RAG (Retrieval-Augmented Generation)
 
-Consulta [Why Not an Agent?](es-mx/vision/why-not-an-agent.md) para explicaciones detalladas.
+Consulta [Why Not an Agent?](vision/why-not-an-agent.md) para explicaciones detalladas.
 
 ---
 
@@ -198,21 +198,21 @@ Este repositorio de documentación existe para:
 * Documentar decisiones de diseño públicamente
 * Hacer que la visión y el modelo de seguridad sean revisables antes del lanzamiento
 
-Para el estado actual de desarrollo, consulta [Roadmap](es-mx/roadmaps/roadmap.md).
+Para el estado actual de desarrollo, consulta [Roadmap](roadmaps/roadmap.md).
 
 ---
 
 ## Contribuyendo a la Documentación
 
-Para orientación sobre proponer cambios en la documentación, consulta [DOCUMENTATION_MAINTENANCE.md](es-mx/DOCUMENTATION_MAINTENANCE.md).
+Para orientación sobre proponer cambios en la documentación, consulta [DOCUMENTATION_MAINTENANCE.md](DOCUMENTATION_MAINTENANCE.md).
 
 ---
 
 ## Recursos Adicionales
 
-* [Announcements](es-mx/announcements/) - Anuncios y actualizaciones del proyecto
-* [Roadmap](es-mx/roadmaps/roadmap.md) - Hoja de ruta de desarrollo
-* [Project Viability](es-mx/governance/project-viability.md) - Evaluación de sostenibilidad a largo plazo
+* [Announcements](announcements/) - Anuncios y actualizaciones del proyecto
+* [Roadmap](roadmaps/roadmap.md) - Hoja de ruta de desarrollo
+* [Project Viability](governance/project-viability.md) - Evaluación de sostenibilidad a largo plazo
 
 ---
 

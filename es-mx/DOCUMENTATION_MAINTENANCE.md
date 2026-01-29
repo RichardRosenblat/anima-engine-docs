@@ -9,7 +9,7 @@
 La documentación de ANIMA sigue estos principios centrales:
 
 1. **Claridad Primero** - Precisión y comprensibilidad sobre brevedad
-2. **Terminología Canónica** - Las definiciones en el [Canonical Glossary](es-mx/foundations/canonical-glossary.md) nunca deben desviarse
+2. **Terminología Canónica** - Las definiciones en el [Canonical Glossary](foundations/canonical-glossary.md) nunca deben desviarse
 3. **Sin Duplicación de Autoridad** - Cada concepto tiene una fuente autoritativa
 4. **Honestidad Arquitectónica** - Documentar las decisiones como son, no como desearíamos que fueran
 5. **Referencias Cruzadas Deliberadas** - Enlazar a fuentes canónicas en lugar de repetir contenido
@@ -113,7 +113,7 @@ Los ADRs usan estos valores de estado:
 1. **Verificar duplicación de autoridad** - ¿Este contenido ya está cubierto en otro lugar?
 2. **Identificar la fuente canónica** - ¿Esto debería agregarse a un documento existente o ser nuevo?
 3. **Seguir el tono existente** - Preciso, calmado, profesional, con opinión cuando es apropiado
-4. **Usar terminología canónica** - Referir el [Canonical Glossary](es-mx/foundations/canonical-glossary.md)
+4. **Usar terminología canónica** - Referir el [Canonical Glossary](foundations/canonical-glossary.md)
 5. **Agregar referencias cruzadas** - Enlazar a fuentes autoritativas relacionadas
 6. **Enviar un pull request** explicando:
    * Qué vacío llena el cambio
@@ -138,7 +138,7 @@ Los ADRs usan estos valores de estado:
 
 ## Actualizaciones del Canonical Glossary
 
-El [Canonical Glossary](es-mx/foundations/canonical-glossary.md) es **autoritativo**. Los cambios requieren cuidado especial.
+El [Canonical Glossary](foundations/canonical-glossary.md) es **autoritativo**. Los cambios requieren cuidado especial.
 
 ### Cuándo Actualizar el Glosario
 
@@ -223,9 +223,9 @@ Las referencias cruzadas son críticas para la navegación. Los enlaces rotos so
 
 ### Mejores Prácticas
 
-* **Usar rutas relativas** - `[Canonical Glossary](es-mx/foundations/canonical-glossary.md)`
+* **Usar rutas relativas** - `[Canonical Glossary](foundations/canonical-glossary.md)`
 * **Enlazar a fuentes autoritativas** - No repetir contenido, enlazar a él
-* **Usar texto de enlace descriptivo** - No "haz clic aquí", sino "consulta [Seed System](es-mx/architecture/seed-system.md)"
+* **Usar texto de enlace descriptivo** - No "haz clic aquí", sino "consulta [Seed System](architecture/seed-system.md)"
 * **Verificar enlaces antes de hacer commit** - Especialmente después de movimientos o renombres de archivos
 
 ### Encontrar Enlaces Rotos

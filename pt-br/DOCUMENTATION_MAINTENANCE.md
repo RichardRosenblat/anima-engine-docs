@@ -9,7 +9,7 @@
 A documentação ANIMA segue estes princípios fundamentais:
 
 1. **Clareza Primeiro** - Precisão e compreensibilidade acima de brevidade
-2. **Terminologia Canônica** - Definições no [Canonical Glossary](pt-br/foundations/canonical-glossary.md) nunca devem divergir
+2. **Terminologia Canônica** - Definições no [Canonical Glossary](foundations/canonical-glossary.md) nunca devem divergir
 3. **Sem Duplicação de Autoridade** - Cada conceito tem uma fonte autoritativa
 4. **Honestidade Arquitetural** - Documentar decisões como são, não como desejamos que fossem
 5. **Referências Cruzadas Deliberadas** - Linkar para fontes canônicas em vez de repetir conteúdo
@@ -113,7 +113,7 @@ ADRs usam estes valores de status:
 1. **Verifique duplicação de autoridade** - Este conteúdo já está coberto em outro lugar?
 2. **Identifique a fonte canônica** - Isto deve ser adicionado a um documento existente ou ser novo?
 3. **Siga o tom existente** - Preciso, calmo, profissional, opinativo quando apropriado
-4. **Use terminologia canônica** - Referencie o [Canonical Glossary](pt-br/foundations/canonical-glossary.md)
+4. **Use terminologia canônica** - Referencie o [Canonical Glossary](foundations/canonical-glossary.md)
 5. **Adicione referências cruzadas** - Linke para fontes autoritativas relacionadas
 6. **Submeta um pull request** explicando:
    * Que lacuna a mudança preenche
@@ -138,7 +138,7 @@ ADRs usam estes valores de status:
 
 ## Atualizações do Canonical Glossary
 
-O [Canonical Glossary](pt-br/foundations/canonical-glossary.md) é **autoritativo**. Mudanças requerem cuidado especial.
+O [Canonical Glossary](foundations/canonical-glossary.md) é **autoritativo**. Mudanças requerem cuidado especial.
 
 ### Quando Atualizar o Glossary
 
@@ -223,9 +223,9 @@ Referências cruzadas são críticas para navegação. Links quebrados compromet
 
 ### Melhores Práticas
 
-* **Use caminhos relativos** - `[Canonical Glossary](pt-br/foundations/canonical-glossary.md)`
+* **Use caminhos relativos** - `[Canonical Glossary](foundations/canonical-glossary.md)`
 * **Linke para fontes autoritativas** - Não repita conteúdo, linke para ele
-* **Use texto de link descritivo** - Não "clique aqui", mas "veja [Seed System](pt-br/architecture/seed-system.md)"
+* **Use texto de link descritivo** - Não "clique aqui", mas "veja [Seed System](architecture/seed-system.md)"
 * **Verifique links antes de commitar** - Especialmente após movimentações ou renomeações de arquivos
 
 ### Encontrando Links Quebrados
