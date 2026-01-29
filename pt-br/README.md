@@ -15,9 +15,9 @@ ANIMA é um **motor para cultivar identidades**.
 
 **Novo no ANIMA?** Comece aqui:
 
-* **[Guia de Início](pt-br/GETTING_STARTED.md)** - Navegue pela documentação de forma eficiente com ordens de leitura sugeridas para diferentes públicos
-* **[FAQ](pt-br/FAQ.md)** - Perguntas comuns e respostas rápidas
-* **[Visão](pt-br/vision/vision.md)** - Entenda o que o ANIMA está tentando possibilitar
+* **[Guia de Início](GETTING_STARTED.md)** - Navegue pela documentação de forma eficiente com ordens de leitura sugeridas para diferentes públicos
+* **[FAQ](FAQ.md)** - Perguntas comuns e respostas rápidas
+* **[Visão](vision/vision.md)** - Entenda o que o ANIMA está tentando possibilitar
 
 ---
 
@@ -99,27 +99,41 @@ Um seed é **dados**, não código.
 * Lógica de execução
 * Estado entre instâncias
 
-Após a inicialização, cada instância ANIMA desenvolve **memória exclusiva da instância**.
+Após a inicialização, cada ANIMA Identity desenvolve **memória local da identidade** que evolui independentemente.
+
+Uma **ANIMA Identity** é composta por: **Seed** (priors de identidade) + **Memory** (experiências em evolução).
+
+Uma **ANIMA Instance** é uma execução em andamento que hospeda uma ANIMA Identity.
+
+**Sentença Canônica:** "Uma ANIMA Instance executa uma ANIMA Identity derivada de um ANIMA Seed e Memórias."
 
 ---
 
-## ANIMA Prime vs Instâncias de Usuário
+## ANIMA Prime Identity vs Identidades de Usuário
 
-* **ANIMA Prime**
-  Uma identidade protegida usada para incorporação em streaming / VTuber.
+* **ANIMA Prime Identity**
+  Uma identidade especial e protegida projetada para o Motor ANIMA.
+  Usada exclusivamente para incorporação em streaming / VTuber e como implementação de referência.
   Implementada como:
 
   ```
-  Motor ANIMA + Seed Prime
+  Motor ANIMA + Prime Seed + Prime Memory
   ```
 
-  O Seed Prime nunca é distribuído.
+  **Restrições Críticas:**
+  * Prime Seed NUNCA é distribuído ou compartilhado
+  * Prime Memory NUNCA é exportada ou compartilhada
+  * Prime Identity não pode ser instanciada por terceiros
+  * Prime Identity é não-clonável e não-exportável
 
-* **Instâncias ANIMA de Usuário**
-  Instâncias privadas inicializadas com seeds selecionados pelo usuário.
-  Os usuários possuem a memória e a evolução de suas instâncias.
+* **Identidades ANIMA de Usuário**
+  Identidades privadas inicializadas com seeds selecionados pelo usuário.
+  Os usuários são proprietários da memória e evolução de sua Identity.
+  Cada Identity pode ser carregada em uma ANIMA Instance.
 
-Todas as instâncias executam no **mesmo motor**, mas permanecem totalmente isoladas.
+Todas as Identities executam no **mesmo motor**, mas permanecem totalmente isoladas.
+
+**Nota:** Uma ANIMA Instance (execução em andamento) hospeda uma ANIMA Identity (Seed + Memory).
 
 ---
 
@@ -254,7 +268,7 @@ Ela é projetada para parecer **consistente, honesta e segura para crescer junto
 
 ## Perguntas Frequentes
 
-**Para o FAQ completo, consulte [FAQ.md](pt-br/FAQ.md)**
+**Para o FAQ completo, consulte [FAQ.md](FAQ.md)**
 
 ### O que é ANIMA, exatamente?
 
@@ -287,13 +301,23 @@ Segurança é um **requisito arquitetural central**. ANIMA impõe permissões ex
 
 ### Mais Perguntas?
 
-Consulte o [FAQ](pt-br/FAQ.md) completo para respostas detalhadas a perguntas comuns sobre arquitetura, segurança, privacidade e desenvolvimento.
+Consulte o [FAQ](FAQ.md) completo para respostas detalhadas a perguntas comuns sobre arquitetura, segurança, privacidade e desenvolvimento.
+
+---
+
+### Como posso acompanhar o desenvolvimento?
+
+Atualizações, decisões arquiteturais e filosofia estão documentadas neste repositório.
+
+Marcos importantes serão anunciados assim que o motor atingir fases estáveis.
+
+Anúncios serão adicionados na pasta `/announcements` e compartilhados através de canais oficiais futuros.
 
 ---
 
 ## Contribuindo para a Documentação
 
-Interessado em melhorar a documentação do ANIMA? Consulte [DOCUMENTATION_MAINTENANCE.md](pt-br/DOCUMENTATION_MAINTENANCE.md) para:
+Interessado em melhorar a documentação do ANIMA? Consulte [DOCUMENTATION_MAINTENANCE.md](DOCUMENTATION_MAINTENANCE.md) para:
 
 * Como propor mudanças na documentação
 * Quando criar novos ADRs vs. atualizar existentes

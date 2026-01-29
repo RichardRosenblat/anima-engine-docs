@@ -24,7 +24,13 @@ ANIMA te permite crear tu propia identidad de IA única al proporcionar un **See
 * Un agente autónomo que actúa independientemente
 * Un sistema de memoria compartida o mente colmena
 
-**Relacionado:** [Vision](es-mx/vision/vision.md), [ANIMA Architecture](es-mx/architecture/anima-architecture.md)
+**Conceptos Clave:**
+Para definiciones completas, consulta [Glosario Canónico](foundations/canonical-glossary.md):
+* **ANIMA Instance** - Una ejecución en curso del motor (efímera)
+* **ANIMA Identity** - Seed + Memory (persistente, evoluciona con el tiempo)
+* **ANIMA Seed** - Priors de identidad sin memoria (sin memoria, portátil)
+
+**Relacionado:** [Vision](vision/vision.md), [ANIMA Architecture](architecture/anima-architecture.md)
 
 ---
 
@@ -41,7 +47,7 @@ Este repositorio público de documentación existe para:
 
 Una vez que el Engine alcance fases estables, más partes del ecosistema podrían abrirse.
 
-**Relacionado:** [Roadmap](es-mx/roadmaps/roadmap.md)
+**Relacionado:** [Roadmap](roadmaps/roadmap.md)
 
 ---
 
@@ -57,7 +63,7 @@ Cuando se lance:
 
 Los detalles sobre instalación y plataformas compatibles se publicarán más cerca del lanzamiento.
 
-**Relacionado:** [Project Viability](es-mx/governance/project-viability.md)
+**Relacionado:** [Project Viability](governance/project-viability.md)
 
 ---
 
@@ -71,7 +77,7 @@ El plan actual es un **modelo mixto**:
 
 El objetivo es hacer que el motor esté disponible gratuitamente mientras se permite diversidad de identidades y autonomía del usuario.
 
-**Relacionado:** [Licensing Model](es-mx/governance/licensing-model.md)
+**Relacionado:** [Licensing Model](governance/licensing-model.md)
 
 ---
 
@@ -98,29 +104,36 @@ Un **Seed** es un archivo de configuración estático y declarativo que define u
 
 Después de la inicialización, cada instancia de ANIMA desarrolla **memoria local a la instancia únicamente**. El Seed proporciona la configuración inicial, no la experiencia continua.
 
-**Relacionado:** [Seed System](es-mx/architecture/seed-system.md), [ADR-001](es-mx/adr/ADR-001.md)
+**Relacionado:** [Seed System](architecture/seed-system.md), [ADR-001](adr/ADR-001.md)
 
 ---
 
-### ¿Qué es ANIMA Prime?
+### ¿Qué es ANIMA Prime Identity?
 
-**ANIMA Prime** es la **primera identidad canónica** diseñada para el Engine de ANIMA.
+**ANIMA Prime Identity** es una **identidad especial y protegida** diseñada exclusivamente para uso público en el Motor ANIMA.
 
-A diferencia de las instancias privadas, ANIMA Prime está diseñado para ser:
-* **Streaming** - las actualizaciones pueden lanzarse con el tiempo
-* **Público** - el Seed será publicado y revisable
-* **Implementación de referencia** - demuestra la filosofía de diseño de ANIMA
+A diferencia de las identidades de usuario, ANIMA Prime Identity está diseñada para ser:
+* **Orientada al público** - usada para streaming, encarnación VTuber, demostraciones de referencia
+* **Protegida** - el Seed y Memory nunca se distribuyen públicamente
+* **No-exportable** - no puede ser clonada, bifurcada o instanciada por terceros
 
-**ANIMA Prime no es:**
-* La única identidad posible
-* Requerido para usar el motor
-* Una mente colmena compartida entre instancias
+**ANIMA Prime Identity NO es:**
+* Compartible (Seed y Memory son propiedad intelectual protegida)
+* Clonable (no puede ser duplicada o bifurcada)
+* Disponible para uso privado (restringida solo a contextos autorizados)
+* Requerida para usar el motor
 
-Cada instancia de ANIMA Prime, incluso si se inicializa desde la misma versión de Seed, evoluciona independientemente basándose en sus propias experiencias.
+**Restricciones Críticas:**
+* **Prime Seed NUNCA se comparte** - Permanece como propiedad intelectual protegida
+* **Prime Memory NUNCA se exporta** - Las experiencias y evolución permanecen privadas
+* **Sin instanciación por terceros** - Solo sistemas autorizados pueden cargar Prime Identity
+* **No-transferible** - No puede ser migrada a Instancias de usuario
 
-**Las instancias privadas** pueden crearse con Seeds, personalidades y políticas de comportamiento completamente diferentes.
+**Cada ANIMA Identity** (incluyendo Prime) está compuesta por **Seed + Memory** y evoluciona independientemente basándose en sus experiencias cuando se carga en una Instance.
 
-**Relacionado:** [Seed System](es-mx/architecture/seed-system.md), [Vision](es-mx/vision/vision.md)
+**Las identidades de usuario** pueden crearse con Seeds, personalidades y políticas de comportamiento completamente diferentes.
+
+**Relacionado:** [Seed System](architecture/seed-system.md), [Vision](vision/vision.md)
 
 ---
 
@@ -139,7 +152,7 @@ ANIMA es arquitectónicamente diferente de los sistemas típicos de IA conversac
 
 ANIMA está optimizado para **continuidad de identidad a largo plazo, confianza a través de consistencia y límites estrictos de seguridad**, no solo respuestas que suenan inteligentes.
 
-**Relacionado:** [Why Not an Agent?](es-mx/vision/why-not-an-agent.md), [Vision](es-mx/vision/vision.md)
+**Relacionado:** [Why Not an Agent?](vision/why-not-an-agent.md), [Vision](vision/vision.md)
 
 ---
 
@@ -172,7 +185,7 @@ ANIMA optimiza para:
 
 ANIMA no es un agente más capaz; es una categoría diferente de sistema optimizado para confiabilidad sobre maximización de utilidad.
 
-**Relacionado:** [Why Not an Agent?](es-mx/vision/why-not-an-agent.md), [Safety Model](es-mx/safety/safety-model.md)
+**Relacionado:** [Why Not an Agent?](vision/why-not-an-agent.md), [Safety Model](safety/safety-model.md)
 
 ---
 
@@ -194,7 +207,7 @@ No. Aunque ANIMA tiene un sistema de memoria sofisticado, no es un sistema RAG.
 
 La memoria de ANIMA está **centrada en la identidad**, no centrada en documentos. Sirve a la continuidad y la confianza, no solo a la recuperación de información.
 
-**Relacionado:** [Memory Integrity](es-mx/safety/memory-integrity.md), [ADR-003](es-mx/adr/ADR-003.md)
+**Relacionado:** [Memory Integrity](safety/memory-integrity.md), [ADR-003](adr/ADR-003.md)
 
 ---
 
@@ -215,7 +228,7 @@ Esto significa:
 * Puedes conectar diferentes capacidades (herramientas, robots, servicios de streaming)
 * El razonamiento central permanece idéntico independientemente de la encarnación
 
-**Relacionado:** [ANIMA Architecture](es-mx/architecture/anima-architecture.md), [ADR-002](es-mx/adr/ADR-002.md)
+**Relacionado:** [ANIMA Architecture](architecture/anima-architecture.md), [ADR-002](adr/ADR-002.md)
 
 ---
 
@@ -237,7 +250,7 @@ Cada acción en ANIMA:
 
 Los usuarios deben otorgar capacidades explícitamente. ANIMA no puede usar una capacidad sin un lease válido.
 
-**Relacionado:** [ADR-004](es-mx/adr/ADR-004.md), [Module Types and Leases](es-mx/architecture/module-types-and-leases.md)
+**Relacionado:** [ADR-004](adr/ADR-004.md), [Module Types and Leases](architecture/module-types-and-leases.md)
 
 ---
 
@@ -259,7 +272,7 @@ ANIMA no puede ejecutar una acción para la cual no tiene permiso, incluso si "p
 * Separación de especulación de afirmación
 * Validación contra memoria y contratos de capacidades
 
-**Relacionado:** [Safety Model](es-mx/safety/safety-model.md), [Cognitive Kernel](es-mx/architecture/cognitive-kernel.md)
+**Relacionado:** [Safety Model](safety/safety-model.md), [Cognitive Kernel](architecture/cognitive-kernel.md)
 
 ---
 
@@ -278,7 +291,7 @@ ANIMA hace cumplir la seguridad **arquitectónicamente**, no a través de prompt
 
 Las restricciones de seguridad están **impuestas a nivel del motor**, no delegadas a la personalidad o expectativa del usuario.
 
-**Relacionado:** [Safety Model](es-mx/safety/safety-model.md), [Threat Model](es-mx/safety/threat-model.md)
+**Relacionado:** [Safety Model](safety/safety-model.md), [Threat Model](safety/threat-model.md)
 
 ---
 
@@ -295,7 +308,7 @@ Las restricciones de seguridad están **impuestas a nivel del motor**, no delega
 
 Cuando ejecutas una instancia de ANIMA, **tú posees su memoria** y evolución. No aprende de otros usuarios, y otros usuarios no aprenden de ti.
 
-**Relacionado:** [Non-Goals](es-mx/vision/non-goals.md), [Memory Integrity](es-mx/safety/memory-integrity.md)
+**Relacionado:** [Non-Goals](vision/non-goals.md), [Memory Integrity](safety/memory-integrity.md)
 
 ---
 
@@ -311,7 +324,7 @@ Cuando ejecutas una instancia de ANIMA, **tú posees su memoria** y evolución. 
 
 La autonomía en línea sin supervisión se trata como un **comportamiento de alto riesgo**, no una característica.
 
-**Relacionado:** [Non-Goals](es-mx/vision/non-goals.md), [Safety Model](es-mx/safety/safety-model.md)
+**Relacionado:** [Non-Goals](vision/non-goals.md), [Safety Model](safety/safety-model.md)
 
 ---
 
@@ -327,7 +340,7 @@ La autonomía en línea sin supervisión se trata como un **comportamiento de al
 
 El diseño de ANIMA prioriza **privacidad y localidad**. La observación solo ocurre cuando se inicia intencionalmente y está claramente delimitada.
 
-**Relacionado:** [Non-Goals](es-mx/vision/non-goals.md), [Safety Model](es-mx/safety/safety-model.md)
+**Relacionado:** [Non-Goals](vision/non-goals.md), [Safety Model](safety/safety-model.md)
 
 ---
 
@@ -345,7 +358,7 @@ El proyecto deliberadamente:
 * Construye restricciones de seguridad en el núcleo, no como adiciones posteriores
 * Valora la viabilidad a largo plazo sobre demos tempranos
 
-**Relacionado:** [Project Viability](es-mx/governance/project-viability.md), [Vision](es-mx/vision/vision.md)
+**Relacionado:** [Project Viability](governance/project-viability.md), [Vision](vision/vision.md)
 
 ---
 
@@ -359,7 +372,7 @@ El Engine de ANIMA (`engine-core`) actualmente es privado durante el desarrollo 
 
 Cuando el motor alcance fases estables, se publicarán directrices de contribución.
 
-**Relacionado:** [DOCUMENTATION_MAINTENANCE.md](es-mx/DOCUMENTATION_MAINTENANCE.md)
+**Relacionado:** [DOCUMENTATION_MAINTENANCE.md](DOCUMENTATION_MAINTENANCE.md)
 
 ---
 
@@ -375,17 +388,17 @@ ANIMA se lanzará cuando:
 
 Apresurar el lanzamiento comprometería los principios fundamentales que hacen diferente a ANIMA de los sistemas existentes.
 
-**Relacionado:** [Roadmap](es-mx/roadmaps/roadmap.md), [Project Viability](es-mx/governance/project-viability.md)
+**Relacionado:** [Roadmap](roadmaps/roadmap.md), [Project Viability](governance/project-viability.md)
 
 ---
 
 ## Recursos Adicionales
 
-* **Para nuevos lectores:** [GETTING_STARTED.md](es-mx/GETTING_STARTED.md)
-* **Para inmersión arquitectónica:** [ANIMA Architecture](es-mx/architecture/anima-architecture.md)
-* **Para revisión de seguridad:** [Safety Model](es-mx/safety/safety-model.md), [Threat Model](es-mx/safety/threat-model.md)
-* **Para razón fundamental de diseño:** [ADRs](es-mx/adr/) (lee en orden, ADR-001 hasta ADR-011)
-* **Para terminología:** [Canonical Glossary](es-mx/foundations/canonical-glossary.md)
+* **Para nuevos lectores:** [GETTING_STARTED.md](GETTING_STARTED.md)
+* **Para inmersión arquitectónica:** [ANIMA Architecture](architecture/anima-architecture.md)
+* **Para revisión de seguridad:** [Safety Model](safety/safety-model.md), [Threat Model](safety/threat-model.md)
+* **Para razón fundamental de diseño:** [ADRs](adr/) (lee en orden, ADR-001 hasta ADR-011)
+* **Para terminología:** [Canonical Glossary](foundations/canonical-glossary.md)
 
 ---
 
