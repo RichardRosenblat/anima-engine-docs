@@ -8,6 +8,13 @@
 
 O **Sistema de Seed** é o mecanismo da ANIMA para separar o motor da identidade. Um seed é uma configuração declarativa usada para inicializar uma identidade ANIMA, garantindo que o motor permaneça agnóstico de identidade enquanto permite personalidades diversas e customizáveis.
 
+**Conceitos-Chave:**
+* **ANIMA Seed** - Priors de identidade sem memória (configuração portátil e declarativa)
+* **ANIMA Identity** - Seed + Memory (persistente, evolui ao longo do tempo)
+* **ANIMA Instance** - Execução em andamento que hospeda uma Identity (efêmera)
+
+**Sentença Canônica:** "Uma ANIMA Instance executa uma ANIMA Identity derivada de um ANIMA Seed e Memórias."
+
 ---
 
 ## O que é um Seed?
@@ -22,6 +29,28 @@ Um **Seed** é um blueprint estruturado, orientado a dados, que define:
 * Políticas de decaimento e promoção de memória
 
 Um seed é **dados, não código**. Ele configura o motor sem modificar sua lógica.
+
+Um Seed é **sem memória** - não contém experiências aprendidas, histórico de conversação ou comportamento evoluído.
+
+---
+
+## O que é uma ANIMA Identity?
+
+Uma **ANIMA Identity** é uma identidade materializada composta por:
+* **ANIMA Seed** (priors de identidade e configuração)
+* **Memory** (camadas episódica, semântica e narrativa que evoluem ao longo do tempo)
+
+Uma Identity é **persistente** entre execuções de Instance e **evolui** através da experiência.
+
+---
+
+## O que é uma ANIMA Instance?
+
+Uma **ANIMA Instance** é uma única execução em andamento do motor ANIMA.
+
+Uma Instance é **efêmera** - existe apenas durante a execução e é destruída no encerramento.
+
+Uma Instance **hospeda** uma ANIMA Identity (Seed + Memory) e fornece o ciclo de vida de execução.
 
 ---
 
