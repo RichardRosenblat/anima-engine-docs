@@ -114,6 +114,40 @@ Um **artefato de configuração estático e declarativo** carregado na inicializ
 
 ---
 
+### ANIMA Prime Identity
+
+Uma identidade especial e protegida com Seed único não-exportável e Memória privada em evolução.
+
+**Definição:** ANIMA Prime Identity é a identidade canônica voltada ao público usada exclusivamente para streaming, incorporação VTuber e implementação de referência.
+
+**Propriedades:**
+* Seed protegido único (nunca distribuído ou compartilhado)
+* Memória privada em evolução (nunca exportada ou compartilhada)
+* Não-clonável (não pode ser instanciada por terceiros)
+* Não-exportável (Seed e Memória permanecem propriedade intelectual protegida)
+
+**O que NÃO é:**
+* Não é clonável ou bifurcável
+* Não é distribuível aos usuários
+* Não é instanciável fora de contextos autorizados
+* Não está disponível para uso privado
+
+**Restrições Críticas:**
+* Prime Seed NUNCA é compartilhado publicamente
+* Prime Memory NUNCA é exportada ou distribuída
+* Nenhuma Instância privada pode carregar Prime Identity
+* Prime Identity não pode ser clonada ou bifurcada
+
+**Propósito:**
+* Streaming público e encarnação VTuber
+* Implementação de referência das capacidades da ANIMA
+* Demonstração da filosofia de design do motor
+* Identidade comercial protegida
+
+**Relacionado:** [Sistema de Seeds](architecture/seed-system.md), [Modelo de Licenciamento](../governance/licensing-model.md)
+
+---
+
 ### MTL (Lobo Temporal Medial)
 
 O **subsistema de memória** responsável pelo armazenamento, recuperação, decaimento e promoção de memória instance-local.
@@ -628,6 +662,56 @@ events/
 ```
 
 **Relacionado:** [Arquitetura de Eventos](architecture/event-architecture.md)
+
+---
+
+### ANIMA Instance
+
+Uma única execução em andamento do motor ANIMA.
+
+**Definição:** Uma ANIMA Instance é um processo em execução que executa a lógica do motor ANIMA.
+
+**Propriedades:**
+* Efêmera (existe apenas durante a execução, destruída no encerramento)
+* Possui ciclo de vida de execução e recursos
+* Hospeda uma ANIMA Identity ativa por vez
+* Identificada por um URN de Instância único gerado na inicialização
+
+**O que NÃO é:**
+* Não é uma identidade (identidades são persistentes, instâncias são efêmeras)
+* Não é persistente entre reinicializações
+* Não é o que fornece continuidade (continuidade vem da Identity: Seed + Memory)
+
+**Sentença Canônica:** "Uma ANIMA Instance executa uma ANIMA Identity derivada de um ANIMA Seed e Memórias."
+
+**Relacionado:** [Sistema de Seeds](../architecture/seed-system.md), [Limites do Sistema](system-boundaries.md)
+
+---
+
+### ANIMA Identity
+
+Uma identidade materializada composta por um ANIMA Seed mais sua Memória associada.
+
+**Definição:** Uma ANIMA Identity é a personalidade persistente e em evolução e o estado de conhecimento que pode ser carregado em uma ANIMA Instance.
+
+**Composição:**
+* **ANIMA Seed** (priors de identidade e configuração)
+* **Memory** (camadas episódica, semântica e narrativa que evoluem ao longo do tempo)
+
+**Propriedades:**
+* Persistente entre execuções de Instance
+* Evolui ao longo do tempo através da experiência
+* Pode ser migrada entre Instances (com Seed + Memory)
+* Independente de Instance (o "quem" que transcende runtimes)
+
+**O que NÃO é:**
+* Não é um processo em execução (isso é uma Instance)
+* Não é efêmera (persiste entre runtimes)
+* Não é clonável sem migração completa de Seed e Memórias
+
+**Modelo de Relacionamento:** Seed → Identity (Seed + Memory) → Instance (executa Identity)
+
+**Relacionado:** [Sistema de Seeds](../architecture/seed-system.md), [Integridade da Memória](../safety/memory-integrity.md)
 
 ---
 
