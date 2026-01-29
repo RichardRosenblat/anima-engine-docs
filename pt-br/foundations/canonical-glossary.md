@@ -144,7 +144,7 @@ Uma identidade especial e protegida com Seed único não-exportável e Memória 
 * Demonstração da filosofia de design do motor
 * Identidade comercial protegida
 
-**Relacionado:** [Sistema de Seeds](architecture/seed-system.md), [Modelo de Licenciamento](../governance/licensing-model.md)
+**Relacionado:** [Sistema de Seeds](../architecture/seed-system.md), [Modelo de Licenciamento](../governance/licensing-model.md)
 
 ---
 
