@@ -109,7 +109,7 @@ ANIMA's commitment to ethical data sourcing and environmental responsibility is 
 * Every third-party choice is documented, evaluated, and planned for replacement
 * Architectural decisions prioritize efficiency and responsibility even now
 
-**This is not aspirational theater** — it is a constitutional commitment with a concrete transition plan.
+These commitments are intended to guide concrete decisions, not serve as abstract principles.
 
 Users deserve to know:
 

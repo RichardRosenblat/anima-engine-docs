@@ -140,7 +140,7 @@ ANIMA is committed to ethical data sourcing for all first-party components, with
 
 ANIMA prioritizes computational efficiency and environmental sustainability.
 
-**Already Implemented:**
+**In active development:**
 * Local-first architecture (reduces cloud compute)
 * Modular capabilities (users choose appropriate power)
 * Configurable model topology

@@ -198,7 +198,7 @@ ANIMA will not:
 * Ignore energy costs in architectural decisions
 * Waste computational resources unnecessarily
 
-**Already Implemented:**
+**In active development:**
 
 * Local-first architecture
 * Configurable model topology (Cortex-only mode)

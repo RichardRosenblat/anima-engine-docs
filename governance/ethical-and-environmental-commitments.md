@@ -1,6 +1,6 @@
 # Ethical and Environmental Commitments
 
-**Status:** Constitutional (Aspirational with Phased Implementation)
+**Constitutional (Aspirational with Phased Implementation)**
 
 **Related Documentation:**
 * [Project Charter](../vision/project-charter.md) - Core values and architectural invariants
@@ -21,7 +21,7 @@ These commitments:
 * Establish clear transition commitments as resources allow
 * Provide guidance for current third-party component evaluation
 
-**This is not aspirational theater** — it is a constitutional commitment with a concrete transition plan.
+These commitments are intended to guide concrete decisions, not serve as abstract principles.
 
 ---
 
@@ -115,6 +115,12 @@ When selecting third-party AI models, ANIMA evaluates:
 * Provide choices when multiple options exist
 * Document dependencies in public documentation
 
+**Development Transparency:**
+
+* During active development, all third-party model dependencies will be publicly disclosed
+* Upon official release, these evaluation criteria become mandatory for all third-party integrations
+* Complete list of development-phase third-party models maintained in public documentation
+
 ---
 
 ## Environmental Responsibility
@@ -136,7 +142,7 @@ ANIMA's current environmental constraints:
 * Limited control over computational efficiency of external models
 * Energy costs of development and testing
 
-**Already implemented:**
+**In active development:**
 
 * Local-first operation (reduces cloud compute)
 * Modular capabilities (users choose appropriate power)
@@ -206,7 +212,7 @@ These commitments will be achieved through phased transition:
 
 ### Transparency
 
-ANIMA commits to:
+ANIMA commits to (upon release):
 
 * Honest documentation of current limitations
 * Public roadmap for ethical improvements
@@ -231,7 +237,7 @@ ANIMA commits to:
 * 🎯 Minimal environmental impact
 * 🎯 Complete ethical control
 
-> **Users deserve honesty, transparency, and continuous improvement.**
+**Users deserve honesty, transparency, and continuous improvement.**
 
 ---
 
@@ -248,4 +254,4 @@ This document is **constitutional law** for ANIMA.
 
 **This is not a deferred goal or optional enhancement — it is a constitutional commitment.**
 
-**Current constraints are temporary. The commitment to improvement is permanent.**
+**Current limitations are acknowledged as transitional. Long-term improvement remains a standing obligation.**

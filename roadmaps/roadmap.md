@@ -335,7 +335,7 @@ Make ANIMA sustainable.
 
 **Deliverables:**
 
-* 🎯 Develop first-party Cortex implementations
+* 🎯 Develop first-party Cortex, Arcuate, and any subsystems that require trained models
 * 🎯 Train or fine-tune models on verifiably ethical data sources
 * 🎯 Document complete training data provenance
 * 🎯 Reduce reliance on third-party models
@@ -368,11 +368,7 @@ Make ANIMA sustainable.
 
 ### Commitment Statement
 
-> **The shift to first-party models and code is ANIMA's first priority when resources are acquired.**
->
-> **This is not a deferred goal or optional enhancement — it is a constitutional commitment.**
->
-> **Current constraints are temporary. The commitment to improvement is permanent.**
+> See [Ethical and Environmental Commitments](../governance/ethical-and-environmental-commitments.md) for complete commitment details.
 
 ---
 
