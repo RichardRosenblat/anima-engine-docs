@@ -38,8 +38,6 @@ ANIMA commits to first-party models trained exclusively on:
 
 ### Current Reality
 
-ANIMA is under active development with limited team and resources.
-
 **Current constraints:**
 
 * Limited team and resources
