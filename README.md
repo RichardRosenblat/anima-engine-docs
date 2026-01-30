@@ -48,6 +48,9 @@ ANIMA is an **engine for growing identities**.
 * **Continuity over Recall**
   ANIMA prioritizes consistent identity and trust over perfect memory.
 
+* **Ethical and Environmental Responsibility**
+  ANIMA commits to ethical data sourcing and environmental sustainability, with honest acknowledgment of current constraints and a clear transition plan to first-party models and code as resources allow.
+
 ---
 
 ## Architecture Overview
@@ -210,8 +213,12 @@ Current focus:
 * Memory integrity
 * Capability boundaries
 * Seed validation
+* **Ethical third-party model evaluation and documentation**
 
-This project is intentionally evolving slowly.
+**Long-term priority:**
+* Transition to first-party models and code with ethical data sourcing and environmental optimization as resources are acquired
+
+This project is intentionally evolving slowly, prioritizing correctness, safety, and ethical development.
 
 ---
 
@@ -254,13 +261,17 @@ Constitutional principles and boundaries:
 * [Canonical Glossary](foundations/canonical-glossary.md) - Definitive terminology and concepts
 * [System Boundaries](foundations/system-boundaries.md) - What ANIMA can and cannot do
 
+### Governance and Ethics
+
+* [Ethical and Environmental Commitments](governance/ethical-and-environmental-commitments.md) - Ethical data sourcing and environmental responsibility with phased implementation
+* [Licensing Model](governance/licensing-model.md) - Licensing and distribution
+
 ### Additional Documentation
 
 * [Vision](vision/vision.md) - Long-term vision and goals
 * [Memory Integrity](safety/memory-integrity.md) - Memory management and integrity
 * [Safety Model](safety/safety-model.md) - Safety and security architecture
 * [Threat Model](safety/threat-model.md) - Threat analysis and mitigation
-* [Licensing Model](governance/licensing-model.md) - Licensing and distribution
 * [Non-Goals](vision/non-goals.md) - Explicit non-goals and boundaries
 * [Roadmap](roadmaps/roadmap.md) - Development roadmap
 * [Announcements](announcements) - Project announcements and updates

@@ -93,6 +93,34 @@ This allows identities to grow in a way that feels coherent and trustworthy, wit
 
 ---
 
+## Why Ethics and Environment Matter From Day One
+
+ANIMA's commitment to ethical data sourcing and environmental responsibility is not deferred to "later" or "when possible."
+
+**Current constraints are acknowledged honestly:**
+
+* Limited resources require use of third-party models today
+* Full ethical sourcing cannot yet be guaranteed for all dependencies
+* Environmental control is limited by third-party infrastructure
+
+**But the commitment is clear:**
+
+* First-party models and code are the **first priority** when resources allow
+* Every third-party choice is documented, evaluated, and planned for replacement
+* Architectural decisions prioritize efficiency and responsibility even now
+
+**This is not aspirational theater** — it is a constitutional commitment with a concrete transition plan.
+
+Users deserve to know:
+
+* What ANIMA uses today
+* Why those choices were made
+* When and how ANIMA will improve
+
+Ethics and environment are not features to add later. They are **boundaries that shape every decision**.
+
+---
+
 ## A Slow, Intentional Evolution
 
 ANIMA is not optimized for rapid feature expansion.

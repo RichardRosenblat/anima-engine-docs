@@ -303,6 +303,79 @@ Make ANIMA sustainable.
 
 ---
 
+## Ethical and Environmental Transition Roadmap
+
+### Phase 1 - Foundation (Current)
+
+**Focus:** Transparent third-party usage with ethical evaluation
+
+**Deliverables:**
+
+* ✅ Document all third-party model dependencies
+* ✅ Establish ethical evaluation criteria for third-party models
+* ✅ Prefer providers with clear ethical policies
+* ✅ User data privacy architecturally enforced
+* ✅ Local-first architecture implemented
+* 🔄 Regular review of third-party model choices
+* 🔄 Public documentation of model selection reasoning
+
+**Timeline:** Ongoing during active development
+
+---
+
+### Phase 2 - Transition (Growing Resources)
+
+**Focus:** Begin shift to first-party models and code
+
+**Prerequisites:**
+
+* Sufficient funding for model training or fine-tuning
+* Team capacity for first-party development
+* Infrastructure for ethical data sourcing and verification
+
+**Deliverables:**
+
+* 🎯 Develop first-party Cortex implementations
+* 🎯 Train or fine-tune models on verifiably ethical data sources
+* 🎯 Document complete training data provenance
+* 🎯 Reduce reliance on third-party models
+* 🎯 Establish environmental impact metrics
+* 🎯 Optimize first-party code for energy efficiency
+* 🎯 Provide migration paths from third-party to first-party modules
+
+**Timeline:** When resources are acquired
+
+---
+
+### Phase 3 - Maturity (Long-term Goal)
+
+**Focus:** Complete ethical control and environmental leadership
+
+**Deliverables:**
+
+* 🎯 Fully first-party Cortex and Arcuate with complete provenance
+* 🎯 All training data legally accessed and consent-based
+* 🎯 Zero reliance on ethically uncertain sources
+* 🎯 Full transparency and public documentation
+* 🎯 Minimal environmental footprint
+* 🎯 Complete control over energy costs
+* 🎯 First-party modules where critical
+* 🎯 Leadership in ethical AI development and efficient design
+
+**Timeline:** Long-term vision
+
+---
+
+### Commitment Statement
+
+> **The shift to first-party models and code is ANIMA's first priority when resources are acquired.**
+>
+> **This is not a deferred goal or optional enhancement — it is a constitutional commitment.**
+>
+> **Current constraints are temporary. The commitment to improvement is permanent.**
+
+---
+
 ## Phase 9 — Cost Control & Optimization
 
 ### 🎯 Goal

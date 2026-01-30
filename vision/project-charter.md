@@ -122,6 +122,34 @@ ANIMA values keeping components and processes separate to enhance security and r
 * Cryptographic lease boundaries
 * Domain isolation (hexagonal architecture)
 
+### Ethical Data Sourcing (Aspirational with Phased Implementation)
+
+ANIMA is committed to ethical data sourcing for all first-party components, with a phased approach acknowledging current constraints.
+
+**Current Phase:**
+* Use third-party models with transparent evaluation
+* Prefer providers with clear ethical policies
+* Document all third-party dependencies and reasoning
+
+**Long-term Commitment:**
+* First-party models trained only on legally accessed, consent-based data
+* Complete transparency about training data provenance
+* Zero reliance on ethically uncertain sources
+
+### Environmental Responsibility (Aspirational with Phased Implementation)
+
+ANIMA prioritizes computational efficiency and environmental sustainability.
+
+**Already Implemented:**
+* Local-first architecture (reduces cloud compute)
+* Modular capabilities (users choose appropriate power)
+* Configurable model topology
+
+**Long-term Commitment:**
+* Fully optimized first-party infrastructure
+* Minimal environmental footprint
+* Leadership in efficient AI design
+
 ---
 
 ## Non-Goals (Explicit)
@@ -191,6 +219,8 @@ These constraints are **non-negotiable** and enforced by design:
 8. **Core supervises, doesn't execute** — cognitive kernel model
 9. **All actions are interruptible** — cooperative interruption by design
 10. **Events are the source of truth** — immutable, auditable, execution-scoped facts
+11. **Ethical improvement over time** — commitments strengthen, never weaken
+12. **Transparency about limitations** — honest about current constraints and future plans
 
 ---
 
