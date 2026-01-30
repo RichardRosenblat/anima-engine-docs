@@ -160,6 +160,60 @@ ANIMA is a system — not a being.
 
 ---
 
+## 10. No Unethical Data Sourcing for First-Party Components
+
+ANIMA will not train first-party models on:
+
+* Scraped data without consent
+* Unauthorized or illegally accessed data
+* Data sources with unclear provenance
+* User data from other identities
+* Cross-Identity learning pools
+
+**Current Reality:**
+
+During active development with limited resources, ANIMA uses third-party models whose training data may not meet these standards.
+
+**This is acknowledged as a temporary constraint**, not a permanent acceptance.
+
+**Long-term Commitment:**
+
+As resources allow, ANIMA will shift to first-party models trained exclusively on:
+
+* Legally accessed data
+* Consent-based sources
+* Transparent provenance
+* Documented ethical evaluation
+
+This transition is a **first priority**, not a deferred goal.
+
+---
+
+## 11. No Computational Waste or Environmental Negligence
+
+ANIMA will not:
+
+* Optimize for capability at the cost of efficiency
+* Use "always largest model" approaches
+* Ignore energy costs in architectural decisions
+* Waste computational resources unnecessarily
+
+**In active development:**
+
+* Local-first architecture
+* Configurable model topology (Cortex-only mode)
+* Modular capabilities
+* Resource-appropriate model support
+
+**Long-term Commitment:**
+
+* Fully optimized first-party infrastructure
+* Minimal environmental footprint
+* Energy-efficient model design
+* Transparent environmental impact metrics
+
+---
+
 ## Final Statement
 
 These non-goals are not signs of limitation.
